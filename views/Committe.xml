@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
+   
     <record id="default_form_view_fo_00ee4146-b15e-4ddc-87c4-fcd89f9f2e0d" model="ir.ui.view">
         <field name="name">Default form view for x_committees</field>
         <field name="model">x_committees</field>
