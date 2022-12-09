@@ -90,5 +90,10 @@ access_model_x_committees51,access_model_x_committees51,model_x_misison_extensio
 access_model_x_committees54,access_model_x_committees54,model_x_grade,base.group_user,1,1,1,1
 access_model_x_committees55,access_model_x_committees55,model_x_termination_reason,base.group_user,1,1,1,1
 access_model_x_committees56,access_model_x_committees56,model_x_termination,base.group_user,1,1,1,1
+
 access_model_x_committees57,access_model_x_committees57,model_salary_attachmentlist,base.group_user,1,1,1,1
 
+access_model_x_committees58,access_model_x_committees58,model_x_secondment_type,base.group_user,1,1,1,1
+access_model_x_committees59,access_model_x_committees59,model_x_secondment_line_e0591,base.group_user,1,1,1,1
+access_model_x_committees60,access_model_x_committees60,model_x_secondment_line_6ef9b,base.group_user,1,1,1,1
+access_model_x_committees61,access_model_x_committees61,model_x_secondment,base.group_user,1,1,1,1

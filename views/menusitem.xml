@@ -96,6 +96,23 @@
         action="x_employee_action_name_action" />
 
 
+    <record id="x_secondment_name_action" model="ir.actions.act_window">
+    <field name="name">Secondment</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_secondment</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="x_secondment"
+        name="Secondment"
+        parent="etech.judgeactions_menu"	
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        action="x_secondment_name_action" />
+
+    
+
+
     <record id="x_salary_attachmentlist_name_action" model="ir.actions.act_window">
     <field name="name">Allowances and Dedecutions</field>
     <field name="type">ir.actions.act_window</field>

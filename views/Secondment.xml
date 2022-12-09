@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<record id="default_form_view_fo_01dd099c-5db1-41c7-b093-685fca59b26b" model="ir.ui.view">
+<!-- <record id="default_form_view_fo_01dd099c-5db1-41c7-b093-685fca59b26b" model="ir.ui.view">
           <field name="name">Default form view for x_secondment</field>
           <field name="model">x_secondment</field>
           <field name="arch" type="xml">
@@ -25,6 +25,39 @@
             </form>
 
           </field>
+</record> -->
+
+ 
+<record id="default_list_view_fo_07dbdb67-8456-4bae-aaa7-a8c30e334178" model="ir.ui.view">
+  <field name="name">Default list view for x_secondment</field>
+  <field name="model">x_secondment</field>
+  <field name="arch" type="xml">
+    <tree string="">
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+    </tree>
+  </field>
+</record>
+    
+<record id="odoo_studio_default__9345e308-45b5-45d5-8e0f-594c2c0b2a28" model="ir.ui.view">
+  <field name="name">mOdoo Studio: Default list view for x_secondment customization</field>
+  <field name="model"x_secondment</field>
+  <field name="inherit_id" ref="default_list_view_fo_07dbdb67-8456-4bae-aaa7-a8c30e334178"/>
+  <field name="arch" type="xml">
+    <data>
+      <xpath expr="//field[@name='x_studio_sequence']" position="before">
+        <field name="x_studio_judge" optional="show"/>
+        <field name="x_studio_current_job_position" optional="show"/>
+        <field name="x_studio_current_work_location" optional="show"/>
+        <field optional="show" name="x_studio_related_field_FOEk5"/>
+        <field name="x_studio_new_work_location" optional="show"/>
+        <field name="x_studio_start_date" optional="show"/>
+        <field name="x_studio_end_date" optional="show"/>
+        <field name="duration" optional="show"/>
+        <field name="x_studio_selection_field_elckG" optional="show"/>
+      </xpath>
+    </data>
+  </field>
 </record>
 
 
@@ -241,37 +274,6 @@
   </field>
  </record>
 
- <record id="default_list_view_fo_07dbdb67-8456-4bae-aaa7-a8c30e334178" model="ir.ui.view">
-    <field name="name">Default list view for x_secondment</field>
-    <field name="model">x_secondment</field>
-    <field name="arch" type="xml">
-        <tree>
-            <field name="x_studio_sequence" widget="handle"/>
-            <field name="x_name"/>
-        </tree>
-    </field>
- </record>
-
-<record id="odoo_studio_default__9345e308-45b5-45d5-8e0f-594c2c0b2a28" model="ir.ui.view">
-    <field name="name">Odoo Studio: Default list view for x_secondment customization</field>
-    <field name="model">x_secondment</field>
-    <field name="inherit_id" ref="default_list_view_fo_07dbdb67-8456-4bae-aaa7-a8c30e334178"/>
-    <field name="arch" type="xml">
-        <data>
-            <xpath expr="//field[@name='x_studio_sequence']" position="before">
-                <field name="x_studio_judge" optional="show"/>
-                <field name="x_studio_current_job_position" optional="show"/>
-                <field name="x_studio_current_work_location" optional="show"/>
-                <field optional="show" name="x_studio_related_field_FOEk5"/>
-                <field name="x_studio_new_work_location" optional="show"/>
-                <field name="x_studio_start_date" optional="show"/>
-                <field name="x_studio_end_date" optional="show"/>
-                <field name="duration" optional="show"/>
-                <field name="x_studio_selection_field_elckG" optional="show"/>
-            </xpath>
-        </data>
-    </field>
-</record>
 
 <record id="default_list_view_fo_fca4369e-87af-4649-b97e-cc72c5fa15d5" model="ir.ui.view">
     <field name="name">Default list view for x_secondment_line_6ef9b</field>
@@ -391,8 +393,5 @@
 
     </field>
 </record>
-
-
-    
 
 </odoo>

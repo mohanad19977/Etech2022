@@ -41,7 +41,7 @@ class x_secondmentcustom(models.Model):
     _name = 'x_secondment'
     
 	
-    x_studio_judge =fields.Many2one('hr.employee', string='Judge' ,domain="[('x_studio_employee_status','=','على رأس عمله')]")
+    x_studio_judge =fields.Many2one('hr.employee', string='Judge' ,domain="[('x_studio_employee_status','=','على رأس عمله')]",readonly="[('id','>','0')]")
     x_studio_judge_grade_1 = fields.Char('الدرجة',related='x_studio_judge.x_studio_many2one_field_4aoaB.x_name',readonly=True)
     x_studio_new_work_location = fields.Many2one('hr.work.location', string='New Work Location')
     x_studio_related_field_QcS5L = fields.Char('work in related',related='x_studio_judge.job_id.display_name',readonly=True)
@@ -60,7 +60,7 @@ class x_secondmentcustom(models.Model):
     x_studio_end_date = fields.Date('تاريخ نهاية الانتداب',required=True)
     x_studio_notes = fields.Char('ملاحظات')
 
-    x_change = fields.Char('X Change')
+    x_change = fields.Char('Change')
     x_name = fields.Char('Name')
     x_studio_judge_grade_2 = fields.Char('Grade',readonly=True)
 
