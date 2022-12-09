@@ -1,0 +1,1859 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+ 
+
+    <record id="hr_emplo_my_custom_1" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.employee.form customization_copy</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+          <data>
+  <xpath expr="//form[1]/sheet[1]/div[not(@name)][1]" position="after">
+    <notebook name="studio_notebook_akyTc">
+      <page string="Basic Information" name="studio_page_akyTc">
+        <group name="studio_group_akyTc" col="4">
+          <group name="studio_group_akyTc_left">
+            <field name="x_studio_first_name" string="First Name"/>
+          </group>
+          <group name="studio_group_akyTc_2">
+            <field name="x_studio_second_name" string="Second Name"/>
+          </group>
+          <group name="studio_group_akyTc_3">
+            <field name="x_studio_third_name" string="Third Name"/>
+          </group>
+          <group name="studio_group_akyTc_4">
+            <field name="x_studio_last_name" string="Last Name"/>
+          </group>
+        </group>
+        <group name="studio_group_ldJ0F">
+          <group name="studio_group_ldJ0F_left">
+            <field name="x_studio_full_name" force_save="True" attrs="{}"/>
+          </group>
+          <group name="studio_group_ldJ0F_right">
+            <field name="x_studio_full_name_ar" string="Full Name Ar"/>
+          </group>
+        </group>
+        <group name="studio_group_frTSL">
+          <group name="studio_group_frTSL_left">
+            <field name="x_studio_title" string="Title"/>
+            <field name="x_studio_employee_id" string="Employee ID" help="الرقم الوظيفي"/>
+            <field name="x_studio_system_id" string="System ID" help="تسلسل النظام"/>
+            <field name="x_studio_employment_type" help="نوع التوظيف" string="Employment Type"/>
+          </group>
+          <group name="studio_group_frTSL_right"/>
+        </group>
+      </page>
+    </notebook>
+  </xpath>
+  <xpath expr="//group[@name='studio_group_frTSL_right']" position="inside">
+    <xpath expr="//field[@name='department_id']" position="move"/>
+    <xpath expr="//field[@name='parent_id']" position="move"/>
+    <xpath expr="//field[@name='coach_id']" position="move"/>
+  </xpath>
+  <xpath expr="//notebook[@name='studio_notebook_akyTc']" position="inside">
+    <page string="Contact" name="studio_page_JMNm4">
+      <group name="studio_group_JMNm4">
+        <group name="studio_group_JMNm4_left"/>
+      </group>
+    </page>
+  </xpath>
+  <xpath expr="//group[@name='studio_group_JMNm4_left']" position="inside">
+    <xpath expr="//field[@name='mobile_phone']" position="move"/>
+    <xpath expr="//field[@name='work_phone']" position="move"/>
+    <xpath expr="//field[@name='work_email']" position="move"/>
+  </xpath>
+  <xpath expr="//group[@name='studio_group_JMNm4']" position="inside">
+    <group name="studio_group_JMNm4_right">
+    </group>
+  </xpath>
+  <xpath expr="//form[1]/sheet[1]/notebook[not(@name)][1]" position="inside">
+    <page string="Dependents" name="studio_page_EF56A">
+      <field name="x_studio_one2many_field_aEyHc">
+        <tree multi_edit="true">
+          <field optional="show" name="x_studio_many2one_field_pIoXl"/>
+          <field optional="show" name="x_studio_relation" string="Relation"/>
+          <field name="x_name"/>
+          <field optional="show" name="x_studio_date" string="Date"/>
+          <field optional="show" name="x_studio_gender" string="Gender"/>
+          <field optional="show" name="x_studio_many2one_field_F9toM" options="{&quot;no_create&quot;:true,&quot;no_open&quot;:true}"/>
+          <field optional="show" name="x_studio_nationality_1" string="Nationality" options="{&quot;no_create&quot;:true,&quot;no_open&quot;:true}"/>
+          <field name="x_studio_sequence" widget="handle"/>
+        </tree>
+      </field>
+    </page>
+  </xpath>
+  <xpath expr="//field[@name='parent_id']" position="attributes">
+    <attribute name="help">المدير المباشر</attribute>
+    <attribute name="placeholder">المدير المباشر</attribute>
+  </xpath>
+
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]/group[2]" position="inside">
+    <xpath expr="//field[@name='x_studio_employee_id'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]/group[2]/field[1]" position="before">
+    <xpath expr="//field[@name='x_studio_employment_type'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[1]/group[2]" position="replace"/>
+ 
+  <xpath expr="//field[@name='job_id'][not(ancestor::field)]" position="attributes">
+    <attribute name="help">المنصب الوظيفي </attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]" position="inside">
+    <xpath expr="//field[@name='address_home_id'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[1]" position="after">
+    <xpath expr="//field[@name='private_email'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[2]" position="after">
+    <xpath expr="//field[@name='phone'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]" position="attributes">
+    <attribute name="string">Private Contact</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]" position="attributes">
+    <attribute name="string">Work Contact</attribute>
+  </xpath>
+
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[3]" position="attributes">
+    <attribute name="placeholder">الهاتف الشخصي</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[3]" position="attributes">
+    <attribute name="help">الهاتف الشخصي</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="placeholder">هاتف العمل </attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="help">هاتف العمل </attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="placeholder">البريد الالكتروني للعمل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="help">البريد الالكتروني للعمل</attribute>
+  </xpath>
+
+  <xpath expr="/form[1]/sheet[1]/notebook[1]" position="after">
+    <group name="studio_group_qLG6U">
+      <group name="studio_group_qLG6U_left"/>
+      <group name="studio_group_qLG6U_right"/>
+    </group>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[1]/group[1]" position="inside">
+    <xpath expr="//field[@name='company_id'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[1]" position="after">
+    <xpath expr="//field[@name='company_country_id'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[1]/group[1]/field[2]" position="after">
+    <xpath expr="//field[@name='company_country_code'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[2]" position="replace"/>
+ 
+ 
+  <xpath expr="//notebook[not(ancestor::field)]" position="inside">
+    <page string="New Page" name="studio_page_gAHvW">
+      <group name="studio_group_gAHvW">
+        <group name="studio_group_gAHvW_left"/>
+        <group name="studio_group_gAHvW_right"/>
+      </group>
+    </page>
+  </xpath>
+  <xpath expr="//notebook[not(ancestor::field)]" position="inside">
+    <page string="New Page" name="studio_page_mdlT5">
+      <group name="studio_group_mdlT5">
+        <group name="studio_group_mdlT5_left"/>
+        <group name="studio_group_mdlT5_right"/>
+      </group>
+    </page>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]" position="attributes">
+    <attribute name="string">Work Information</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[2]" position="attributes">
+    <attribute name="string">Organization</attribute>
+  </xpath>
+   
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="options"/>
+    <attribute name="widget">phone</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]" position="inside">
+    <page string="New Page" name="studio_page_SJR3x">
+      <group name="studio_group_SJR3x" col="4">
+        <group name="studio_group_SJR3x_left"/>
+        <group name="studio_group_SJR3x_right"/>
+        <group name="studio_group_SJR3x_3"/>
+        <group name="studio_group_SJR3x_4"/>
+      </group>
+    </page>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]" position="attributes">
+    <attribute name="string">Organization</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]" position="replace"/>
+ 
+ 
+  
+  <xpath expr="/form[1]/sheet[1]/notebook[1]" position="inside">
+    <page string="New Page" name="studio_page_4IBYc">
+      <group name="studio_group_4IBYc">
+        <group name="studio_group_4IBYc_left"/>
+        <group name="studio_group_4IBYc_right"/>
+      </group>
+    </page>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]" position="attributes">
+    <attribute name="string">Other</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]" position="inside">
+    <field name="x_studio_selection_field_lPruz"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[1]" position="attributes">
+    <attribute name="help">متوفى أم على قيد الحياة؟</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[1]" position="attributes">
+    <attribute name="string">متوفى</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[1]" position="after">
+    <field name="x_studio_solidarity_fund"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">اشتراك في صندوق التكافل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">Solidarity Fund</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="help">اشتراك في صندوق التكافل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]" position="inside">
+    <xpath expr="//field[@name='x_studio_selection_field_lPruz'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[2]/field[1]" position="attributes">
+    <attribute name="string">Life Status</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[1]" position="after">
+    <field name="x_studio_date"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">Date</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="help">تاريخ بدء الاشتراك </attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="placeholder">تاريخ بدء الاشتراك </attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]" position="inside">
+    <page string="New Page" name="studio_page_sIHep">
+      <group name="studio_group_sIHep">
+        <group name="studio_group_sIHep_left"/>
+        <group name="studio_group_sIHep_right"/>
+      </group>
+    </page>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="attrs">{"invisible": [["x_studio_solidarity_fund","=",False]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]" position="inside">
+    <page string="New Page" name="studio_page_QXYTM">
+      <group name="studio_group_QXYTM">
+        <group name="studio_group_QXYTM_left"/>
+        <group name="studio_group_QXYTM_right"/>
+      </group>
+    </page>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]" position="attributes">
+    <attribute name="string">Competitiveness</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[1]" position="inside">
+    <field name="x_hr_employee_line_ids_f5700"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[1]" position="inside">
+    <field name="x_studio_many2many_field_s6W7s"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]" position="inside">
+    <field name="x_studio_many2one_field_7p7Qz"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]" position="inside">
+    <field name="x_studio_many2many_field_s6W7s"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="attributes">
+    <attribute name="string"> </attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="attributes">
+    <attribute name="string">Compet</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[1]/group[2]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]" position="after">
+    <group name="studio_group_Xpx75">
+      <group name="studio_group_Xpx75_left"/>
+      <group name="studio_group_Xpx75_right"/>
+    </group>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[4]/group[2]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[4]/group[1]" position="inside">
+    <xpath expr="//field[@name='company_id'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[4]/group[1]/field[1]" position="after">
+    <xpath expr="//field[@name='company_country_id'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[4]/group[1]/field[2]" position="after">
+    <xpath expr="//field[@name='company_country_code'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[1]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[1]" position="replace"/>
+
+  <xpath expr="//field[@name='resume_line_ids']" position="inside">
+    <form string="Resumé">
+      <div class="oe_title">
+        <label for="name" string="Title"/>
+        <h1>
+          <field name="name" placeholder="e.g. Odoo Inc." required="True"/>
+        </h1>
+      </div>
+      <group>
+        <group>
+          <field name="line_type_id"/>
+          <field name="display_type" required="1"/>
+        </group>
+        <group>
+          <field name="date_start" required="True"/>
+          <field name="date_end"/>
+        </group>
+      </group>
+      <field name="description" placeholder="Description"/>
+    </form>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='line_type_id']" position="after">
+    <field name="x_studio_qualification"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="attributes">
+    <attribute name="string">Qualification</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="attributes">
+    <attribute name="placeholder">اسم المؤهل</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_start']" position="after">
+    <field name="x_studio_qualified_from"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualified_from']" position="attributes">
+    <attribute name="string">Qualified Date</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualified_from']" position="attributes">
+    <attribute name="string">Qualified from</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualified_from']" position="attributes">
+    <attribute name="placeholder">تاريخ استحقاق المؤهل</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="after">
+    <field name="x_studio_many2one_field_1oArJ"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_end']" position="after">
+    <field widget="priority" name="x_studio_grade"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="attributes">
+    <attribute name="help">التقدير</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="attributes">
+    <attribute name="string">Grade</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="attributes">
+    <attribute name="options"/>
+    <attribute name="widget">selection</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="after">
+    <field name="x_studio_accreditation"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_accreditation']" position="attributes">
+    <attribute name="help">اعتماد المؤهل</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_accreditation']" position="attributes">
+    <attribute name="string">Accreditation</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='display_type']" position="after">
+    <field filename="x_studio_attachment_filename" name="x_studio_attachment"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment']" position="after">
+    <field invisible="1" name="x_studio_attachment_filename"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="string">Attachment</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_accreditation']" position="after">
+    <field name="x_studio_qualification_track"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification_track']" position="attributes">
+    <attribute name="string">شامل </attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification_track']" position="attributes">
+    <attribute name="help">مسار المؤهل العلمي</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification_track']" position="attributes">
+    <attribute name="string">Qualification track</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification_track']" position="after">
+    <field name="x_studio_thesis"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="attributes">
+    <attribute name="string">Thesis</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="attributes">
+    <attribute name="placeholder">عنوان الاطروحة / الرسالة</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
+    <attribute name="string">Education</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='line_type_id']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_start']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_start']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_end']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_start']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='display_type']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualified_from']" position="before">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_1oArJ']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
+    <attribute name="string">Education</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
+    <attribute name="string">Education</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
+    <attribute name="string">E</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
+    <attribute name="string">Education</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
+    <attribute name="string">Qualification</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="after">
+    <group name="studio_group_Wr1Mo">
+      <group name="studio_group_Wr1Mo_left"/>
+      <group name="studio_group_Wr1Mo_right"/>
+    </group>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="attributes">
+    <attribute name="string"> </attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="string">Education</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="inside">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_1oArJ']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_1oArJ']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualified_from']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualified_from']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_accreditation']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_accreditation']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification_track']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification_track']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
+    <attribute name="string">Experience</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="attributes">
+    <attribute name="string">Experience</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["line_type_id","!=","Education"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
+    <attribute name="string">Qualification</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment_filename']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["id","=",2]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment_filename']" position="replace"/>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["line_type_id","!=","Education"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["line_type_id","=","Education"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["line_type_id","!=","Education"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='line_type_id']" position="after">
+    <field name="x_studio_custom_type"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_custom_type']" position="attributes">
+    <attribute name="string">Custom Type</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["x_studio_custom_type","!=","Education"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="attributes">
+    <attribute name="attrs">{"invisible": [["x_studio_custom_type","!=","Experience"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="inside">
+    <field name="x_studio_job_title"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="attributes">
+    <attribute name="placeholder">المسمى الوظيفي</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="attributes">
+    <attribute name="string">H</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="attributes">
+    <attribute name="string">Job Title</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="after">
+    <field name="x_studio_employer"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_employer']" position="attributes">
+    <attribute name="string">Employer</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_employer']" position="attributes">
+    <attribute name="placeholder">مكان العمل</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_employer']" position="after">
+    <field name="x_studio_resignation_reason"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_resignation_reason']" position="attributes">
+    <attribute name="placeholder">سبب الاستقالة</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_resignation_reason']" position="attributes">
+    <attribute name="string">Resignation Reason</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo']" position="after">
+    <group name="studio_group_48lp1">
+      <group name="studio_group_48lp1_left"/>
+      <group name="studio_group_48lp1_right"/>
+    </group>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_left']" position="attributes">
+    <attribute name="string">Courses</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_left']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["x_studio_custom_type","!=","Course"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_right']" position="attributes">
+    <attribute name="string">Skills</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_right']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_right']" position="attributes">
+    <attribute name="attrs">{"invisible": [["x_studio_custom_type","!=","Skill"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_left']" position="inside">
+    <field name="x_studio_course_name"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_course_name']" position="attributes">
+    <attribute name="placeholder">أسم الدورة</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_course_name']" position="attributes">
+    <attribute name="string">Course Name</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_course_name']" position="after">
+    <field name="x_studio_many2one_field_DsV8W"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_right']" position="inside">
+    <field name="x_studio_many2one_field_HJbxW"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_HJbxW']" position="attributes">
+    <attribute name="placeholder">نوع المهارة </attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_HJbxW']" position="after">
+    <field name="x_studio_many2one_field_NrNns"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_NrNns']" position="attributes">
+    <attribute name="placeholder">مستوى المهارة</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_NrNns']" position="after">
+    <field name="x_studio_skill"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_skill']" position="attributes">
+    <attribute name="placeholder">اسم المهارة</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_skill']" position="attributes">
+    <attribute name="string">Skill</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='line_type_id']" position="after">
+    <field name="x_studio_custom_type_1"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_custom_type_1']" position="attributes">
+    <attribute name="string">custom_type_1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["x_studio_custom_type_1","!=","Education"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["line_type_id","!=","Education"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_custom_type_1']" position="replace"/>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["x_studio_custom_type","!=","Education"]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+ 
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="attributes">
+    <attribute name="attrs">{"invisible": [["id","=",1]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": []}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="attributes">
+    <attribute name="attrs">{"invisible": []}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_left']" position="attributes">
+    <attribute name="attrs">{"invisible": []}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_right']" position="attributes">
+    <attribute name="attrs">{"invisible": []}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_custom_type']" position="replace"/>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["line_type_id","!=",2]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="attributes">
+    <attribute name="attrs">{"invisible": [["line_type_id","!=",1]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_left']" position="attributes">
+    <attribute name="attrs">{"invisible": [["line_type_id","!=",3]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_right']" position="attributes">
+    <attribute name="attrs">{"invisible": [["line_type_id","!=",4]]}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+   
+ 
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]" position="attributes">
+    <attribute name="string">البيانات الاساسية</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[3]" position="attributes">
+    <attribute name="string">موقع العمل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[2]" position="attributes">
+    <attribute name="string">مراكز العمل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]" position="attributes">
+    <attribute name="string">معلومات الوظيفة</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]" position="attributes">
+    <attribute name="string">جهات الاتصال</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]" position="attributes">
+    <attribute name="string">الاختصاص</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[4]" position="attributes">
+    <attribute name="string">معلومات أخرى</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[5]" position="attributes">
+    <attribute name="string">اعدادات الموارد البشرية</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]" position="attributes">
+    <attribute name="string">المعلومات الشخصية</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[1]" position="attributes">
+    <attribute name="string">السيرة الذاتية</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[1]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[2]/field[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[2]" position="inside">
+    <field name="x_studio_second_name"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[3]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[4]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[1]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[2]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]/group[1]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]/group[2]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]/group[1]/field[2]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]/group[1]/field[2]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_employee_id'][not(ancestor::field)]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]" position="attributes">
+    <attribute name="string">العمل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]" position="attributes">
+    <attribute name="string">شخصي</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+ 
+  
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']" position="inside">
+    <form>
+      <header/>
+      <sheet string="Competitiveness">
+        <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+        <field name="x_active" invisible="1"/>
+        <div class="oe_title">
+          <h1>
+            <field name="x_name" required="1" placeholder="Name..."/>
+          </h1>
+        </div>
+        <group name="studio_group_b2e5fe">
+          <group name="studio_group_b2e5fe_left">
+            <field name="x_studio_description"/>
+          </group>
+          <group name="studio_group_b2e5fe_right">
+            <field name="x_studio_parent" string="Parent"/>
+          </group>
+        </group>
+        <field name="x_competitiveness_line_ids_2e4e2">
+          <tree editable="bottom">
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+            <field widget="priority" optional="show" name="x_studio_priority" string="Priority"/>
+          </tree>
+        </field>
+      </sheet>
+    </form>
+    <tree>
+      <field optional="show" name="x_studio_id" string="ID"/>
+      <field name="x_name"/>
+      <field optional="show" name="x_studio_description" string="Description"/>
+      <field name="x_studio_sequence" widget="handle"/>
+    </tree>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_id']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/form//field[@name='x_name']" position="attributes">
+    <attribute name="string">Competitiveness Name</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]" position="after">
+    <group name="studio_group_l1CMZ">
+      <group name="studio_group_l1CMZ_left"/>
+      <group name="studio_group_l1CMZ_right"/>
+    </group>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[1]" position="attributes">
+    <attribute name="string">English name</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[2]" position="attributes">
+    <attribute name="string">English name2</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[2]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]" position="after">
+    <group name="studio_group_SUiku">
+      <group name="studio_group_SUiku_left"/>
+      <group name="studio_group_SUiku_right"/>
+    </group>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]" position="inside">
+    <field name="x_studio_char_field_T6xkO"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[1]" position="inside">
+    <field name="x_studio_char_field_Sowp2"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[1]/field[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]/field[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[2]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[1]/field[1]" position="after">
+    <field name="x_studio_first_name_en_1"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">first Name En</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[2]/field[1]" position="after">
+    <field name="x_studio_second_name_en_1"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[2]/field[2]" position="attributes">
+    <attribute name="string">Second Name En</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[3]/field[1]" position="after">
+    <field name="x_studio_third_name_en"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[3]/field[2]" position="attributes">
+    <attribute name="string">Third Name En</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[4]/field[1]" position="after">
+    <field name="x_studio_fourth_name_en"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[4]/field[2]" position="attributes">
+    <attribute name="string">fourth Name En</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[3]/field[3]" position="after">
+    <field name="x_studio_many2one_field_4lxEZ"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[3]/field[4]" position="attributes">
+    <attribute name="placeholder">مركز التكلفة</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[3]/field[4]" position="attributes">
+    <attribute name="help">مركز التكلفة</attribute>
+  </xpath>
+   
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]" position="inside">
+    <field name="x_studio_judge_code"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[1]" position="attributes">
+    <attribute name="placeholder">Work Information</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_judge_code'][not(ancestor::field)]" position="attributes">
+    <attribute name="placeholder">رمز القاضي</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[1]" position="attributes">
+    <attribute name="string">Judge Code</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[1]" position="after">
+    <field name="x_studio_category"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="help">صفة التوظيف</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">Employment Category</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">Category</attribute>
+  </xpath>
+   
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]/field[1]" position="after">
+    <field name="x_studio_work_mobile_2"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">Work Mobile 2</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="placeholder">الهاتف الجوال الرسمي 2</attribute>
+  </xpath>
+ <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[2]" position="after">
+    <field name="x_studio_selection_field_9qzTm"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[2]" position="after">
+    <field name="x_studio_work_center"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="string">Work center</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="placeholder">مركز العمل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="help">مركز العمل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="after">
+    <field name="x_studio_department_location"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[4]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[4]" position="attributes">
+    <attribute name="help">موقع الدائرة</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[4]" position="attributes">
+    <attribute name="placeholder">موقع الدائرة</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[4]" position="attributes">
+    <attribute name="string">Department Location</attribute>
+  </xpath>
+  
+ 
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[2]" position="after">
+    <field name="x_studio_joining_date"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="string">Joining date</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="help">تاريخ التعيين</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="placeholder">تاريخ التعيين</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="after">
+    <field name="x_studio_effective_date"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[4]" position="attributes">
+    <attribute name="help">تاريخ المباشرة بالعمل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[4]" position="attributes">
+    <attribute name="placeholder">تاريخ المباشرة بالعمل</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[4]" position="attributes">
+    <attribute name="string">Effective Date</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[4]" position="after">
+    <field name="x_studio_decision_number"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[5]" position="attributes">
+    <attribute name="help">رقم قرار التعيين</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[5]" position="attributes">
+    <attribute name="placeholder">رقم قرار التعيين</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[5]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[5]" position="attributes">
+    <attribute name="string">Decision Number</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[5]" position="after">
+    <field filename="x_studio_decision_file_filename" name="x_studio_decision_file"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_decision_file'][not(ancestor::field)]" position="after">
+    <field invisible="1" name="x_studio_decision_file_filename"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[6]" position="attributes">
+    <attribute name="help">مرفق قرار التعيين</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[6]" position="attributes">
+    <attribute name="string">Decision File</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[6]" position="attributes">
+    <attribute name="options"/>
+    <attribute name="widget">pdf_viewer</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[6]" position="attributes">
+    <attribute name="options"/>
+    <attribute name="widget">binary</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]" position="attributes">
+    <attribute name="string">Position</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]" position="attributes">
+    <attribute name="string">Job</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]" position="inside">
+    <field name="x_studio_many2one_field_OHxlc"/>
+  </xpath>
+ 
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[1]" position="after">
+    <field name="x_studio_many2one_field_IxOfq"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[2]" position="after">
+    <field name="x_studio_employee_status"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[3]" position="attributes">
+    <attribute name="string">Employee Status</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[3]" position="attributes">
+    <attribute name="help">الوضع الوظيفي</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[3]" position="after">
+    <field name="x_studio_status_date"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[4]" position="attributes">
+    <attribute name="string">Status Date</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[4]" position="attributes">
+    <attribute name="help">تاريخ  (الوضع الوظيفي) الحالي</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[4]" position="attributes">
+    <attribute name="placeholder">تاريخ  (الوضع الوظيفي) الحالي</attribute>
+  </xpath>
+   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[4]" position="after">
+    <field name="x_studio_boolean_field_qQ6bT"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[7]" position="replace"/>
+  
+<xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[1]" position="before">
+    <xpath expr="//field[@name='x_studio_boolean_field_qQ6bT'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[1]" position="replace"/>
+
+
+
+
+<xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[3]/field[4]" position="after">
+    <field name="x_studio_many2one_field_qU4Lc"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[3]/field[5]" position="attributes">
+    <attribute name="placeholder">رقم حساب الذمة</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[3]/field[5]" position="attributes">
+    <attribute name="help">رقم حساب الذمة</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[3]" position="after">
+    <field name="x_studio_po_box"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[4]" position="attributes">
+    <attribute name="string">P.O Box</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[4]" position="attributes">
+    <attribute name="placeholder">صندوق بريد</attribute>
+  </xpath>
+
+</data>
+        </field>
+
+    </record>
+
+
+    <record id="odoo_studio_hr_emplo_bc44a29a-7488-4fe7-bb34-e40a64771788" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.employee.form customization</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+           <data>
+  <xpath expr="//field[@name='x_studio_first_name']" position="after">
+    <field name="x_studio_first_name_en"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_second_name']" position="after">
+    <field name="x_studio_second_name_en"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_third_name']" position="after">
+    <field name="x_studio_third_name_en"/>
+  </xpath>
+  <xpath expr="//group[@name='studio_group_frTSL_right']" position="inside">
+    <field name="x_studio_birth_country_custom"/>
+    <field name="x_studio_many2one_field_Z0Im7"/>
+  </xpath>
+  <xpath expr="//field[@name='work_email']" position="after">
+    <field name="x_studio_many2one_field_4aoaB"/>
+    <field name="x_studio_many2one_field_1thIi"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[2]/field[3]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[3]/field[3]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]" position="attributes">
+    <attribute name="string">التخصص</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[4]/field[2]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]" position="attributes">
+    <attribute name="string">الاختصاص</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[1]" position="attributes">
+    <attribute name="string">اللغة الأم</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[4]" position="after">
+    <field name="x_studio_mother_en_name"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[4]" position="after">
+    <xpath expr="//field[@name='x_studio_mother_en_name'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[4]" position="after">
+    <xpath expr="//field[@name='x_studio_mother_en_name'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]" position="after">
+    <group name="studio_group_lnNd1">
+      <group name="studio_group_lnNd1_left"/>
+      <group name="studio_group_lnNd1_right"/>
+    </group>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[2]/group[2]" position="inside">
+    <xpath expr="//field[@name='x_studio_mother_en_name'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[2]/group[2]/field[1]" position="attributes">
+    <attribute name="string">Mother En Name</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[2]/group[2]/field[1]" position="attributes">
+    <attribute name="string">اسم الام - لغة النجليزية</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_relation']" position="after">
+    <field name="x_studio_attachment_filename" optional="show"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']" position="inside">
+    <form>
+      <header>
+        <field widget="statusbar" options="{'clickable': '1'}" name="x_studio_selection_field_reAR9"/>
+      </header>
+      <sheet string="x.hr.employee_dependent">
+        <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+        <field name="x_active" invisible="1"/>
+        <div class="oe_title">
+          <h1>
+            <field name="x_name" required="1" placeholder="أسم المنتفع" string="benefecairy Name"/>
+          </h1>
+        </div>
+        <group name="studio_group_a520cc">
+          <group name="studio_group_a520cc_left">
+            <field name="x_studio_many2one_field_PvJxd" attrs="{}" required="1"/>
+            <field name="x_studio_gender"/>
+            <field name="x_studio_relation" attrs="{}" required="1"/>
+            <field name="x_studio_date" attrs="{}" required="1"/>
+            <field name="x_studio_nationality_1" options="{&quot;no_create&quot;:true}" attrs="{}" required="1"/>
+            <field name="x_studio_many2one_field_BHtKm"/>
+          </group>
+          <group name="studio_group_a520cc_right">
+            <field name="x_studio_many2one_field_F9toM" string="Contact"/>
+            <field name="x_studio_phone" string="Phone" placeholder="رقم الهاتف" help="رقم الهاتف" widget="phone" options="{&quot;enable_sms&quot;:false}"/>
+            <field name="x_studio_mobile" string="Mobile" placeholder="الهاتف المحمول" help="الهاتف المحمول" widget="phone"/>
+            <field name="x_studio_email" string="Email" placeholder="البريد الالكتروني" help="البريد الالكتروني" widget="email"/>
+            <field widget="many2many_tags" name="x_studio_tags" placeholder="Tags" string="Tags" options="{&quot;color_field&quot;: &quot;color&quot;}"/>
+          </group>
+        </group>
+        <group name="studio_group_TAEIM">
+          <group name="studio_group_TAEIM_left">
+            <field filename="x_studio_attachment_filename" name="x_studio_attachment" help="مرفق " string="Attachment"/>
+            <field invisible="1" name="x_studio_attachment_filename"/>
+          </group>
+          <group name="studio_group_TAEIM_right"/>
+        </group>
+      </sheet>
+    </form>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_relation']" position="after">
+    <field name="x_studio_attachment" optional="show"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="force_save">True</attribute>
+    <attribute name="attrs">{}</attribute>
+    <attribute name="readonly">1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="readonly"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_attachment']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_attachment_filename']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="force_save">True</attribute>
+    <attribute name="attrs">{}</attribute>
+    <attribute name="readonly">1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form" position="attributes">
+    <attribute name="edit">false</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="readonly"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{"readonly": [["id","&gt;",0]]}</attribute>
+    <attribute name="readonly"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[3]/field[2]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[3]/field[3]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[3]/field[3]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="after">
+    <field name="x_studio_average"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_average']" position="attributes">
+    <attribute name="string">Average</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_1oArJ']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_average']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="after">
+    <field name="x_studio_country"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_country']" position="attributes">
+    <attribute name="string">Country</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="after">
+    <field name="x_studio_major"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_major']" position="attributes">
+    <attribute name="string">Major</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/div[2]/h1[1]/field[1]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="required"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/div[2]/h1[1]/field[1]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/div[2]/h1[1]/field[1]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/div[2]/h1[1]/field[1]" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="required">1</attribute>
+  </xpath>
+  
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{"readonly": [["id","&gt;",0]]}</attribute>
+    <attribute name="readonly"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment']" position="after">
+    <field name="x_studio_attachment_filename"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment_filename']" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment_filename']" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[1]" position="after">
+    <field name="x_studio_"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">لغة الأم</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">لغة الام</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">اللغة الأم</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">اللغة الأماللغة الأم</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">يسشي</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[2]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[1]/field[1]" position="before">
+    <field name="x_studio_selection_field_qnDeX"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]" position="attributes">
+    <attribute name="string">التخصص</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="after">
+    <field name="x_studio_job_type"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_type']" position="attributes">
+    <attribute name="string">Job Type</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_type']" position="after">
+    <field name="x_studio_exp_type"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_exp_type']" position="attributes">
+    <attribute name="string">Exp Type</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_end']" position="after">
+    <field name="x_studio_duration"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_employer']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_duration']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_duration']" position="attributes">
+    <attribute name="string">Duration</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="inside">
+    <field name="x_studio_description"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_description']" position="attributes">
+    <attribute name="string">Description</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_description']" position="replace"/>
+  <xpath expr="//field[@name='resume_line_ids']/form//group" position="inside">
+    <field name="x_studio_description_1"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_description_1']" position="attributes">
+    <attribute name="string">Description</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='description']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+    <attribute name="invisible">1</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/tree//field[@name='date_end']" position="after">
+    <field name="x_studio_country" optional="show"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_employer']" position="after">
+    <field name="x_studio_many2one_field_7U76H"/>
+  </xpath>
+   <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[3]/field[1]" position="after">
+    <xpath expr="//field[@name='job_id'][not(ancestor::field)]" position="move"/>
+  </xpath>
+   <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[3]/field[1]" position="attributes">
+    <attribute name="placeholder">رقم العقد الساري</attribute>
+  </xpath>
+   <xpath expr="/form[1]/sheet[1]/notebook[2]/page[4]/group[1]/group[3]/field[2]" position="attributes">
+    <attribute name="placeholder">المنصب الوظيفي </attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/form//field[@name='x_competitiveness_line_ids_2e4e2']" position="inside">
+    <form>
+      <header/>
+      <sheet string="Competitiveness  Lines">
+        <div class="oe_title">
+          <h1>
+            <field name="x_name" required="1" placeholder="Name..."/>
+          </h1>
+        </div>
+        <group name="studio_group_c11b0f">
+          <group name="studio_group_c11b0f_left"/>
+          <group name="studio_group_c11b0f_right"/>
+        </group>
+      </sheet>
+    </form>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_description']" position="after">
+    <field name="x_studio_many2one_field_ytWma" optional="show"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_many2one_field_ytWma']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/form//field[@name='x_competitiveness_line_ids_2e4e2']/tree//field[@name='x_studio_priority']" position="after">
+    <field optional="show" name="x_studio_many2one_field_emvoa"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_description']" position="after">
+    <field optional="show" name="x_studio_many2many_field_1JZGO"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_many2many_field_1JZGO']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_description']" position="after">
+    <field optional="show" name="x_studio_employee"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_employee']" position="attributes">
+    <attribute name="string">Emplyee</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_employee']" position="attributes">
+    <attribute name="string">Employee</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_employee']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_description']" position="after">
+    <field optional="show" name="x_studio_many2one_field_B0KEP"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_studio_many2one_field_B0KEP']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_nationality_1']" position="after">
+    <field optional="show" name="x_studio_contno"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_contno']" position="attributes">
+    <attribute name="string">CONTNO</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_relation']" position="after">
+    <field name="x_studio_contno"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_contno']" position="after">
+    <field name="x_studio_contdt"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_contdt']" position="attributes">
+    <attribute name="string">CONTDT</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_contdt']" position="after">
+    <field name="x_studio_wifwork"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_wifwork']" position="attributes">
+    <attribute name="string">WIFWORK</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_wifwork']" position="after">
+    <field name="x_studio_stop_date"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_stop_date']" position="attributes">
+    <attribute name="string">WIFWORK</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_stop_date']" position="attributes">
+    <attribute name="string">STOP_DATE</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_stop_date']" position="after">
+    <field name="x_studio_status"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_status']" position="attributes">
+    <attribute name="string">STATUS</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_gender']" position="after">
+    <field name="x_studio_stop_date" optional="show"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_date']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_relation']" position="after">
+    <field name="x_studio_contdt" optional="show"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_gender']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_relation']" position="after">
+    <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_contno']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_nationality_1']" position="after">
+    <field optional="show" name="x_studio_nationalid"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_nationalid']" position="attributes">
+    <attribute name="string">NationalID</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_nationality_1']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_nationalid']" position="after">
+    <field name="x_studio_gender" optional="show"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_gender']" position="after">
+    <field optional="show" name="x_studio_birth_place"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/tree//field[@name='x_studio_birth_place']" position="attributes">
+    <attribute name="string">BIRTH Place</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_nationality_1']" position="after">
+    <field name="x_studio_birth_place"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_DsV8W']" position="after">
+    <field name="x_studio_course_length"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_course_length']" position="attributes">
+    <attribute name="string">COURSE_LENGTH</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_course_length']" position="after">
+    <field name="x_studio_hours"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_hours']" position="attributes">
+    <attribute name="string">HOURS</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_hours']" position="after">
+    <field name="x_studio_syb"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_syb']" position="attributes">
+    <attribute name="string">SYB</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_hours']" position="after">
+    <field name="x_studio_no"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_no']" position="attributes">
+    <attribute name="string">NO</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_hours']" position="after">
+    <field name="x_studio_type_desc"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_type_desc']" position="attributes">
+    <attribute name="string">TYPE_DESC</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_syb']" position="after">
+    <field name="x_studio_attendance_status"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attendance_status']" position="attributes">
+    <attribute name="string">ATTENDANCE_STATUS</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_hours']" position="after">
+    <field name="x_studio_many2one_field_ZCcgZ"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_syb']" position="after">
+    <field name="x_studio_place"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_place']" position="attributes">
+    <attribute name="string">PLACE</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form" position="attributes">
+    <attribute name="edit">true</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attendance_status']" position="after">
+    <field name="x_studio_absent_type"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_absent_type']" position="attributes">
+    <attribute name="string">ABSENT_TYPE</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_course_name']" position="before">
+    <field name="x_studio_absent_reason"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_absent_reason']" position="attributes">
+    <attribute name="string">ABSENT_Reason</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_absent_type']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_absent_reason']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/form//field[@name='x_competitiveness_line_ids_2e4e2']/tree//field[@name='x_studio_many2one_field_emvoa']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/form//field[@name='x_studio_description']" position="before">
+    <field name="x_studio_class_code"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/form//field[@name='x_studio_description']" position="attributes">
+    <attribute name="string">Description</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/form//field[@name='x_studio_parent']" position="after">
+    <field name="x_studio_many2one_field_C6DTI"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_s6W7s']/tree//field[@name='x_name']" position="after">
+    <field name="id" optional="show"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]" position="inside">
+    <field name="x_hr_employee_line_ids_91f52"/>
+  </xpath>
+  <xpath expr="//field[@name='x_hr_employee_line_ids_91f52']" position="inside">
+    <form>
+      <header/>
+      <sheet string="Hr Employee  Lines">
+        <div class="oe_title">
+          <h1>
+            <field name="x_name" required="1" placeholder="Name..."/>
+          </h1>
+        </div>
+        <group name="studio_group_44be3a">
+          <group name="studio_group_44be3a_left"/>
+          <group name="studio_group_44be3a_right"/>
+        </group>
+      </sheet>
+    </form>
+    <tree editable="bottom">
+      <field name="x_studio_sequence" widget="handle"/>
+      <field name="x_name"/>
+    </tree>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]" position="inside">
+    <field name="x_studio_specialities"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]/group[1]/field[1]" position="attributes">
+    <attribute name="string">Specialities</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_specialities']" position="inside">
+    <tree>
+      <field optional="show" name="x_studio_class_code" string="CLASS_CODE"/>
+      <field name="x_name"/>
+      <field name="x_studio_parent" optional="show"/>
+      <field name="x_studio_is_active_1" optional="show"/>
+      <field name="x_studio_sequence" widget="handle"/>
+    </tree>
+    <form>
+      <header/>
+      <sheet string="Competitiveness">
+        <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+        <field name="x_active" invisible="1"/>
+        <div class="oe_title">
+          <h1>
+            <field name="x_name" required="1" placeholder="Name..."/>
+          </h1>
+        </div>
+        <group name="studio_group_b2e5fe">
+          <group name="studio_group_b2e5fe_left">
+            <field name="x_studio_class_code"/>
+            <field name="x_studio_is_active_1" string="is active"/>
+          </group>
+          <group name="studio_group_b2e5fe_right">
+            <field name="x_studio_parent" string="Parent"/>
+          </group>
+        </group>
+      </sheet>
+    </form>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_specialities']/form//field[@name='x_studio_parent']" position="after">
+    <field name="x_studio_many2one_field_iryvz"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_specialities']/form//group[@name='studio_group_b2e5fe']" position="after">
+    <field name="x_competitiveness_line_ids_4db5a"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_specialities']/form//field[@name='x_studio_many2one_field_iryvz']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_specialities']/form//field[@name='x_competitiveness_line_ids_4db5a']" position="inside">
+    <tree editable="bottom">
+      <field name="x_studio_sequence" widget="handle"/>
+      <field name="x_name"/>
+    </tree>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_specialities']/form//field[@name='x_competitiveness_line_ids_4db5a']/tree//field[@name='x_studio_sequence']" position="before">
+    <field optional="show" name="x_studio_many2one_field_k6RS6"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]" position="inside">
+    <page string="New Page" name="studio_page_9M9rw">
+      <group name="studio_group_9M9rw">
+        <group name="studio_group_9M9rw_left"/>
+        <group name="studio_group_9M9rw_right"/>
+      </group>
+    </page>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]" position="inside">
+    <page string="New Page" name="studio_page_s5Rhq">
+      <group name="studio_group_s5Rhq">
+        <group name="studio_group_s5Rhq_left"/>
+        <group name="studio_group_s5Rhq_right"/>
+      </group>
+    </page>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[7]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[2]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[6]/group[1]" position="inside">
+    <field name="x_studio_many2many_field_Ak76e"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[5]" position="attributes">
+    <attribute name="string">التخصصات</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_Ak76e']" position="inside">
+    <tree>
+      <field optional="show" name="x_studio_class_code" string="CLASS_CODE"/>
+      <field name="x_name"/>
+      <field name="x_studio_parent" optional="show"/>
+      <field name="x_studio_is_active_1" optional="show"/>
+      <field name="x_studio_sequence" widget="handle"/>
+    </tree>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_Ak76e']/tree//field[@name='x_studio_is_active_1']" position="after">
+    <field name="x_active" optional="show"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_many2many_field_Ak76e']/tree//field[@name='x_active']" position="replace"/>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//group[@name='studio_group_TAEIM_right']" position="inside">
+    <field name="x_studio_edit_attachment"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_edit_attachment']" position="attributes">
+    <attribute name="string">Edit Attachment</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{"readonly": ["&amp;",["id","&gt;",0],["x_studio_edit_attachment","=",True]]}</attribute>
+    <attribute name="readonly"/>
+  </xpath>
+  <xpath expr="//field[@name='x_studio_one2many_field_aEyHc']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{"readonly": ["&amp;",["id","&gt;",0],["x_studio_edit_attachment","=",False]]}</attribute>
+    <attribute name="readonly"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment']" position="after">
+    <field name="x_studio_edit_attachment"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_edit_attachment']" position="attributes">
+    <attribute name="string">Edit Attachment</attribute>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{"readonly": ["|",["id","&gt;",0],["x_studio_edit_attachment","=",False]]}</attribute>
+    <attribute name="readonly"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{"readonly": ["|",["id","&gt;",0],["x_studio_edit_attachment","=",False]]}</attribute>
+    <attribute name="readonly"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{"readonly": ["|",["id","&gt;",0],["x_studio_edit_attachment","=",False]]}</attribute>
+    <attribute name="readonly"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attachment']" position="attributes">
+    <attribute name="attrs">{"readonly": ["&amp;",["id","&gt;",0],["x_studio_edit_attachment","=",False]]}</attribute>
+    <attribute name="readonly"></attribute>
+  </xpath>
+</data>
+
+        </field>
+    </record> 
+        <record id="hr_emplo_my_custom_2" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.employee.form customization_copy3</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='address_home_id']" position="after">
+                    <field name="x_studio_iban"/>
+                </xpath>
+
+                <xpath expr="//field[@name='x_studio_iban']" position="after">
+                    <field name="x_studio_many2one_field_ZpjQr"/>
+                </xpath>
+                
+                <xpath expr="//field[@name='x_studio_many2one_field_ZpjQr']" position="after">
+                    <field name="x_studio_mother_name_ar"/>
+                </xpath>
+                
+                
+                <xpath expr="//field[@name='identification_id']" position="after">
+                    <field name="ssnid"/>
+                </xpath>
+                
+
+                <xpath expr="//field[@name='ssnid']" position="after">
+                    <field name="x_studio_many2one_field_Jdzux"/>
+                </xpath>
+
+                
+                <xpath expr="//field[@name='passport_id']" position="after">
+                    <field name="x_studio_second_nationality"/>
+                </xpath>
+                
+                <xpath expr="//field[@name='address_id']" position="before">
+                    <xpath expr="//field[@name='department_id'][not(ancestor::field)]" position="move"/>
+                </xpath>
+                <xpath expr="//field[@name='address_id']" position="after">
+                    <xpath expr="//field[@name='parent_id'][not(ancestor::field)]" position="move"/>
+                </xpath>
+                <xpath expr="//field[@name='work_location_id']" position="after">
+                    <xpath expr="//field[@name='coach_id'][not(ancestor::field)]" position="move"/>
+                </xpath>
+                <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[3]" position="attributes">
+    <attribute name="string">Job Position</attribute>
+  </xpath>
+ <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[4]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+<xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[4]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[5]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[6]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[1]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[2]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[3]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[3]" position="attributes">
+    <attribute name="string">Job Position</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[2]" position="attributes">
+    <attribute name="string">Employment Category</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[6]" position="attributes">
+    <attribute name="string">Decision attachment</attribute>
+  </xpath>
+  
+<xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[2]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[2]" position="after">
+    <field name="x_studio_job_position"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[3]" position="attributes">
+    <attribute name="string">Job Position</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[3]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[2]" position="after">
+    <field name="x_studio_job_position_1"/>
+  </xpath>
+ <!-- <xpath expr="/form[1]/sheet[1]/notebook[2]/page[3]/div[1]/div[1]/group[1]/field[1]" position="after">
+    <xpath expr="//field[@name='parent_id'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[2]/page[3]/div[1]/div[1]/group[1]/field[1]" position="after">
+    <xpath expr="//field[@name='work_location_id'][not(ancestor::field)]" position="move"/>
+  </xpath> -->
+
+                </data>
+        </field>
+    </record>
+
+
+    <record id="hr_emplo_62ca04e2-9402-4df4-9b30-88e27261d38b" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.employee.search customization</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//search[1]/field[@name='name']" position="before">
+                    <field name="x_studio_employee_id"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+
+    <record id="hr_emplo_86eec134-acfb-4b6c-b012-8534bd7eb36c" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.employee.tree customization</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//tree[1]/field[@name='name']" position="before">
+                    <field name="x_studio_employee_id" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='work_phone']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='activity_date_deadline']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='job_id']" position="after">
+                    <field name="x_studio_many2one_field_4aoaB" optional="show"/>
+                </xpath>
+            </data>
+        </field>
+    </record> 
+
+</odoo>

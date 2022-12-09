@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="default_form_view_fo_01dd099c-5db1-41c7-b093-685fca59b26b" model="ir.ui.view">
+          <field name="name">Default form view for x_secondment</field>
+          <field name="model">x_secondment</field>
+          <field name="arch" type="xml">
+           <form>
+              <header/>
+              <sheet string="Secondment">
+                <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                <field name="x_active" invisible="1"/>
+                <div class="oe_title">
+                            <h1>
+                                <field name="x_name" required="1" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                <group name="studio_group_124373">
+                  <group name="studio_group_124373_left"/>
+                  <group name="studio_group_124373_right"/>
+                </group>
+                    
+              </sheet>
+
+            </form>
+
+          </field>
+</record>
+
+
+ <record id="odoo_studio_default__2098cbe8-8e8e-4136-af52-60c53bb5bc58" model="ir.ui.view">
+  <field name="name">Odoo Studio: Default form view for x_secondment customization</field>
+  <field name="model">x_secondment</field>
+  <field name="inherit_id" ref="default_form_view_fo_01dd099c-5db1-41c7-b093-685fca59b26b"/>
+  <field name="arch" type="xml">
+    <data>
+  <xpath expr="//form[1]/sheet[1]/div[1]/h1[1]" position="replace"/>
+  <xpath expr="//group[@name='studio_group_124373_left']" position="inside">
+    <field name="x_studio_judge" attrs="{'readonly': [('id', '&gt;', 0)]}" string="Judge"/>
+    <field name="x_studio_new_work_location" placeholder="الجهة المنتدب أليها"/>
+    <field name="x_studio_related_field_QcS5L"/>
+    <field name="x_studio_current_job_position" placeholder="الوظيفة قبل الانتداب" attrs="{}" string="Current Job Position" force_save="True" readonly="1"/>
+    <field name="x_studio_start_date" string="start Date" placeholder="تاريخ بدء الانتداب" attrs="{}" required="1"/>
+    <field name="duration" placeholder="حالة الانتداب"/>
+    <field name="Fullduration" placeholder="حالة الانتداب"/>
+    <field name="x_studio_status" placeholder="حالة الانتداب"/>
+  </xpath>
+  <xpath expr="//group[@name='studio_group_124373_right']" position="inside">
+    <field name="x_studio_current_work_location" placeholder="مركز العمل قبل الانتداب" force_save="True" attrs="{}" readonly="1" string="current Work Location"/>
+    <field name="x_studio_many2one_field_BKD8J" placeholder="نوع الانتداب"/>
+    <field name="x_studio_new_job_position" placeholder="الوظيفة المنتدب اليها" attrs="{}" required="1"/>
+    <field name="x_studio_end_date" string="End Date" placeholder="تاريخ نهاية الانتداب" attrs="{}" required="1"/>
+    <field name="x_studio_notes" placeholder="ملاحظات"/>
+  </xpath>
+  <xpath expr="//group[@name='studio_group_124373']" position="after">
+    <group name="studio_group_oF2yV">
+      <field name="x_secondment_line_ids_f9153" string="تمديدات الانتداب"/>
+    </group>
+  </xpath>
+  <xpath expr="//field[@name='x_secondment_line_ids_f9153']" position="inside">
+    <tree editable="bottom">
+      <field name="x_studio_sequence" widget="handle"/>
+      <field name="x_name"/>
+    </tree>
+  </xpath>
+  <xpath expr="//field[@name='x_secondment_line_ids_f9153']/tree//field[@name='x_studio_sequence']" position="before">
+    <field optional="show" name="x_studio_date_field_AQt5i"/>
+  </xpath>
+  <xpath expr="//field[@name='x_secondment_line_ids_f9153']/tree//field[@name='x_studio_date_field_AQt5i']" position="attributes">
+    <attribute name="string">تاريخ الانتهاء الجديد</attribute>
+  </xpath>
+  <xpath expr="//field[@name='x_secondment_line_ids_f9153']/tree//field[@name='x_studio_date_field_AQt5i']" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="//field[@name='x_secondment_line_ids_f9153']/tree//field[@name='x_studio_date_field_AQt5i']" position="after">
+    <field optional="show" name="x_studio_many2one_field_eS1HP"/>
+  </xpath>
+  <xpath expr="//field[@name='x_secondment_line_ids_f9153']/tree//field[@name='x_studio_many2one_field_eS1HP']" position="after">
+    <field optional="show" name="x_studio_text_field_VEiLi"/>
+  </xpath>
+  <xpath expr="//field[@name='x_secondment_line_ids_f9153']/tree//field[@name='x_studio_text_field_VEiLi']" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="//field[@name='x_secondment_line_ids_f9153']/tree//field[@name='x_studio_text_field_VEiLi']" position="after">
+    <field optional="show" name="x_studio_date_field_CIQTI"/>
+  </xpath>
+  <xpath expr="//field[@name='x_secondment_line_ids_f9153']/tree//field[@name='x_studio_date_field_CIQTI']" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[1]" position="after">
+    <group name="studio_group_3R3Bc">
+      <group name="studio_group_3R3Bc_left"/>
+      <group name="studio_group_3R3Bc_right"/>
+    </group>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]" position="inside">
+    <xpath expr="//field[@name='x_studio_judge'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[1]" position="after">
+    <xpath expr="//field[@name='x_studio_new_work_location'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[2]" position="after">
+    <xpath expr="//field[@name='x_studio_related_field_QcS5L'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[3]" position="after">
+    <xpath expr="//field[@name='x_studio_current_job_position'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]" position="inside">
+    <xpath expr="//field[@name='x_studio_current_work_location'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[1]" position="after">
+    <xpath expr="//field[@name='x_studio_many2one_field_BKD8J'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="after">
+    <xpath expr="//field[@name='x_studio_new_job_position'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[3]" position="after">
+    <xpath expr="//field[@name='x_studio_end_date'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[4]" position="after">
+    <xpath expr="//field[@name='x_studio_notes'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[4]" position="after">
+    <xpath expr="//field[@name='x_studio_start_date'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[4]" position="after">
+    <xpath expr="//field[@name='x_studio_status'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[1]/group[2]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[1]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[1]" position="inside">
+    <xpath expr="//field[@name='x_studio_judge'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[1]" position="before">
+    <field name="x_studio_judge_grade"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[1]" position="attributes">
+    <attribute name="string">Judge Grade</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[1]" position="before">
+    <field name="x_studio_job_position"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[1]" position="attributes">
+    <attribute name="string">Job Position</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[1]" position="after">
+    <field name="x_studio_judge_grade_1"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[1]" position="attributes">
+    <attribute name="string">Judge Grade</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[4]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[2]" position="after">
+    <group name="studio_group_yqa19">
+      <group name="studio_group_yqa19_left"/>
+      <group name="studio_group_yqa19_right"/>
+    </group>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[3]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[3]/group[1]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[3]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="after">
+    <field name="x_studio_current_work_location_1"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="attributes">
+    <attribute name="string">Current work location</attribute>
+  </xpath>
+  <xpath expr="//header[not(ancestor::field)]" position="inside">
+    <field widget="statusbar" options="{'clickable': '1'}" name="x_studio_selection_field_elckG"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[5]" position="after">
+    <field name="duration"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[6]" position="after">
+    <field name="Fullduration"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[1]" position="attributes">
+    <attribute name="string">الدرجة</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[3]" position="attributes">
+    <attribute name="string">الوظيفة الحالية</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[3]" position="attributes">
+    <attribute name="string">الوظيفة عند الانتداب</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[6]" position="attributes">
+    <attribute name="string">المدة بالايام</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[7]" position="attributes">
+    <attribute name="string">المدة بالشهور</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="after">
+    <field name="x_studio_judge_grade"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[3]" position="after">
+    <field name="x_studio_judge_grade_2"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[4]" position="attributes">
+    <attribute name="string">Judge Grade</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[4]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[3]" position="after">
+    <field name="x_studio_related_field_LCaCq"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[4]" position="attributes">
+    <attribute name="string">Judge Grade</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[3]" position="attributes">
+    <attribute name="string"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[3]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="after">
+    <field name="x_studio_related_field_5V6e1"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[3]" position="attributes">
+    <attribute name="string">Judge Grade</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[4]" position="replace"/>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[1]" position="before">
+    <field name="x_studio_last_job_position"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[1]" position="attributes">
+    <attribute name="string">Last Job Position</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="after">
+    <field name="x_studio_last_work_location"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[3]" position="attributes">
+    <attribute name="string">Last Work Location</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[4]" position="after">
+    <field name="x_studio_last_judge_grade"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[5]" position="attributes">
+    <attribute name="string">Last Judge Grade</attribute>
+  </xpath>
+</data>
+
+  </field>
+ </record>
+
+ <record id="default_list_view_fo_07dbdb67-8456-4bae-aaa7-a8c30e334178" model="ir.ui.view">
+    <field name="name">Default list view for x_secondment</field>
+    <field name="model">x_secondment</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+        </tree>
+    </field>
+ </record>
+
+<record id="odoo_studio_default__9345e308-45b5-45d5-8e0f-594c2c0b2a28" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default list view for x_secondment customization</field>
+    <field name="model">x_secondment</field>
+    <field name="inherit_id" ref="default_list_view_fo_07dbdb67-8456-4bae-aaa7-a8c30e334178"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='x_studio_sequence']" position="before">
+                <field name="x_studio_judge" optional="show"/>
+                <field name="x_studio_current_job_position" optional="show"/>
+                <field name="x_studio_current_work_location" optional="show"/>
+                <field optional="show" name="x_studio_related_field_FOEk5"/>
+                <field name="x_studio_new_work_location" optional="show"/>
+                <field name="x_studio_start_date" optional="show"/>
+                <field name="x_studio_end_date" optional="show"/>
+                <field name="duration" optional="show"/>
+                <field name="x_studio_selection_field_elckG" optional="show"/>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="default_list_view_fo_fca4369e-87af-4649-b97e-cc72c5fa15d5" model="ir.ui.view">
+    <field name="name">Default list view for x_secondment_line_6ef9b</field>
+    <field name="model">x_secondment_line_6ef9b</field>
+    <field name="arch" type="xml">
+        <tree editable="bottom">
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+        </tree>
+    </field>
+</record>
+
+<record id="default_list_view_fo_221527bb-d5ed-438a-81d7-868ebe24a1c0" model="ir.ui.view">
+    <field name="name">Default list view for x_secondment_line_6ef9b</field>
+    <field name="model">x_secondment_line_6ef9b</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+        </tree>
+    </field>
+</record>
+
+<record id="default_list_view_fo_5075a96a-4e9c-4652-aa7c-9adeb97a37db" model="ir.ui.view">
+    <field name="name">Default list view for x_secondment_line_e0591</field>
+    <field name="model">x_secondment_line_e0591</field>
+    <field name="arch" type="xml">
+        <tree editable="bottom">
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+        </tree>
+    </field>
+</record>
+
+<record id="default_list_view_fo_c9fc5657-f577-442b-92a4-e9dd1374d90a" model="ir.ui.view">
+    <field name="name">Default list view for x_secondment_line_e0591</field>
+    <field name="model">x_secondment_line_e0591</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+        </tree>
+    </field>
+</record>
+
+<record id="default_list_view_fo_713699d5-aac8-4374-b51a-6c7f9832a7d8" model="ir.ui.view">
+    <field name="name">Default list view for x_secondment_type</field>
+    <field name="model">x_secondment_type</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="x_name"/>
+        </tree>
+    </field>
+</record>
+
+<record id="default_search_view__4c6124a2-72b0-4156-8d8f-806321cc874c" model="ir.ui.view">
+    <field name="name">Default search view for x_secondment</field>
+    <field name="model">x_secondment</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="x_name"/>
+            <separator/>
+            <filter string="Archived" name="archived_x_secondment" domain="[['x_active', '=', False]]"/>
+            <separator/>
+        </search>
+    </field>
+</record>
+
+<record id="default_search_view__7c754722-4bb4-4b6d-ac48-ed1f7e3e4ada" model="ir.ui.view">
+    <field name="name">Default search view for x_secondment_line_6ef9b</field>
+    <field name="model">x_secondment_line_6ef9b</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="x_name"/>
+        </search>
+    </field>
+</record>
+
+<record id="default_search_view__4b422f80-49f7-4d0d-a32d-f33a556bfe68" model="ir.ui.view">
+    <field name="name">Default search view for x_secondment_line_6ef9b</field>
+    <field name="model">x_secondment_line_6ef9b</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="x_name"/>
+        </search>
+    </field>
+</record>
+
+<record id="default_search_view__815bf463-d692-4104-a65f-fedcb14a94c5" model="ir.ui.view">
+    <field name="name">Default search view for x_secondment_line_e0591</field>
+    <field name="model">x_secondment_line_e0591</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="x_name"/>
+        </search>
+
+    </field>
+</record>
+
+<record id="default_search_view__be353b26-f7d6-48e3-8916-62dc93cfb771" model="ir.ui.view">
+    <field name="name">Default search view for x_secondment_line_e0591</field>
+    <field name="model">x_secondment_line_e0591</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="x_name"/>
+        </search>
+    </field>
+</record>
+
+<record id="default_search_view__65a379de-bac6-493d-a887-ffd139bb17c6" model="ir.ui.view">
+    <field name="name">Default search view for x_secondment_type</field>
+    <field name="model">x_secondment_type</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="x_name"/>
+        </search>
+
+    </field>
+</record>
+
+
+    
+
+</odoo>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  
+  <record id="default_list_view_fo_13f69992-0645-469d-b8af-85b1731498a0" model="ir.ui.view">
+    <field name="name">Default list view for x_judgepromotion</field>
+    <field name="model">x_judgepromotion</field>
+    <field name="arch" type="xml">
+        <tree string="">
+             <field name="x_studio_sequence" widget="handle"/>
+             <field name="x_name"/>
+        </tree>
+    </field>
+  </record>
+
+   <record id="default_search_view__d1c25756-7930-4a9d-b7ad-d6d750904b8c" model="ir.ui.view">
+    <field name="name">x_judgepromotion.search</field>
+    <field name="model">x_judgepromotion</field>
+    <field name="arch" type="xml">
+     <search>
+        <field name="x_name"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_judgepromotion" domain="[['x_active', '=', False]]"/>
+        <separator/>
+        </search>
+    </field>
+   </record>
+
+
+   <record id="default_form_view_fo_2099b7ef-7109-480f-9dfb-a5c6d07b911f" model="ir.ui.view">
+                                                <field name="name">x_judgepromotion.form</field>
+                                                <field name="model">x_judgepromotion</field>
+                                                <field name="arch" type="xml">
+                                                            <form>
+                                                            <header/>
+                                                            <sheet string="JudgePromotion">
+                                                                <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                                                                <field name="x_active" invisible="1"/>
+                                                                <div class="oe_title">
+                                                                            <h1>
+                                                                                <field name="x_name" required="1" placeholder="Name..."/>
+                                                                            </h1>
+                                                                        </div>
+                                                                <group name="studio_group_bab047">
+                                                                <group name="studio_group_bab047_left"/>
+                                                                <group name="studio_group_bab047_right"/>
+                                                                </group>
+                                                            </sheet>
+                                                            </form>
+                                                </field>
+   </record>
+
+
+
+
+    <record id="odoo_studio_default__e322df21-c05e-4974-9816-b62e94db0ce8" model="ir.ui.view">
+        <field name="name">x_judgepromotion.inherit</field>
+        <field name="model">x_judgepromotion</field>
+        <field name="inherit_id" ref="default_list_view_fo_13f69992-0645-469d-b8af-85b1731498a0"/>
+        <field name="arch" type="xml">
+            <data>
+                                                        <xpath expr="//field[@name='x_name']" position="replace"/>
+                                                        <xpath expr="//field[@name='x_studio_sequence']" position="before">
+                                                            <field name="x_studio_reference" optional="show"/>
+                                                            <field name="x_studio_letter_date" optional="show"/>
+                                                            <field name="x_studio_promotions_letter_no" optional="show"/>
+                                                            <field name="x_studio_effective_date" optional="show"/>
+                                                        </xpath>
+                                                </data>
+                                                </field>
+    </record>
+
+
+    <record id="odoo_studio_default__f17d80e3-03a0-461d-af39-bc58d9fededd" model="ir.ui.view">
+                                            <field name="name">x_judgepromotionorm.inherit</field>
+                                            <field name="model">x_judgepromotion</field>
+                                            <field name="inherit_id" ref="default_form_view_fo_2099b7ef-7109-480f-9dfb-a5c6d07b911f"/>
+                                            <field name="arch" type="xml">
+                                                <data>
+                                        <xpath expr="//form[1]/sheet[1]/div[1]/h1[1]" position="replace"/>
+                                        <xpath expr="//group[@name='studio_group_bab047_left']" position="inside">
+                                            <field name="x_studio_promotions_letter_no" string="Promotions Letter No." placeholder="رقم كتاب الترفيعات"/>
+                                            <field name="x_studio_effective_date" string="effective Date" placeholder="تاريخ بدء الحركة"/>
+                                        </xpath>
+                                        <xpath expr="//group[@name='studio_group_bab047_right']" position="inside">
+                                            <field name="x_studio_letter_date" string="Letter Date" placeholder="تاريخ كتاب الترفيعات"/>
+                                            <field name="x_studio_reference" string="Reference" placeholder="مرجع قرار الترفيعات"/>
+                                        </xpath>
+                                        <xpath expr="//group[@name='studio_group_bab047']" position="after">
+                                            <group name="studio_group_y7xB4">
+                                            <field name="x_judgepromotion_line_ids_c0b72" string="Judges List">
+                                                <tree editable="bottom">
+                                                <field optional="show" name="x_studio_many2one_field_gXLon" attrs="{}" required="1" string="Judge"/>
+                                                <field optional="show" name="x_studio_old_job_position" string="Old Job Position"/>
+                                                <field optional="show" name="x_studio_old_grade" string="Old Grade"/>
+                                                <field optional="show" name="x_studio_related_field_LHjqP" string="موقع العمل الحالي"/>
+                                                <field optional="show" name="x_studio_years_in_old_grade" string="الدرجة الحالية"/>
+                                                <field optional="show" name="x_studio_years_in_grade" string="سنة في الدرجة"/>
+                                                <field optional="show" name="x_studio_new_job_position" string="الوظيفة الجديدة" attrs="{}" required="1"/>
+                                                <field optional="show" name="x_studio_new_job_grade" string="الدرجة الجديدة" attrs="{}" required="1"/>
+                                                <field name="x_studio_sequence" widget="handle"/>
+                                                </tree>
+                                            </field>
+                                            </group>
+                                        </xpath>
+                                        <xpath expr="//field[@name='x_judgepromotion_line_ids_c0b72']" position="inside">
+                                            <form>
+                                            <header/>
+                                            <sheet string="Judgepromotion  Lines">
+                                                <div class="oe_title">
+                                                <h1>
+                                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                                </h1>
+                                                </div>
+                                                <group name="studio_group_49c85c">
+                                                <group name="studio_group_49c85c_left"/>
+                                                <group name="studio_group_49c85c_right"/>
+                                                </group>
+                                            </sheet>
+                                            </form>
+                                        </xpath>
+                                        <xpath expr="//field[@name='x_judgepromotion_line_ids_c0b72']/tree//field[@name='x_studio_new_job_grade']" position="attributes">
+                                            <attribute name="attrs">{}</attribute>
+                                            <attribute name="required"></attribute>
+                                        </xpath>
+                                        <xpath expr="//field[@name='x_judgepromotion_line_ids_c0b72']/tree//field[@name='x_studio_new_job_grade']" position="attributes">
+                                            <attribute name="attrs">{}</attribute>
+                                        </xpath>
+                            </data>
+                        </field>
+    </record>
+
+                      
+    <record id="default_list_view_fo_95b3f890-1182-4c2d-9507-a186b21ad8db" model="ir.ui.view">
+        <field name="name">x_judgepromotion_line_ac79d.tree</field>
+        <field name="model">x_judgepromotion_line_ac79d</field>
+        <field name="arch" type="xml">
+          <tree editable="bottom">
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+
+  </odoo>

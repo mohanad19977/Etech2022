@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<data noupdate="1">
+    <record id="x_committees_name_action" model="ir.actions.act_window">
+    <field name="name">Action x_committees</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_committees</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+
+    <menuitem
+        id="judgeactions_menu"
+        name="Judges Actions"
+        parent="hr.menu_hr_root"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        sequence="10"/>
+        
+    <menuitem
+        id="committees_menu"
+        name="Committees"
+        parent="etech.judgeactions_menu"
+        action="x_committees_name_action"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        	
+        sequence="10"/>
+
+    <record id="x_termenation_name_action" model="ir.actions.act_window">
+    <field name="name">Action x_termination</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_termination</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="termenation_menu"
+        name="termenation"
+        parent="etech.judgeactions_menu"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        	
+        action="x_termenation_name_action" />
+
+
+    <record id="x_location_transfer_name_action" model="ir.actions.act_window">
+    <field name="name">Action location_transfer</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_location_transfer</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="location_transfer"
+        name="Location Transfer"
+        parent="etech.judgeactions_menu"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        	
+        action="x_location_transfer_name_action" />
+
+    <menuitem
+        id="termenation_menu"
+        name="termenation"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        parent="etech.judgeactions_menu"	
+        action="x_termenation_name_action" />
+
+
+    <record id="x_x_disciplinary_action_name_action" model="ir.actions.act_window">
+    <field name="name">Action disciplinary_action</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_disciplinary_action</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="disciplinary_action"
+        name="Disciplinary Action"
+      groups="base.group_user,base.group_erp_manager,base.group_system"
+      parent="etech.judgeactions_menu"	
+            action="x_x_disciplinary_action_name_action" />
+
+
+    <record id="x_employee_action_name_action" model="ir.actions.act_window">
+    <field name="name">Action disciplinary_action</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_disciplinary_action</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="x_employee_actions"
+        name="External Missions"
+        parent="etech.judgeactions_menu"	
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        
+        action="x_employee_action_name_action" />
+
+</data>
+
+
+
+
+</odoo>

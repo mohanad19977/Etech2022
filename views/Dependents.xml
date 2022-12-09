@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="default_form_view_fo_bc10c067-5a0d-4762-b7ea-f2413be0a3dc" model="ir.ui.view">
+        <field name="name">Default form view for x_x_hr_employee_depend</field>
+        <field name="model">x_x_hr_employee_depend</field>
+        <field name="arch" type="xml">
+           <form>
+            <header/>
+            <sheet string="x.hr.employee_dependent">
+                <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                <field name="x_active" invisible="1"/>
+                <div class="oe_title">
+                            <h1>
+                                <field name="x_name" required="1" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                <group name="studio_group_a520cc">
+                <group name="studio_group_a520cc_left"/>
+                <group name="studio_group_a520cc_right"/>
+                </group>
+                <notebook>
+                <page string="Details" name="lines">
+                    <field name="x_x_hr_employee_depend_line_ids_46e6a"/>
+                </page>
+                </notebook>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__30ae7359-2144-40a5-b0df-fe7dd247e378" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default form view for x_x_hr_employee_depend customization</field>
+        <field name="model">x_x_hr_employee_depend</field>
+        <field name="inherit_id" ref="default_form_view_fo_bc10c067-5a0d-4762-b7ea-f2413be0a3dc"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//form[1]/sheet[1]/notebook[1]" position="replace">
+                    <group name="studio_group_TAEIM">
+                    <group name="studio_group_TAEIM_left">
+                        <field filename="x_studio_attachment_filename" name="x_studio_attachment" attrs="{'readonly': [('id', '&gt;', 0)]}" help="مرفق " string="Attachment"/>
+                                <field filename="x_studio_attachment_filename" name="x_studio_attachment"  help="مرفق " string="Attachment"/>
+
+                        <field invisible="1" name="x_studio_attachment_filename"/>
+                    </group>
+                    <group name="studio_group_TAEIM_right"/>
+                    </group>
+                </xpath>
+                <xpath expr="//form[1]/header[1]" position="inside">
+                    <field widget="statusbar" options="{'clickable': '1'}" name="x_studio_selection_field_reAR9"/>
+                </xpath>
+                <xpath expr="//field[@name='x_name']" position="attributes">
+                    <attribute name="placeholder">أسم المنتفع</attribute>
+                    <attribute name="string">benefecairy Name</attribute>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_a520cc_left']" position="inside">
+                    <field name="x_studio_many2one_field_PvJxd" attrs="{}" required="1"/>
+                    <field name="x_studio_gender"/>
+                    <field name="x_studio_relation" attrs="{}" required="1"/>
+                    <field name="x_studio_date" attrs="{}" required="1"/>
+                    <field name="x_studio_nationality_1" options="{&quot;no_create&quot;:true}" attrs="{}" required="1"/>
+                    <field name="x_studio_many2one_field_BHtKm"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_a520cc_right']" position="inside">
+                    <field name="x_studio_many2one_field_F9toM" string="Contact"/>
+                    <field name="x_studio_phone" string="Phone" placeholder="رقم الهاتف" help="رقم الهاتف" widget="phone" options="{&quot;enable_sms&quot;:false}"/>
+                    <field name="x_studio_mobile" string="Mobile" placeholder="الهاتف المحمول" help="الهاتف المحمول" widget="phone"/>
+                    <field name="x_studio_email" string="Email" placeholder="البريد الالكتروني" help="البريد الالكتروني" widget="email"/>
+                    <field widget="many2many_tags" name="x_studio_tags" placeholder="Tags" string="Tags" options="{&quot;color_field&quot;: &quot;color&quot;}"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_0c6905c0-995f-41df-9371-664107126fe0" model="ir.ui.view">
+        <field name="name">Default form view for x_x_hr_employee_depend_line_6466e</field>
+        <field name="model">x_x_hr_employee_depend_line_6466e</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="X Hr Employee Depend  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_98277b">
+                    <group name="studio_group_98277b_left"/>
+                    <group name="studio_group_98277b_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_9420eefa-d128-4b24-97cb-26386d421fda" model="ir.ui.view">
+        <field name="name">Default form view for x_x_hr_employee_depend_line_6466e</field>
+        <field name="model">x_x_hr_employee_depend_line_6466e</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="X Hr Employee Depend  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_9e3c34">
+                    <group name="studio_group_9e3c34_left"/>
+                    <group name="studio_group_9e3c34_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_6a465c00-9c61-40ac-934b-98d3c7621d5e" model="ir.ui.view">
+        <field name="name">Default list view for x_x_hr_employee_depend</field>
+        <field name="model">x_x_hr_employee_depend</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__cd3a9af0-339c-4e27-901c-b528889a2888" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default list view for x_x_hr_employee_depend customization</field>
+        <field name="model">x_x_hr_employee_depend</field>
+        <field name="inherit_id" ref="default_list_view_fo_6a465c00-9c61-40ac-934b-98d3c7621d5e"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//tree[1]" position="attributes">
+                    <attribute name="multi_edit">true</attribute>
+                </xpath>
+                <xpath expr="//field[@name='x_studio_sequence']" position="before">
+                    <field optional="show" name="x_studio_many2one_field_pIoXl" string=" Dep Employee"/>
+                    <field optional="show" name="x_studio_relation" string="Relation"/>
+                    <xpath expr="//field[@name='x_name']" position="move"/>
+                    <field optional="show" name="x_studio_date" string="Date"/>
+                    <field optional="show" name="x_studio_gender" string="Gender"/>
+                    <field name="x_studio_nationality_1" optional="show"/>
+                    <field optional="show" name="x_studio_many2one_field_F9toM" options="{&quot;no_create&quot;:true,&quot;no_open&quot;:true}" string="ref Contact"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_3efa3d11-f905-4118-827a-704fbe038001" model="ir.ui.view">
+        <field name="name">Default list view for x_x_hr_employee_depend_line_6466e</field>
+        <field name="model">x_x_hr_employee_depend_line_6466e</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_61173aca-2cc9-4a3d-9ff7-21c77cf84aa4" model="ir.ui.view">
+        <field name="name">Default list view for x_x_hr_employee_depend_line_6466e</field>
+        <field name="model">x_x_hr_employee_depend_line_6466e</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--search-->
+    <record id="default_search_view__442d896c-6424-4f36-9b6f-83a24c11b4f7" model="ir.ui.view">
+        <field name="name">Default search view for x_x_hr_employee_depend</field>
+        <field name="model">x_x_hr_employee_depend</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+                <separator/>
+                <filter string="Archived" name="archived_x_x_hr_employee_depend" domain="[['x_active', '=', False]]"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+
+    <!--search-->
+    <record id="default_search_view__8f12d2fc-7e43-436c-b799-b2d533221709" model="ir.ui.view">
+        <field name="name">Default search view for x_x_hr_employee_depend_line_6466e</field>
+        <field name="model">x_x_hr_employee_depend_line_6466e</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <!--search-->
+    <record id="default_search_view__46d4dfce-fa08-4605-b13d-1112efd95b36" model="ir.ui.view">
+        <field name="name">	Default search view for x_x_hr_employee_depend_line_6466e</field>
+        <field name="model">x_x_hr_employee_depend_line_6466e</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+
+
+</odoo>

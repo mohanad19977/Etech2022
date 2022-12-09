@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="default_form_view_fo_f0c6c676-810c-42f2-83c4-e4832001037a" model="ir.ui.view">
+        <field name="name">Default form view for x_location_transfer</field>
+        <field name="model">x_location_transfer</field>
+        <field name="arch" type="xml">
+            <form>
+            <header/>
+            <sheet string="Location transfer">
+                <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                <field name="x_active" invisible="1"/>
+                <div class="oe_title">
+                            <h1>
+                                <field name="x_name" required="1" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                <group name="studio_group_93af37">
+                <group name="studio_group_93af37_left"/>
+                <group name="studio_group_93af37_right"/>
+                </group>
+            </sheet>
+            <div class="oe_chatter" name="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="message_ids"/>
+                <field name="activity_ids"/>
+            </div>
+            </form>
+
+        </field>
+    </record>
+
+
+    <record id="odoo_studio_default__a221530f-162f-46dd-965b-f655f4ce891f" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default form view for x_location_transfer customization</field>
+        <field name="model">x_location_transfer</field>
+        <field name="inherit_id" ref="default_form_view_fo_f0c6c676-810c-42f2-83c4-e4832001037a"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//form[1]/sheet[1]/div[1]/h1[1]" position="replace"/>
+                <xpath expr="//form[1]/header[1]" position="inside">
+                    <field widget="statusbar" options="{'clickable': '1'}" name="x_studio_selection_field_GUisB"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_93af37_left']" position="inside">
+                    <field name="x_studio_judge" placeholder="اسم القاضي" attrs="{}" required="1"/>
+                    <field name="x_studio_new_work_location" placeholder="جهة النقل" attrs="{}" required="1"/>
+                    <field name="x_studio_many2one_field_RymCx" placeholder="الوظيفة " force_save="True" attrs="{}" readonly="1"/>
+                    <field name="x_studio_many2one_field_X1jqs"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_93af37_right']" position="inside">
+                    <field name="x_studio_many2one_field_mNvNk" placeholder="مركز العمل قبل النقل"/>
+                    <field name="x_studio_grade_years" string="Grade / Years"/>
+                    <field name="x_studio_tdocno" string="TDOCNO"/>
+                    <field name="x_studio_transfer_date" string="تاريخ طلب النقل" placeholder="تاريخ طلب النقل" attrs="{}" required="1"/>
+                    <field name="x_studio_many2one_field_TdUQu"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <!--tree-->
+
+    <record id="default_list_view_fo_1efb940c-dd16-437d-bc85-8d7f507600f2" model="ir.ui.view">
+        <field name="name">Default list view for x_location_transfer</field>
+        <field name="model">x_location_transfer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--inhrit tree-->
+
+    <record id="odoo_studio_default__cf39a735-191d-4dd2-84fa-b22c6f2121aa" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default list view for x_location_transfer customization</field>
+        <field name="model">x_location_transfer</field>
+        <field name="inherit_id" ref="default_list_view_fo_1efb940c-dd16-437d-bc85-8d7f507600f2"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='x_name']" position="replace"/>
+                <xpath expr="//field[@name='x_studio_sequence']" position="before">
+                    <field optional="show" name="x_studio_judge" attrs="{}" required="1" string="Judge"/>
+                    <field name="x_studio_grade_years" optional="show"/>
+                    <field optional="show" name="x_studio_many2one_field_mNvNk"/>
+                    <field optional="show" name="x_studio_new_work_location" string="New Work Location"/>
+                    <field name="x_studio_many2one_field_RymCx" optional="show"/>
+                    <field name="x_studio_transfer_date" optional="show"/>
+                    <field name="x_studio_many2one_field_X1jqs" optional="show"/>
+                    <field name="x_studio_selection_field_GUisB" optional="show"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <!--search-->
+    <record id="default_search_view__fdf58f69-0297-419e-a91b-62ccbcfef312" model="ir.ui.view">
+        <field name="name">Default search view for x_location_transfer</field>
+        <field name="model">x_location_transfer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+                <separator/>
+                <filter string="Archived" name="archived_x_location_transfer" domain="[['x_active', '=', False]]"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

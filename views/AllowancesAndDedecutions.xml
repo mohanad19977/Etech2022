@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="model_salary_attachmentlist_tree" model="ir.ui.view">
+        <field name="name">salary_attachmentlist</field>
+        <field name="model">salary.attachmentlist</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="Employee_id" optional="show"/>
+                <field name="StartDate" optional="show"/>
+                <field name="EndDate" optional="show"/>
+            </data>
+        </field>
+    </record>
+    
+
+</odoo>

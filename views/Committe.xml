@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="default_form_view_fo_00ee4146-b15e-4ddc-87c4-fcd89f9f2e0d" model="ir.ui.view">
+        <field name="name">Default form view for x_committees</field>
+        <field name="model">x_committees</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Committees">
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                    <field name="x_active" invisible="1"/>
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_1c930d">
+                    <group name="studio_group_1c930d_left"/>
+                    <group name="studio_group_1c930d_right"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter" name="oe_chatter">
+                
+                </div>
+            </form>
+        </field>
+    </record>
+    
+    <record id="odoo_studio_default__340eea49-e111-4e93-a654-57cdd2993623" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default form view for x_committees customization</field>
+        <field name="model">x_committees</field>
+        <field name="inherit_id" ref="default_form_view_fo_00ee4146-b15e-4ddc-87c4-fcd89f9f2e0d"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//form[1]/sheet[1]/div[1]/h1[1]" position="replace"/>
+                <xpath expr="//group[@name='studio_group_1c930d_left']" position="inside">
+                    <field name="x_studio_many2one_field_UrDkk" attrs="{}" required="1"/>
+                    <field name="x_studio_commencement_date" string="Commencement Date" placeholder="تاريخ تشكيل اللجنة أو الهيئة" attrs="{}" required="1"/>
+                    <field name="x_studio_letter_ref_no" placeholder="رقم قرار تشكيل اللجنة / الهيئة" attrs="{}" required="1"/>
+                    <field name="x_studio_many2one_field_2WNM1" attrs="{}" required="1"/>
+                    <field name="x_studio_many2one_field_dckgD" attrs="{}" required="1"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_1c930d_right']" position="inside">
+                    <field name="x_studio_committee_name" attrs="{}" required="1"/>
+                    <field name="x_studio_end_date" placeholder="تاريخ انتهاء أعمال اللجنة أو الهيئة" attrs="{}" required="1"/>
+                    <field name="x_studio_letter_date" placeholder="تاريخ قرار تشكيل اللجنة / الهيئة" string="Letter Date" attrs="{}" required="1"/>
+                    <field name="x_studio_financial_income" help="هل يوجد مردود مالي ؟"/>
+                    <field name="x_studio_location" string="Location" attrs="{}" invisible="1"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_1c930d']" position="after">
+                    <notebook name="studio_notebook_A5DRa">
+                    <page string="القضاة المشاركون" name="studio_page_A5DRa">
+                        <group name="studio_group_A5DRa">
+                        <field name="x_committees_line_ids_9f1e1" string="Judges List">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_judge" string="Judge" options="{&quot;no_create&quot;:true}"/>
+                            <field optional="show" name="x_studio_many2one_field_Homib"/>
+                            <field optional="show" name="x_studio_many2one_field_2e5p2"/>
+                            <field optional="show" name="x_studio_many2one_field_hO5XQ"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            </tree>
+                            <form>
+                            <header/>
+                            <sheet string="Committees  Lines" name="studio_sheet_b624e0">
+                                <div class="oe_title" name="studio_div_a6a799">
+                                <h1>
+                            </h1>
+                                </div>
+                                <group name="studio_group_bf5a67">
+                                <group name="studio_group_bf5a67_left"/>
+                                <group name="studio_group_bf5a67_right"/>
+                                </group>
+                            </sheet>
+                            </form>
+                        </field>
+                        </group>
+                        <group name="studio_group_t3Xez">
+                    </group>
+                    </page>
+                    </notebook>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_411d547f-e418-4992-b0a1-ce8e5109f2fc" model="ir.ui.view">
+        <field name="name">Default form view for x_committees_line_1678d</field>
+        <field name="model">x_committees_line_1678d</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Committees  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_bf5a67">
+                    <group name="studio_group_bf5a67_left"/>
+                    <group name="studio_group_bf5a67_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_1370b030-353c-463e-82ba-f4fb16451363" model="ir.ui.view">
+        <field name="name">Default form view for x_committees_line_1678d</field>
+        <field name="model">x_committees_line_1678d</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Committees  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_933ff7">
+                    <group name="studio_group_933ff7_left"/>
+                    <group name="studio_group_933ff7_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_932f3322-ecdf-445f-99a1-8e3e39a3d015" model="ir.ui.view">
+        <field name="name">Default list view for x_committees</field>
+        <field name="model">x_committees</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__592fe578-5a57-419a-9252-7a96dc495f63" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default list view for x_committees customization</field>
+        <field name="model">x_committees</field>
+        <field name="inherit_id" ref="default_list_view_fo_932f3322-ecdf-445f-99a1-8e3e39a3d015"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='x_name']" position="replace">
+                    <field name="x_studio_many2one_field_UrDkk" optional="show"/>
+                    <field name="x_studio_committee_name" optional="show"/>
+                    <field name="x_studio_commencement_date" optional="show"/>
+                    <field name="x_studio_letter_ref_no" optional="show"/>
+                    <field name="x_studio_letter_date" optional="show"/>
+                    <field name="x_studio_location" optional="show"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_d4a6e704-eb1b-4969-acd7-81993b72981d" model="ir.ui.view">
+        <field name="name">Default list view for x_committees_line_1678d</field>
+        <field name="model">x_committees_line_1678d</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_428dcd7c-7d5c-4140-9ec7-f6b1a5b12960" model="ir.ui.view">
+        <field name="name">Default list view for x_committees_line_1678d</field>
+        <field name="model">x_committees_line_1678d</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--search-->
+    <record id="default_search_view__490e047b-fe55-4b34-a649-a5d0fff07610" model="ir.ui.view">
+        <field name="name">Default search view for x_committees</field>
+        <field name="model">x_committees</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+                <separator/>
+                <filter string="Archived" name="archived_x_committees" domain="[['x_active', '=', False]]"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+    <!--search-->
+    <record id="default_search_view__e0785719-fe08-4dbc-8801-014a194d5b6b" model="ir.ui.view">
+        <field name="name">Default search view for x_committees_line_1678d</field>
+        <field name="model">x_committees_line_1678d</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <!--search-->
+    <record id="default_search_view__020f9639-2fb6-4809-ae2a-324d0b4a08bf" model="ir.ui.view">
+        <field name="name">Default search view for x_committees_line_1678d</field>
+        <field name="model">x_committees_line_1678d</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+    
+
+</odoo>

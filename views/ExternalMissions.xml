@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="x_employee_actions_view_form" model="ir.ui.view">
+    <field name="name">Default form view for x_employee_actions</field>
+    <field name="model">x_employee_actions</field>
+    <field name="arch" type="xml">
+      <form>
+        <header/>
+        <sheet string="Employee Actions">
+          <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+          <field name="x_active" invisible="1"/>
+          <div class="oe_title">
+                <h1>
+                    <field name="x_name" required="1" placeholder="Name..."/>
+                </h1>
+            </div>
+          <group name="studio_group_fd4ba5">
+            <group name="studio_group_fd4ba5_left"/>
+            <group name="studio_group_fd4ba5_right"/>
+          </group>
+        </sheet>
+
+      </form>
+
+    </field>
+  </record>
+
+  <record id="odoo_studio_default__4ef2f71a-1513-4652-a8f1-523680330568" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default form view for x_employee_actions customization</field>
+    <field name="model">x_employee_actions</field>
+    <field name="inherit_id" ref="x_employee_actions_view_form"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//form[1]/sheet[1]/div[1]/h1[1]" position="replace"/>
+        <xpath expr="//group[@name='studio_group_fd4ba5_left']" position="inside">
+          <field name="x_studio_judge_name" attrs="{'readonly': [('id', '&gt;', 0)]}" required="1" help="Select the Judge from the list" placeholder="Judge Name" options="{&quot;no_create&quot;:true}"/>
+          <field name="x_studio_start_date" placeholder="تاريخ بدء الاعارة" help="تاريخ بدء الاعارة"/>
+          <field name="duration" string="المدة (أيام )"/>
+          <field name="Fullduration" string="المدة ( سنوات )"/>
+          <field name="x_studio_letter_ref_no" attrs="{}" required="1"/>
+          <field name="x_studio_country" attrs="{}" placeholder="الدولة" options="{&quot;no_create&quot;:true}" invisible="1"/>
+          <field name="x_studio_many2one_field_XrM3J" string="الدولة"/>
+          <field name="x_studio_job_title" attrs="{}" required="1" placeholder="مسمى وظيفي" help="مسمى وظيفي"/>
+          <field name="x_studio_related_field_F5BJc" string="موقع العمل قبل الاعارة"/>
+          <field name="x_studio_work_center_before" string="Work Center Before"/>
+          <field name="x_studio_last_work_location" string="Last Work location"/>
+          <field name="x_studio_work_location_before_mission" placeholder="مركز العمل قبل الاعارة" string="x_studio_work_location_before_mission" attrs="{}" invisible="1"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_fd4ba5_right']" position="inside">
+          <field name="x_studio_reference_institution" attrs="{}" required="1" placeholder="المرجع المختص بالإعارة" help="المرجع المختص بالإعارة"/>
+          <field name="x_studio_end_date_1" placeholder="تاريخ انتهاء الاعارة" help="تاريخ انتهاء الاعارة"/>
+          <field name="x_studio_accumulative_periods" placeholder="مدة الاعارة التراكمية" help="مدة الاعارة التراكمية"/>
+          <field name="x_studio_letter_date" help="تاريخ صدور كتاب الإعارة"/>
+          <field name="x_studio_organization" placeholder="الجهة الطالبة للإعارة"/>
+          <field name="x_studio_related_field_XRjMY" string="Previous Job"/>
+          <field name="x_studio_many2one_field_rGN1T" placeholder="مركز العمل بعد انتهاء الاعارة" help="مركز العمل بعد انتهاء الاعارة"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_fd4ba5']" position="after">
+          <notebook name="studio_notebook_Uf3I0">
+            <page string="التمديدات" name="studio_page_Uf3I0">
+              <field name="x_studio_many2many_field_cKx7X" widget="many2many">
+                <tree>
+                  <field optional="show" name="x_studio_extension_date"/>
+                  <field optional="show" name="x_studio_new_end_date"/>
+                  <field optional="show" name="x_studio_many2one_field_RzC3N"/>
+                  <field optional="show" name="x_studio_many2one_field_OeHVB" attrs="{}" invisible="1"/>
+                  <field optional="show" name="x_studio_extension_letter_no" attrs="{}" required="1"/>
+                  <field optional="show" name="x_studio_extension_letter_date" attrs="{}" required="1"/>
+                  <field name="x_studio_sequence" widget="handle"/>
+                </tree>
+                <form>
+                  <header/>
+                  <sheet string="Mission extension" name="studio_sheet_26b0bd">
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                    <field name="x_active" invisible="1"/>
+                    <div class="oe_title" name="studio_div_a84f18">
+                      <h1>
+                  </h1>
+                    </div>
+                    <group name="studio_group_04b6dc">
+                      <group name="studio_group_04b6dc_left">
+                        <field name="x_studio_extension_date"/>
+                        <field name="x_studio_extension_letter_date"/>
+                        <field name="display_name"/>
+                      </group>
+                      <group name="studio_group_04b6dc_right">
+                        <field name="x_studio_many2one_field_RzC3N"/>
+                        <field name="x_studio_extension_letter_no"/>
+                        <field name="x_studio_new_end_date"/>
+                      </group>
+                    </group>
+                  </sheet>
+                </form>
+              </field>
+            </page>
+            <page string="أنهاء الإعارة" name="studio_page_VsfU4">
+              <group name="studio_group_VsfU4">
+                <group name="studio_group_VsfU4_left">
+                  <field name="x_studio_termination_letter_no" attrs="{}"/>
+                  <field name="x_studio_termination_by_jc_"/>
+                </group>
+                <group name="studio_group_VsfU4_right">
+                  <field name="x_studio_termination_date"/>
+                  <field name="x_studio_many2one_field_J5hWI"/>
+                </group>
+              </group>
+            </page>
+          </notebook>
+        </xpath>
+      </data>
+    </field>
+  </record>
+
+  <record id="default_list_view_fo_c120a0b4-d23a-48fc-a349-75147f19d43a" model="ir.ui.view">
+    <field name="name">Default list view for x_employee_actions</field>
+    <field name="model">x_employee_actions</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="x_studio_sequence" widget="handle"/>
+        <field name="x_name"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="odoo_studio_default__4a3278ff-63d0-492f-bd72-da4a71ba7c7b" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default list view for x_employee_actions customization</field>
+    <field name="model">x_employee_actions</field>
+    <field name="inherit_id" ref="default_list_view_fo_c120a0b4-d23a-48fc-a349-75147f19d43a"></field>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_name']" position="replace"/>
+        <xpath expr="//field[@name='x_studio_sequence']" position="before">
+          <field name="x_studio_judge_name" optional="show"/>
+          <field name="x_studio_country" optional="show"/>
+          <field name="x_studio_organization" optional="show"/>
+          <field name="x_studio_letter_date" optional="show"/>
+          <field name="x_studio_letter_ref_no" optional="show"/>
+          <field name="x_active" optional="show" attrs="{}" invisible="1"/>
+        </xpath>
+      </data>
+    </field>
+  </record>
+
+
+
+  <record id="default_form_view_fo_c438aa18-7a6f-4e00-b336-7aa1c6c7fe2c" model="ir.ui.view">
+    <field name="name">Default form view for ir.model(755,)</field>
+    <field name="model">x_employee_actions</field>
+    <field name="arch" type="xml">
+      <form><sheet string="x_employee_actions"><group col="4"><field name="duration" on_change="1" modifiers="{&quot;readonly&quot;: true}"/><field name="Fullduration" modifiers="{&quot;readonly&quot;: true}"/><field name="x_studio_letter_date" modifiers="{}"/><field name="x_studio_country" can_create="true" can_write="true" modifiers="{}"/><field name="x_studio_many2one_field_rGN1T" on_change="1" can_create="true" can_write="true" modifiers="{}"/><field name="x_studio_letter_ref_no" modifiers="{}"/><field name="x_studio_work_location_before_mission" can_create="true" can_write="true" modifiers="{&quot;readonly&quot;: true}"/><field name="x_studio_reference_institution" modifiers="{}"/><field name="x_studio_job_title" can_create="true" can_write="true" modifiers="{}"/><field name="x_active" modifiers="{}"/><field name="x_studio_sequence" modifiers="{}"/><field name="x_name" modifiers="{}"/><field name="x_studio_judge_name" on_change="1" can_create="true" can_write="true" modifiers="{}"/><field name="x_studio_end_date_1" on_change="1" modifiers="{}"/><field name="x_studio_accumulative_periods" modifiers="{}"/><field name="x_studio_start_date" on_change="1" modifiers="{}"/><field name="x_studio_many2one_field_7dK3W" can_create="false" can_write="false" modifiers="{}"/><field name="x_studio_many2one_field_7e3Pe" can_create="true" can_write="true" modifiers="{}"/><newline/><field name="x_studio_text_field_uFAFS" colspan="4" modifiers="{}"/><newline/><field name="x_studio_many2one_field_Ouftk" can_create="true" can_write="true" modifiers="{}"/><field name="x_studio_many2one_field_JAfBr" can_create="true" can_write="true" modifiers="{}"/><field name="x_studio_many2one_field_WZ8yA" can_create="false" can_write="false" modifiers="{}"/><newline/><field name="x_studio_many2many_field_cKx7X" colspan="4" can_create="true" can_write="true" modifiers="{}"/><newline/><field name="x_studio_termination_by_jc_" modifiers="{}"/><field name="x_studio_termination_reason" modifiers="{}"/><field name="x_studio_termination_letter_no" modifiers="{}"/><field name="x_studio_many2one_field_J5hWI" can_create="true" can_write="true" modifiers="{}"/><field name="x_studio_termination_date" modifiers="{}"/><field name="x_studio_related_field_XRjMY" modifiers="{&quot;readonly&quot;: true}"/><field name="x_studio_organization" can_create="true" can_write="true" modifiers="{}"/><field name="x_studio_char_field_kzUUk" modifiers="{&quot;readonly&quot;: true}"/><field name="x_studio_selection_field_5CEax" modifiers="{}"/><separator/></group></sheet></form>
+    </field>
+  </record>
+
+  <record id="odoo_studio_default__fc4a04d1-c6dc-4344-ae31-2fa2188de323" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default form view for ir.model(755,) customization</field>
+    <field name="model">x_employee_actions</field>
+    <field name="inherit_id" ref="default_form_view_fo_c438aa18-7a6f-4e00-b336-7aa1c6c7fe2c"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='duration']" position="before">
+          <xpath expr="//field[@name='x_studio_end_date_1']" position="move"/>
+        </xpath>
+        <xpath expr="//field[@name='Fullduration']" position="after">
+          <xpath expr="//field[@name='x_studio_start_date']" position="move"/>
+        </xpath>
+      </data>
+    </field>
+  </record>
+
+
+
+
+  <record id="default_search_view__587eaf50-45b0-4fa6-aa5b-b1f045920eec" model="ir.ui.view">
+    <field name="name">Default search view for x_employee_actions</field>
+    <field name="model">x_employee_actions</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name"/>
+        <separator/>
+        <filter string="Archived" name="archived_x_employee_actions" domain="[['x_active', '=', False]]"/>
+        <separator/>
+      </search>
+    </field>
+  </record>
+
+  <record id="odoo_studio_default__4f769a40-bccb-452e-a48d-3fcc11760590" model="ir.ui.view">
+    <field name="name">Odoo Studio: Default search view for x_employee_actions customization</field>
+    <field name="model">x_employee_actions</field>
+    <field name="inherit_id" ref="default_search_view__587eaf50-45b0-4fa6-aa5b-b1f045920eec"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_name']" position="after">
+          <field name="x_studio_judge_name"/>
+          <field name="x_studio_country"/>
+        </xpath>
+        <xpath expr="//search[1]/separator[2]" position="after">
+          <group name="studio_group_by">
+            <filter name="studio_group_by_do8Q0" string="X Studio Country" context="{'group_by': 'x_studio_country'}"/>
+            <filter name="studio_group_by_vN076" string="Judge" context="{'group_by': 'x_studio_judge_name'}"/>
+          </group>
+        </xpath>
+      </data>
+    </field>
+  </record>
+
+  
+</odoo>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="default_form_view_fo_bac50ac9-5ad0-48ab-a08e-cef87bad0eaf" model="ir.ui.view">
+        <field name="name">Default form view for x_disciplinary_action</field>
+        <field name="model">x_disciplinary_action</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="disciplinary Action">
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                    <field name="x_active" invisible="1"/>
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_cb0666">
+                    <group name="studio_group_cb0666_left"/>
+                    <group name="studio_group_cb0666_right"/>
+                    </group>
+                </sheet>
+                
+            </form>
+
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__66069302-d646-4b43-97c7-e1b68c459238" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default form view for x_disciplinary_action customization</field>
+        <field name="model">x_disciplinary_action</field>
+        <field name="inherit_id" ref="default_form_view_fo_bac50ac9-5ad0-48ab-a08e-cef87bad0eaf"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//form[1]/sheet[1]/div[1]/h1[1]" position="replace"/>
+                <xpath expr="//form[1]/header[1]" position="inside">
+                    <field widget="statusbar" options="{'clickable': '1'}" name="x_studio_selection_field_ZGU2N"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_cb0666_left']" position="inside">
+                    <field name="x_studio_judge" string="Judge" placeholder="القاضي" attrs="{}" required="1"/>
+                    <field name="x_studio_many2one_field_SkrpV" placeholder="نوع الاجراء" attrs="{}" required="1"/>
+                    <field name="x_studio_violation_date" string="Violation Date" placeholder="تاريخ حدوث المخالفة"/>
+                    <field name="x_studio_disciplinary_action_date" string="Disciplinary Action Date" placeholder="تاريخ إصدار العقوبة "/>
+                    <field name="x_studio_many2one_field_cSMfO" placeholder="نوع المخالفة" attrs="{}" required="1"/>
+                    <field name="x_studio_many2one_field_mQZS2"/>
+                    <field name="x_studio_action_date" string="Action Date" placeholder="تاريخ الاجراء"/>
+                    <field name="x_studio_duration" string="Duration" placeholder="مدة العقوبة " force_save="True" attrs="{}"/>
+                    <field name="date_end" placeholder="" string="تاريخ أنتهاء العقوبة"/>
+                    <field name="x_studio_many2one_field_pfGMy" placeholder="سبب الاجراء"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_cb0666_right']" position="inside">
+                    <field name="x_studio_many2one_field_kU4e0" placeholder="حالة الاجراء"/>
+                    <field name="x_studio_reporting_date" placeholder="تاريخ الاخبار عن المخالفة"/>
+                    <field name="x_studio_disciplinary_letter_no" placeholder="رقم كتاب العقوبة" attrs="{}" required="1"/>
+                    <field filename="x_studio_reporting_attachment_filename" name="x_studio_reporting_attachment" help="مرفقات"/>
+                    <field name="x_studio_many2one_field_dDowS"/>
+                    <field name="x_studio_effective_date" placeholder="تاريخ سريان و اعتماد الاجراء"/>
+                    <field name="x_studio_disciplinary_end_date" placeholder="تاريخ انتهاء العقوبة"/>
+                    <field name="x_studio_many2one_field_hm3Un" placeholder="تأثير العقوبة"/>
+                    <field filename="x_studio_disciplinary_attachment_filename" name="x_studio_disciplinary_attachment" string="disciplinary Attachment"/>
+                    <field invisible="1" name="x_studio_reporting_attachment_filename"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_cb0666']" position="after">
+                    <group name="studio_group_ZIzrF">
+                    <field name="x_studio_disciplinary_action_detail_1" string="Disciplinary Action Detail" placeholder="تفاصيل العقوية"/>
+                    <field invisible="1" name="x_studio_disciplinary_attachment_filename"/>
+                    </group>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_fd0c84da-a25a-4ba2-8e48-6643cb35d9f1" model="ir.ui.view">
+        <field name="name">Default list view for x_disciplinary_action</field>
+        <field name="model">x_disciplinary_action</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__ce2e8302-aa5a-491d-934f-404e841b956d" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default list view for x_disciplinary_action customization</field>
+        <field name="model">x_disciplinary_action</field>
+        <field name="inherit_id" ref="default_list_view_fo_fd0c84da-a25a-4ba2-8e48-6643cb35d9f1"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='x_name']" position="replace"/>
+                <xpath expr="//field[@name='x_studio_sequence']" position="before">
+                    <field name="x_studio_judge" optional="show" string="اسم القاضي"/>
+                    <field name="x_studio_violation_date" optional="show"/>
+                    <field name="x_studio_many2one_field_SkrpV" optional="show"/>
+                    <field name="x_studio_many2one_field_dDowS" optional="show"/>
+                    <field name="x_studio_reporting_date" optional="show"/>
+                    <field name="x_studio_disciplinary_action_date" optional="show"/>
+                    <field name="x_studio_effective_date" optional="show"/>
+                    <field name="x_studio_many2one_field_hm3Un" optional="show"/>
+                </xpath>
+            </data>
+
+        </field>
+    </record>
+
+
+    <!--search-->
+    <record id="default_search_view__bebd0108-4749-495d-b5ec-ab6fa88ab644" model="ir.ui.view">
+        <field name="name">Default search view for x_disciplinary_action</field>
+        <field name="model">x_disciplinary_action</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+                <separator/>
+                <filter string="Archived" name="archived_x_disciplinary_action" domain="[['x_active', '=', False]]"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__0c3718fe-186c-4396-ad6c-96b455bc77fa" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default search view for x_disciplinary_action customization</field>
+        <field name="model">x_disciplinary_action</field>
+        <field name="inherit_id" ref="default_search_view__bebd0108-4749-495d-b5ec-ab6fa88ab644"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='x_name']" position="after">
+                    <field name="x_studio_judge"/>
+                    <field name="x_studio_related_field_uPdwO"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>

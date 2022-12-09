@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="odoo_studio_hr_holid_a1f38893-4343-44fb-b4a8-b1c964db16ee" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.holidays.view.tree customization</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='employee_id']" position="before">
+                    <field name="x_studio_many2one_field_cnTPY" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                    <attribute name="string">Approver</attribute>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="odoo_studio_hr_leave_1f5759cb-f5a5-428c-aa6d-91f45f0a6537" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.leave.type.form customization</field>
+        <field name="model">hr.leave.type</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='leave_validation_type']" position="attributes">
+                    <attribute name="string">الموافقات</attribute>
+                </xpath>
+                <xpath expr="//field[@name='request_unit']" position="attributes">
+                    <attribute name="string">مدة الاجازة ب </attribute>
+                </xpath>
+                <xpath expr="//field[@name='overtime_deductible']" position="attributes">
+                    <attribute name="string">خصم الساعات الزائدة</attribute>
+                </xpath>
+                <xpath expr="//field[@name='support_document']" position="attributes">
+                    <attribute name="string">السماح باضافة وثائق معززة</attribute>
+                </xpath>
+                <xpath expr="//field[@name='time_type']" position="attributes">
+                    <attribute name="string">طبيعة الاجازة</attribute>
+                </xpath>
+                <xpath expr="//field[@name='time_type']" position="after">
+                    <field name="x_studio_assigneddays" string="الحد الاقصى  (يوم)"/>
+                </xpath>
+                <xpath expr="//field[@name='requires_allocation']" position="attributes">
+                    <attribute name="string">يتطلب بديل</attribute>
+                </xpath>
+                <xpath expr="//field[@name='employee_requests']" position="attributes">
+                    <attribute name="string">طلبات الموظفين</attribute>
+                </xpath>
+                <xpath expr="//field[@name='allocation_validation_type']" position="attributes">
+                    <attribute name="string">الموافقات</attribute>
+                </xpath>
+            </data>
+
+        </field>
+    </record>
+
+    <record id="odoo_studio_hr_leave_501249b1-8a6b-46ba-b2a4-e9ace4717b0a" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.leave.type.normal.tree customization</field>
+        <field name="model">hr.leave.type</field>
+        <field name="inherit_id" ref="hr_holidays.view_holiday_status_normal_tree"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='allocation_validation_type']" position="after">
+                    <field name="x_studio_assigneddays" optional="show"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="odoo_studio_hr_leave_ebca94c2-de23-431e-ab36-4e95b0875fec" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.leave.view.form customization</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='holiday_status_id']" position="before">
+                    <field name="x_studio_many2one_field_cnTPY" attrs="{}" required="1" placeholder="اسم القاضي"/>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='col_left']/field[@name='name']" position="after">
+                    <field filename="x_studio_attachment_1_filename" name="x_studio_attachment_1" string="Attachment"/>
+                    <field invisible="1" name="x_studio_attachment_1_filename"/>
+                </xpath>
+                <xpath expr="//field[@name='department_id']" position="before">
+                    <field name="x_studio_during_judges" string="ضمن العطلة القضائية " help="ضمن العطلة القضائية "/>
+                    <field name="x_studio_narration" placeholder="مرجع منح الإجازة"/>
+                    <field name="x_studio_approval_letter_no" attrs="{}" required="1" placeholder="رقم قرار منح الإجازة"/>
+                    <field name="x_studio_approval_date" placeholder="تاريخ صدور القرار"/>
+                </xpath>
+            </data>
+
+        </field>
+    </record>
+
+    <record id="odoo_studio_hr_leave_27439cba-fc52-4dd0-a40a-1536fa7f39c2" model="ir.ui.view">
+        <field name="name">Odoo Studio: hr.leave.view.form.manager customization</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form_manager"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                    <attribute name="string">Approver</attribute>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='col_left']/field[@name='employee_ids']" position="attributes">
+                    <attribute name="string">Approver</attribute>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="hr_holidays.hr_leave_view_form_dashboard" model="ir.ui.view">
+        <field name="name">hr.leave.view.form.dashboard</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_holidays.hr_leave_allocation_view_form_dashboard" model="ir.ui.view">
+        <field name="name">hr.leave.view.form.dashboard</field>
+        <field name="model">hr.leave.allocation</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form"/>
+        <field name="arch" type="xml">
+            <data><xpath expr="//header" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <div name="button_box" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </div>
+                <div name="validity" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </div>
+                <label for="date_from" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </label>
+            </data>
+        </field>
+    </record>
+
+
+
+
+</odoo>
+
