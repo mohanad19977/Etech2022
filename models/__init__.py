@@ -12,3 +12,4 @@ from . import disciplinary_action
 from . import external_missions
 from . import Leave
 from . import x_secondment
+from . import hr_contract

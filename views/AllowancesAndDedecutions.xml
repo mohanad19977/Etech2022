@@ -9,7 +9,7 @@
                 <field name="Employee_id" optional="show"/>
                 <field name="StartDate" optional="show"/>
                 <field name="EndDate" optional="show"/>
-            </data>
+            </tree>
         </field>
     </record>
     
