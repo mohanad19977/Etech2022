@@ -96,8 +96,8 @@
         action="x_employee_action_name_action" />
 
 
-    <!-- <record id="x_salary_attachmentlist_name_action" model="ir.actions.act_window">
-    <field name="name">Action salary_attachmentlist</field>
+    <record id="x_salary_attachmentlist_name_action" model="ir.actions.act_window">
+    <field name="name">Allowances and Dedecutions</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">salary.attachmentlist</field>
     <field name="view_mode">tree,form</field>
@@ -106,9 +106,9 @@
     <menuitem
         id="x_salary_attachmentlist"
         name="Allowances and Deductions"
-        parent="etech.judgeactions_menu"	
+        parent="hr_payroll.menu_hr_payroll_employees_root"	
         groups="base.group_user,base.group_erp_manager,base.group_system"
-        action="x_salary_attachmentlist_name_action" /> -->
+        action="x_salary_attachmentlist_name_action" />
 
 </data>
 
