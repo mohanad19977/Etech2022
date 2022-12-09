@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
- 
-
+    <!--test-->
     <record id="hr_emplo_my_custom_1" model="ir.ui.view">
         <field name="name">Odoo Studio: hr.employee.form customization_copy</field>
         <field name="model">hr.employee</field>
