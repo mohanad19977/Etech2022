@@ -11,8 +11,8 @@ class XJudgepromotionLineAc79D(models.Model):
     _rec_name="x_name"
    
 
-    x_studio_many2one_field_gXLon = fields.Many2many('hr.employee', string='Judge',required=True)
-    x_studio_old_job_position.job_id.display_name= fields.Char('Old Job Position',readonly=True)   
+    x_studio_many2one_field_gXLon = fields.Many2one('hr.employee', string='Judge',required=True)
+    x_studio_old_job_position= fields.Char('Old Job Position',readonly=True ,related='x_studio_many2one_field_gXLon.job_id.display_name')   
     x_studio_old_grade= fields.Char('Old Grade',readonly=True) 
     x_studio_related_field_LHjqP = fields.Char('موقع العمل الحالي',readonly=True)
     x_studio_years_in_old_grade = fields.Float('الدرجة الحالية')

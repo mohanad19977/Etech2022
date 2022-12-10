@@ -38,7 +38,7 @@
     <field name="name">Default.form.view.for.x_training_absence_req_stage.form</field>
     <field name="model">x_training_absence_req_stage</field>
     <field name="arch" type="xml">
-            <<form>
+            <form>
                 <header/>
                 <sheet string="Training Absence Req Stages">
                     <div class="oe_title">

@@ -31,21 +31,6 @@ class x_salary_attachmentlis(models.Model):
     x_studio_sequence = fields.Integer('Sequance')
 
 
-
-class tearustom(models.Model):
-    _inherit = 'hr.salary.attachment'
-
-    attachmenyList_id = fields.Many2one('salary.attachmentlist', string='attachmenyList',tracking=True)
-
- 
-    @api.onchange('attachmenyList_id')
-    @api.depends('attachmenyList_id')
-    def _onchange_attachment(self):
-        for record in self:
-         if record.attachmenyList_id:
-               record.date_start=record.attachmenyList_id.StartDate
-               record.x_studio_end_date=record.attachmenyList_id.EndDate
-               record.employee_id=record.attachmenyList_id.Employee_id
              
 
 class contactcustom(models.Model):

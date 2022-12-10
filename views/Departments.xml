@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+<record id="hr.view_department_form" model="ir.ui.view">
+    <field name="name">hr.department.form</field>
+    <field name="model">hr.department</field>
+    <field name="arch" type="xml">
+                  <form string="department">
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <field name="active" invisible="1"/>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="manager_id"/>
+                            <field name="parent_id"/>
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+    </field>
+</record>
+
+
+<record id="hr_appraisal.hr_department_view_form" model="ir.ui.view">
+    <field name="name">hr.department.view.form.inherit</field>
+    <field name="model">hr.department</field>
+    <field name="inherit_id" ref="hr.view_department_form"/>
+    <field name="arch" type="xml">
+      <data><xpath expr="//field[@name='parent_id']" position="after">
+                <field name="custom_appraisal_templates"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <notebook attrs="{'invisible': [('custom_appraisal_templates', '=', False)]}">
+                    <page string="Appraisal Templates">
+                        <group>
+                            <group>
+                                <div class="col-12">
+                                    <h3 class="col-6 pl-0">Employee</h3>
+                                    <field name="employee_feedback_template" nolabel="1"/>
+                                </div>
+                            </group>
+                            <group>
+                                <div class="col-12">
+                                    <h3 class="col-6 pl-0">Manager</h3>
+                                    <field name="manager_feedback_template" nolabel="1"/>
+                                </div>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+      </data>
+    </field>
+</record>
+
+
+
+<record id="odoo_studio_hr_depar_4eac9a7a-31d8-403a-b564-aeb26b4465fd" model="ir.ui.view">
+    <field name="name">hr.department.formcustomization.inherit</field>
+    <field name="model">hr.department</field>
+    <field name="inherit_id" ref="hr.view_department_form"/>
+    <field name="arch" type="xml">        
+            <data>
+                    <xpath expr="//form[1]/sheet[1]/group[1]/field[@name='name']" position="before">
+                        <field name="x_studio_unit_code" string="Unit Code"/>
+                    </xpath>
+                    <xpath expr="//field[@name='parent_id']" position="after">
+                        <field name="x_location" attrs="{}" invisible="1"/>
+                        <field name="x_studio_many2one_field_RbZgM"/>
+                    </xpath>
+                    <xpath expr="//field[@name='custom_appraisal_templates']" position="attributes">
+                        <attribute name="attrs">{}</attribute>
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='custom_appraisal_templates']" position="after">
+                        <field name="x_studio_many2one_field_DQFxa"/>
+                    </xpath>
+            </data>
+    </field>
+</record>
+
+
+<record id="hr.hr_department_view_kanban" model="ir.ui.view">
+    <field name="name">hr.department.kanban.view</field>
+    <field name="model">hr.department</field>
+    <field name="arch" type="xml">
+        <kanban class="oe_background_grey o_kanban_dashboard o_hr_department_kanban" sample="1">
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="manager_id"/>
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                                <div t-attf-class="o_kanban_card_header">
+                                    <div class="o_kanban_card_header_title">
+                                        <div class="o_primary"><a type="edit"><field name="name"/></a></div>
+                                        <div class="o_secondary"><field name="company_id" groups="base.group_multi_company"/></div>
+                                    </div>
+                                    <div class="o_kanban_manage_button_section" t-if="!selection_mode">
+                                        <a class="o_kanban_manage_toggle_button" href="#"><i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/></a>
+                                    </div>
+                                </div>
+                                <div class="container o_kanban_card_content" t-if="!selection_mode">
+                                    <div class="row o_kanban_card_upper_content">
+                                        <div class="col-4 o_kanban_primary_left">
+                                            <button class="btn btn-primary" name="145" type="action">Employees</button>
+                                        </div>
+                                        <div class="col-8 o_kanban_primary_right">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                    <div class="o_kanban_card_manage_section">
+                                        <div role="menuitem" class="o_kanban_card_manage_section o_kanban_manage_reports">
+                                            <div class="o_kanban_card_manage_title">
+                                                <strong><span>Reporting</span></strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a t-if="widget.editable" role="menuitem" class="dropdown-item" type="edit">Configuration</a>
+                                    <ul t-if="widget.editable" class="oe_kanban_colorpicker" data-field="color" role="menu"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+    </field>
+</record>
+
+
+<record id="hr_appraisal.hr_department_view_kanban" model="ir.ui.view">
+    <field name="name">hr.department.kanban.inherit.inherit</field>
+    <field name="model">hr.department</field>
+    <field name="inherit_id" ref="hr.hr_department_view_kanban"/>
+    <field name="arch" type="xml">
+              <data>
+                <xpath expr="//templates" position="before">
+                    <field name="appraisals_to_process_count"/>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_kanban_primary_right')]" position="inside">
+                    <div t-if="record.appraisals_to_process_count.raw_value &gt; 0" class="row ml16">
+                        <div class="col-9">
+                            <a name="383" type="action">
+                                Appraisals
+                            </a>
+                        </div>
+                        <div class="col-3 text-right">
+                            <t t-esc="record.appraisals_to_process_count.raw_value"/>
+                        </div>
+                    </div>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_kanban_manage_reports')]" position="inside">
+                    <a role="menuitem" class="dropdown-item" name="386" type="action">
+                        Appraisals
+                    </a>
+                </xpath>
+            </data>
+    </field>
+</record>
+
+
+
+
+<record id="hr_attendance.hr_department_view_kanban" model="ir.ui.view">
+    <field name="name">hr.department.kanban.inherit</field>
+    <field name="model">hr.department</field>
+    <field name="inherit_id" ref="hr.hr_department_view_kanban"/>
+    <field name="arch" type="xml">
+        <data>
+                <xpath expr="//div[hasclass('o_kanban_manage_reports')]" position="inside">
+                    <a role="menuitem" class="dropdown-item" name="398" type="action">
+                        Attendances
+                    </a>
+                </xpath>
+        </data>
+        
+    </field>
+</record>
+
+
+<record id="hr_holidays.hr_department_view_kanban" model="ir.ui.view">
+    <field name="name">hr.department.kanban.inherit</field>
+    <field name="model">hr.department</field>
+    <field name="inherit_id" ref="hr.hr_department_view_kanban"/>
+    <field name="arch" type="xml">
+         <kanban>
+           <data>
+                <xpath expr="//templates" position="before">
+                    <field name="leave_to_approve_count"/>
+                    <field name="allocation_to_approve_count"/>
+                    <field name="total_employee"/>
+                    <field name="absence_of_today"/>
+                </xpath>
+                <xpath expr="//div[hasclass('o_kanban_primary_right')]" position="inside">
+                    <div t-if="record.leave_to_approve_count.raw_value &gt; 0" class="row ml16">
+                        <div class="col-9">
+                            <a name="414" type="action">
+                                Time Off Requests
+                            </a>
+                        </div>
+                        <div class="col-3 text-right">
+                            <field name="leave_to_approve_count"/>
+                        </div>
+                    </div>
+                    <div t-if="record.allocation_to_approve_count.raw_value &gt; 0" class="row ml16">
+                        <div class="col-9">
+                            <a name="421" type="action">
+                                Allocation Requests
+                            </a>
+                        </div>
+                        <div class="col-3 text-right">
+                            <field name="allocation_to_approve_count"/>
+                        </div>
+                    </div>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_kanban_card_upper_content')]" position="after">
+                    <div class="row o_kanban_primary_bottom bottom_block">
+                        <div class="col-3">
+                            <a name="431" type="action" title="Absent Employee(s), Whose time off requests are either confirmed or validated on today">Absence</a>
+                        </div>
+                        <div class="col-9">
+                            <field name="absence_of_today" widget="progressbar" options="{'current_value': 'absence_of_today', 'max_value': 'total_employee', 'editable': false}"/>
+                        </div>
+                    </div>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_kanban_manage_reports')]" position="inside">
+                    <a role="menuitem" class="dropdown-item" name="416" type="action">
+                        Time Off
+                    </a>
+                </xpath>
+            </data>
+         </kanban>
+    </field>
+</record>
+
+
+
+<record id="hr_recruitment.hr_department_view_kanban" model="ir.ui.view">
+    <field name="name">hr.department.kanban.inherit</field>
+    <field name="model">hr.department</field>
+    <field name="inherit_id" ref="hr.hr_department_view_kanban"/>
+    <field name="arch" type="xml">
+        <kanban>
+            <data>
+                <xpath expr="//templates" position="before">
+                    <field name="new_applicant_count"/>
+                    <field name="new_hired_employee"/>
+                    <field name="expected_employee"/>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_kanban_primary_right')]" position="inside">
+                    <div t-if="record.new_applicant_count.raw_value &gt; 0" class="row ml16">
+                        <div class="col-9">
+                            <a name="453" type="action">
+                                New Applicants
+                            </a>
+                        </div>
+                        <div class="col-3 text-right">
+                            <field name="new_applicant_count"/>
+                        </div>
+                    </div>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_kanban_manage_reports')]" position="inside">
+                    <a role="menuitem" class="dropdown-item" name="456" type="action">
+                        Recruitments
+                    </a>
+                </xpath>
+            </data>
+        </kanban>
+    </field>
+</record>
+
+
+<record id="hr_expense.hr_department_view_kanban" model="ir.ui.view">
+    <field name="name">model.name.view.form.inherit</field>
+    <field name="model">model.name</field>
+    <field name="inherit_id" ref="hr.hr_department_view_kanban"/>
+    <field name="arch" type="xml">
+            <kanban>
+             <data>
+                <xpath expr="//templates" position="before">
+                    <field name="expense_sheets_to_approve_count"/>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_kanban_primary_right')]" position="inside">
+                    <div t-if="record.expense_sheets_to_approve_count.raw_value &gt; 0" class="row ml16">
+                        <div class="col-9">
+                            <a name="496" type="action">
+                                Expense Reports
+                            </a>
+                        </div>
+                        <div class="col-3 text-right">
+                            <t t-esc="record.expense_sheets_to_approve_count.raw_value"/>
+                        </div>
+                    </div>
+                </xpath>
+
+                <xpath expr="//div[hasclass('o_kanban_manage_reports')]" position="inside">
+                    <a role="menuitem" class="dropdown-item" name="497" type="action">
+                        Expenses
+                    </a>
+                </xpath>
+            </data>
+            </kanban>
+    </field>
+</record>
+
+
+</odoo>

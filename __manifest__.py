@@ -27,6 +27,10 @@
         "views/Leavel.xml",
         "views/AllowancesAndDedecutions.xml",
         "views/Secondment.xml",
+        "views/Leavel.xml",
+        "views/JudgePromotion.xml",
+        "views/TrainingAbsenceReq.xml",
+         "views/TrainingSchedule.xml"
     ],
     'images': ['static/description/banner.jpg'],
     'license': 'OPL-1',

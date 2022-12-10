@@ -91,9 +91,13 @@ class x_secondmentcustom(models.Model):
         for record in self:  
             if record.x_studio_judge:
                 if not record.x_change:
-                    record["x_studio_last_job_position"]=record.x_studio_judge.job_id.display_name
-                    record["x_studio_last_judge_grade"]=record.x_studio_judge.x_studio_many2one_field_4aoaB.x_name
-                    record["x_studio_last_work_location"]=record.x_studio_judge.work_location_id.display_name
+                    if record.x_studio_judge.job_id:
+                       record["x_studio_last_job_position"]=record.x_studio_judge.job_id.display_name
+                    if record.x_studio_judge.x_studio_many2one_field_4aoaB:
+                       record["x_studio_last_judge_grade"]=record.x_studio_judge.x_studio_many2one_field_4aoaB.x_name
+                    if record.x_studio_judge.work_location_id :
+                       record["x_studio_last_work_location"]=record.x_studio_judge.work_location_id.display_name
+                       
                     record["x_change"]="done"
 
     @api.depends('x_studio_end_date','x_studio_start_date')

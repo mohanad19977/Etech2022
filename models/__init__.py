@@ -13,3 +13,7 @@ from . import external_missions
 from . import Leave
 from . import x_secondment
 from . import hr_contract
+from . import JudgePromotion
+from . import TrainingAbsenceReq
+from . import TrainingSchedule
+from . import Leave

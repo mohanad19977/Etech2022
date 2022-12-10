@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<record id="default_form_view_fo_c4322e95-3a72-4e21-98ac-fe88df34f1b6" model="ir.ui.view">
+    <field name="name">Default.form.view.for.x_scholarship.view.form</field>
+    <field name="model">x_scholarship</field>
+    <field name="arch" type="xml">
+            <form>
+              <header/>
+                        <sheet string="ScholarShip">
+                            <div class="oe_title">
+                                        <h1>
+                                            <field name="x_name" required="1" placeholder="Name..."/>
+                                        </h1>
+                                    </div>
+                            <group name="studio_group_cf5941">
+                            <group name="studio_group_cf5941_left"/>
+                            <group name="studio_group_cf5941_right"/>
+                            </group>
+                       </sheet>
+            </form>
+    </field>
+</record>
+
+
+
+
+<record id="default_list_view_fo_5c02bd2d-20c0-4b85-8031-4311eacc8153" model="ir.ui.view">
+    <field name="name">Defaultlistviewforx_scholarship.view.tree</field>
+    <field name="model">x_scholarship</field>
+    <field name="arch" type="xml">
+            <tree>
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+            </tree>
+    </field>
+</record>
+
+
+
+
+<record id="default_list_view_fo_c0a6c36f-82f2-4ab5-96bb-e49b9552ceb0" model="ir.ui.view">
+    <field name="name">Defaultlistviewforx_scholarship_line_1a8b1.view.tree</field>
+    <field name="model">x_scholarship_line_1a8b1</field>
+    <field name="arch" type="xml">
+         <tree editable="bottom">
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+        </tree>
+    </field>
+</record>
+
+
+
+<record id="default_list_view_fo_aaff2fa5-64bb-44e4-a168-cad68c9e0ecf" model="ir.ui.view">
+    <field name="name">Defaultlistviewforx_scholarship_line_1a8b1.view.tree</field>
+    <field name="model">x_scholarship_line_1a8b1</field>
+    <field name="arch" type="xml">
+            <tree>
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+            </tree>
+    </field>
+</record>
+
+
+<record id="default_list_view_fo_4c796a60-fcf4-4ca9-92d7-8d6727acdcf6" model="ir.ui.view">
+    <field name="name">Defaultlistviewforx_scholarship_line_29636.view.tree</field>
+    <field name="model">x_scholarship_line_29636</field>
+    <field name="arch" type="xml">
+            <tree editable="bottom">
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+            </tree> 
+
+    </field>
+</record>
+
+
+
+<record id="default_list_view_fo_d54a412a-1331-4b91-a80f-3b1a8fa5d5a4" model="ir.ui.view">
+    <field name="name">Default.listviewforx_scholarship_line_29636.view.tree</field>
+    <field name="model">x_scholarship_line_29636</field>
+    <field name="arch" type="xml">
+            <tree>
+            <field name="x_studio_sequence" widget="handle"/>
+            <field name="x_name"/>
+            </tree>
+    </field>
+</record>
+
+
+
+<record id="default_search_view__ed4606f0-a279-4e26-b614-fa3af2fd1908" model="ir.ui.view">
+    <field name="name">Defaultsearchviewforx_scholarship.view.search</field>
+    <field name="model">x_scholarship</field>
+    <field name="arch" type="xml">
+            <search>
+            <field name="x_name"/>
+            </search>
+    </field>
+</record>
+
+
+
+<record id="default_search_view__f4592f4f-0c11-414d-94ee-00d2ba51f951" model="ir.ui.view">
+    <field name="name">Defaultsearchviewforx_scholarship_line_1a8b1.view.search</field>
+    <field name="model">x_scholarship_line_1a8b1</field>
+    <field name="arch" type="xml">
+        <search>
+              <field name="x_name"/>
+        </search>
+    </field>
+</record>
+
+
+<record id="default_search_view__e3fc9bb4-71ff-4b0c-9f71-b1f50b131626" model="ir.ui.view">
+    <field name="name">x_scholarship_line_29636.view.search</field>
+    <field name="model">x_scholarship_line_29636</field>
+    <field name="arch" type="xml">
+        <search>
+         <field name="x_name"/>
+        </search>
+    </field>
+</record>
+
+
+
+<record id="odoo_studio_default__34ef9aaf-5f61-4831-8ab4-8d001838b86c" model="ir.ui.view">
+    <field name="name">efaultformviewforx_scholarship.form.inherit</field>
+    <field name="model">x_scholarship</field>
+    <field name="inherit_id" ref="default_form_view_fo_c4322e95-3a72-4e21-98ac-fe88df34f1b6"/>
+    <field name="arch" type="xml">   
+      <data>
+                    <xpath expr="//group[@name='studio_group_cf5941_right']" position="replace">
+                        <group name="studio_group_gMz8k">
+                        <field name="x_studio_many2one_field_15I43" attrs="{}" invisible="1"/>
+                        <field name="x_studio_country" string="country"/>
+                        <field name="x_studio_many2one_field_qACdR"/>
+                        <field name="x_studio_date_field_UjIuN"/>
+                        <field filename="x_studio_binary_field_9v8iU_filename" name="x_studio_binary_field_9v8iU"/>
+                        <field name="x_studio_date_field_1Eqvy"/>
+                        <field name="x_studio_many2one_field_2djPD"/>
+                        <field invisible="1" name="x_studio_binary_field_9v8iU_filename"/>
+                        </group>
+                    </xpath>
+                    <xpath expr="//form[1]/sheet[1]/div[1]/h1[1]" position="replace"/>
+                    <xpath expr="//group[@name='studio_group_cf5941_left']" position="inside">
+                        <field name="x_studio_scholarship_code" placeholder="رمز البعثة"/>
+                        <field name="x_studio_many2one_field_SRn9u" placeholder="الجامعة / المؤسسة"/>
+                        <field name="x_studio_start_date" placeholder="تاريخ البداية"/>
+                        <field name="x_studio_duration_years" placeholder="المدة بالسنوات"/>
+                        <field name="date_end" placeholder=""/>
+                        <field name="x_studio_approval_letter_no" placeholder="رقم و تاريخ قرار المجلس" string="Approval Letter No"/>
+                        <field name="x_studio_accumulative_duration" placeholder="مدة الابتعاث التراكمية"/>
+                        <field name="x_studio_many2one_field_q6fvv" placeholder="نوع المشاركة "/>
+                    </xpath>
+                    <xpath expr="//group[@name='studio_group_cf5941']" position="after">
+                        <group name="studio_group_yL1qn">
+                        <field name="x_scholarship_line_ids_0d975">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_many2one_field_z9f19"/>
+                            <field optional="show" name="x_studio_work_location" string="مركز العمل"/>
+                            <field optional="show" name="x_studio_job_position" string="Job Position"/>
+                            <field optional="show" name="x_studio_many2one_field_1Cl23"/>
+                            <field optional="show" name="x_studio_many2one_field_1Pi7x"/>
+                            <field optional="show" name="x_studio_many2one_field_9E6gH"/>
+                            <field optional="show" name="x_studio_last_report_date"/>
+                            <field optional="show" name="x_studio_authorization"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field optional="show" name="x_studio_resumption_date"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </xpath>
+                    <xpath expr="//field[@name='x_scholarship_line_ids_0d975']" position="inside">
+                        <form>
+                        <sheet string="Scholarship  Lines">
+                            <group col="4">
+                            <field name="x_studio_job_position"/>
+                            <field name="x_studio_last_report_date"/>
+                            <field name="x_studio_many2one_field_z9f19"/>
+                            <field name="x_studio_work_location"/>
+                            <field name="x_studio_sequence"/>
+                            <field name="x_name"/>
+                            <field name="x_scholarship_id"/>
+                            <field name="x_studio_many2one_field_1Pi7x"/>
+                            <field name="x_studio_resumption_date"/>
+                            <field name="x_studio_many2one_field_1Cl23"/>
+                            <field name="x_studio_authorization"/>
+                            <field name="x_studio_many2one_field_9E6gH"/>
+                            <separator/>
+                            </group>
+                        </sheet>
+                        </form>
+                    </xpath>
+                    </data>
+    </field>
+</record>
+
+
+
+<record id="odoo_studio_default__711b4dc0-43d2-4f5f-8506-369a3939f678" model="ir.ui.view">
+    <field name="name">efaultlistviewforx_scholarshipcustomization.inherit</field>
+    <field name="model">x_scholarship</field>
+    <field name="inherit_id" ref="default_list_view_fo_5c02bd2d-20c0-4b85-8031-4311eacc8153"/>
+    <field name="arch" type="xml">
+        <tree>
+
+            <data>
+                <xpath expr="//field[@name='x_studio_sequence']" position="after">
+                    <field name="x_studio_scholarship_code" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='x_name']" position="after">
+                    <field name="x_studio_approval_letter_no" optional="show"/>
+                    <field name="x_studio_start_date" optional="show"/>
+                    <field name="x_studio_date_field_1Eqvy" optional="show"/>
+                </xpath>
+            </data>
+        </tree>
+    </field>
+</record>
+
+
+
+
+<record id="odoo_studio_default__c398b47c-82b4-47b1-8400-ca45189f3229" model="ir.ui.view">
+    <field name="name">Defaultsearchviewforx_scholarshipcustomization.inherit</field>
+    <field name="model">x_scholarship</field>
+    <field name="inherit_id" ref="default_search_view__ed4606f0-a279-4e26-b614-fa3af2fd1908"/>
+    <field name="arch" type="xml">
+        <tree>
+
+
+         <data>
+                <xpath expr="//field[@name='x_name']" position="before">
+                    <field name="x_studio_scholarship_code"/>
+                </xpath>
+         </data>
+        </tree>
+    </field>
+</record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</odoo>
