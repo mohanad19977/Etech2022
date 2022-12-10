@@ -23,7 +23,7 @@ class TrainingAbsenceReq(models.Model):
     ], string='Request Type')
     x_studio_sequence = fields.Integer('Sequence')
     x_studio_many2one_field_n6Gvs = fields.Many2one('hr.employee', string='Judge')
-    x_studio_many2one_field_PbW0c = fields.Many2one('x_trainingunit', string='TrainingUnit')
+    # x_studio_many2one_field_PbW0c = fields.Many2one('x_trainingunit', string='TrainingUnit')
     x_studio_stage_id = fields.Many2one('x_training_absence_req_stage', string='Stage',required=True)
     x_studio_user_id = fields.Many2one('res.users', string='Responsible')
 
