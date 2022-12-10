@@ -27,7 +27,6 @@
         "views/Leavel.xml",
         "views/AllowancesAndDedecutions.xml",
         "views/Secondment.xml",
-        "views/Leavel.xml",
         "views/Departments.xml",
         "views/JudgePromotion.xml",
         "views/TrainingAbsenceReq.xml",
