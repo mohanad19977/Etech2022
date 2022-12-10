@@ -63,8 +63,8 @@ class x_committees_line_1678dtcustom(models.Model):
     
 
     x_committees_id = fields.Integer('x_committees_id')
-    # x_studio_judge =fields.Many2one('hr.employee', string='Judge' ,domain="[('x_studio_employee_status','=','على رأس عمله')]")
-    x_studio_judge =fields.Many2one('hr.employee', string='Judge')
+    x_studio_judge =fields.Many2one('hr.employee', string='Judge' ,domain="[('x_studio_employee_status','=','على رأس عمله')]")
+    #x_studio_judge =fields.Many2one('hr.employee', string='Judge')
 
     x_studio_many2one_field_Homib = fields.Many2one('x_participation_type', string='Participation Type')
     x_studio_many2one_field_2e5p2 = fields.Many2one('hr.work.location', string='Work Location')

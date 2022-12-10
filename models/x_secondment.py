@@ -45,7 +45,7 @@ class x_secondmentcustom(models.Model):
     x_studio_judge_grade_1 = fields.Char('الدرجة',related='x_studio_judge.x_studio_many2one_field_4aoaB.x_name',readonly=True)
     x_studio_new_work_location = fields.Many2one('hr.work.location', string='New Work Location')
     x_studio_related_field_QcS5L = fields.Char('work in related',related='x_studio_judge.job_id.display_name',readonly=True)
-    x_studio_status = fields.Char('X Studio Status')
+    x_studio_status = fields.Char('Status')
     x_studio_start_date = fields.Date('تاريخ بدء الانتداب',required=True)
     duration = fields.Integer(compute='_compute_dateend', string='Duration As Daye')
     Fullduration = fields.Char(compute='_compute_duration', string='المدة بالشهور')
@@ -59,20 +59,25 @@ class x_secondmentcustom(models.Model):
     x_studio_new_job_position = fields.Many2one('hr.job', string='الوظيفة المنتدب اليها',required=True)
     x_studio_end_date = fields.Date('تاريخ نهاية الانتداب',required=True)
     x_studio_notes = fields.Char('ملاحظات')
-
+    x_studio_duration = fields.Date('Duration',readonly=True)
     x_change = fields.Char('Change')
     x_name = fields.Char('Name')
-    x_studio_judge_grade_2 = fields.Char('Grade',readonly=True)
+    x_studio_judge_grade_2 = fields.Char('Judge Grade',readonly=True)
+    x_studio_related_field_LCaCq = fields.Char('Judge Grade',related='x_studio_judge.x_studio_many2one_field_4aoaB.x_studio_grade')
 
+    x_secondment_line_ids_31063 = fields.One2many('x_secondment_line_6ef9b', 'x_secondment_id', string='تمديدات الانتداب')
 
     x_studio_selection_field_elckG = fields.Selection([
-        ('initiated', 'تم تقديم الطلب'),
-        ('inprocess', 'بانتظار الموافقة'),
-        ('approved', 'تمت الموافقة'),
-        ('Rejected', 'مرفوض'),
+        ('تم تقديم الطلب', 'initiated'),
+        ('بانتظار الموافقة', 'inprocess'),
+        ('تمت الموافقة', 'approved'),
+        ('مرفوض', 'Rejected'),
     ], string='Pipeline status bar')
 
-    x_secondment_line_ids_f9153 = fields.One2many('x_secondment_line_e0591', 'x_secondment_id', string='تمديدات الانتداب')
+
+
+    x_secondment_line_ids_f9153 = fields.One2many('x_secondment_line_e0591', 'x_secondment_id', string='أسطر جديدة')
+
 
 
     x_active = fields.Boolean('Active',default=True)
@@ -81,7 +86,15 @@ class x_secondmentcustom(models.Model):
     x_studio_current_work_location = fields.Many2one('hr.work.location', string='current Work Location')
     x_studio_related_field_FOEk5 = fields.Char('Job Position',readonly=True,related='x_studio_current_job_position.employee_ids.job_id.display_name')
 
-
+    @api.depends('x_studio_judge')
+    def _compute_last_job_position(self):
+        for record in self:  
+            if record.x_studio_judge:
+                if not record.x_change:
+                    record["x_studio_last_job_position"]=record.x_studio_judge.job_id.display_name
+                    record["x_studio_last_judge_grade"]=record.x_studio_judge.x_studio_many2one_field_4aoaB.x_name
+                    record["x_studio_last_work_location"]=record.x_studio_judge.work_location_id.display_name
+                    record["x_change"]="done"
 
     @api.depends('x_studio_end_date','x_studio_start_date')
     def _compute_dateend(self):
@@ -112,15 +125,6 @@ class x_secondmentcustom(models.Model):
                record.Fullduration=" " + str(year) + " Year and "+ str(int(days*365)) +" Days"    
 
 
-    @api.depends('x_studio_judge')
-    def _compute_last_job_position(self):
-        for record in self:  
-            if record.x_studio_judge:
-                if not record.x_change:
-                    record["x_studio_last_job_position"]=record.x_studio_judge.job_id.display_name
-                    record["x_studio_last_judge_grade"]=record.x_studio_judge.x_studio_many2one_field_4aoaB.x_name
-                    record["x_studio_last_work_location"]=record.x_studio_judge.work_location_id.display_name
-                    record["x_change"]="done"
          
         # except ValueError:
         #      record.Fullduration= "0"

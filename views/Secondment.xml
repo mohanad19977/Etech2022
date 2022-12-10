@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<!-- <record id="default_form_view_fo_01dd099c-5db1-41c7-b093-685fca59b26b" model="ir.ui.view">
+<record id="default_form_view_fo_01dd099c-5db1-41c7-b093-685fca59b26b" model="ir.ui.view">
           <field name="name">Default form view for x_secondment</field>
           <field name="model">x_secondment</field>
           <field name="arch" type="xml">
@@ -25,7 +25,7 @@
             </form>
 
           </field>
-</record> -->
+</record>
 
  
 <record id="default_list_view_fo_07dbdb67-8456-4bae-aaa7-a8c30e334178" model="ir.ui.view">
@@ -41,7 +41,7 @@
     
 <record id="odoo_studio_default__9345e308-45b5-45d5-8e0f-594c2c0b2a28" model="ir.ui.view">
   <field name="name">mOdoo Studio: Default list view for x_secondment customization</field>
-  <field name="model"x_secondment</field>
+  <field name="model">x_secondment</field>
   <field name="inherit_id" ref="default_list_view_fo_07dbdb67-8456-4bae-aaa7-a8c30e334178"/>
   <field name="arch" type="xml">
     <data>
@@ -59,7 +59,6 @@
     </data>
   </field>
 </record>
-
 
  <record id="odoo_studio_default__2098cbe8-8e8e-4136-af52-60c53bb5bc58" model="ir.ui.view">
   <field name="name">Odoo Studio: Default form view for x_secondment customization</field>
