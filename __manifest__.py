@@ -23,7 +23,6 @@
         "views/ResumeLine.xml",
         "views/Dependents.xml",
         "views/menusitem.xml",
-        "views/menusitem.xml",
         "views/Leavel.xml",
         "views/AllowancesAndDedecutions.xml",
         "views/Secondment.xml"
