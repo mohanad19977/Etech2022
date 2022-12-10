@@ -32,7 +32,7 @@ class JudgePromotion(models.Model):
     x_studio_promotions_letter_no = fields.Char('Promotions Letter No.')
     x_studio_effective_date = fields.Date('effective Date')
     x_studio_reference = fields.Char('Reference') 
-    x_judgepromotion_line_ids_c0b72 = fields.One2many('x_judgepromotion_line_ac79d', 'x_judgepromotion_id', string='Judges List')
+    # x_judgepromotion_line_ids_c0b72 = fields.One2many('x_judgepromotion_line_ac79d', 'x_judgepromotion_id', string='Judges List')
     x_active = fields.Boolean('Active')
     
     
