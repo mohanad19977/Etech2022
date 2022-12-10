@@ -10,7 +10,7 @@ class XJudgepromotionLineAc79D(models.Model):
     _description = 'X Judgepromotion Line Ac79D'
     _rec_name="x_name"
    
-
+    x_name = fields.Char('x_name')
     x_studio_many2one_field_gXLon = fields.Many2one('hr.employee', string='Judge',required=True)
     x_studio_old_job_position= fields.Char('Old Job Position',readonly=True ,related='x_studio_many2one_field_gXLon.job_id.display_name')   
     x_studio_old_grade= fields.Char('Old Grade',readonly=True) 
