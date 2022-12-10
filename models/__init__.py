@@ -16,4 +16,4 @@ from . import hr_contract
 from . import JudgePromotion
 from . import TrainingAbsenceReq
 from . import TrainingSchedule
-from . import Leave
+from . import Departments
