@@ -49,7 +49,6 @@
         <field name="x_studio_judge" optional="show"/>
         <field name="x_studio_current_job_position" optional="show"/>
         <field name="x_studio_current_work_location" optional="show"/>
-        <field optional="show" name="x_studio_related_field_FOEk5"/>
         <field name="x_studio_new_work_location" optional="show"/>
         <field name="x_studio_start_date" optional="show"/>
         <field name="x_studio_end_date" optional="show"/>

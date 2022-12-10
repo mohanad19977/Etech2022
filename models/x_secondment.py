@@ -84,7 +84,7 @@ class x_secondmentcustom(models.Model):
     x_studio_sequence = fields.Integer('Sequance')
     x_studio_current_job_position = fields.Many2one('hr.job', string='Current Job Position')
     x_studio_current_work_location = fields.Many2one('hr.work.location', string='current Work Location')
-    x_studio_related_field_FOEk5 = fields.Char('Job Position',readonly=True,related='x_studio_current_job_position.employee_ids.job_id.display_name')
+    # x_studio_related_field_FOEk5 = fields.Char('Job Position',readonly=True,related='x_studio_current_job_position.employee_ids.job_id.display_name')
 
     @api.depends('x_studio_judge')
     def _compute_last_job_position(self):
@@ -97,7 +97,7 @@ class x_secondmentcustom(models.Model):
                        record["x_studio_last_judge_grade"]=record.x_studio_judge.x_studio_many2one_field_4aoaB.x_name
                     if record.x_studio_judge.work_location_id :
                        record["x_studio_last_work_location"]=record.x_studio_judge.work_location_id.display_name
-                       
+
                     record["x_change"]="done"
 
     @api.depends('x_studio_end_date','x_studio_start_date')
