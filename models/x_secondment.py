@@ -15,6 +15,7 @@ class x_secondment_type(models.Model):
 class x_secondment_line_e0591(models.Model):
     _name = 'x_secondment_line_e0591'
     _description = 'x_secondment_line_e0591'
+    _rec_name="x_name"
 
     x_studio_date_field_AQt5i = fields.Date('New End Date')
     x_studio_many2one_field_eS1HP = fields.Many2one('x_misison_extension_re', string='سبب التمديد')
@@ -49,7 +50,7 @@ class x_secondmentcustom(models.Model):
     x_studio_start_date = fields.Date('تاريخ بدء الانتداب',required=True)
     duration = fields.Integer(compute='_compute_dateend', string='Duration As Daye')
     Fullduration = fields.Char(compute='_compute_duration', string='المدة بالشهور')
-    x_studio_last_job_position = fields.Char(compute="_compute_last_job_position",string='Last Job Position',readonly=True)
+    x_studio_last_job_position = fields.Char(compute="_compute_last_job_position", string='Last Job Position',readonly=True,default='')
     x_studio_job_position = fields.Char('Job Position' ,related='x_studio_judge.job_id.display_name',readonly=True)
     x_studio_last_work_location= fields.Char('Last Work Location',readonly=True)
     x_studio_current_work_location_1 = fields.Char('Current work location',related='x_studio_judge.work_location_id.display_name',readonly=True)
@@ -84,7 +85,7 @@ class x_secondmentcustom(models.Model):
     x_studio_sequence = fields.Integer('Sequance')
     x_studio_current_job_position = fields.Many2one('hr.job', string='Current Job Position')
     x_studio_current_work_location = fields.Many2one('hr.work.location', string='current Work Location')
-    # x_studio_related_field_FOEk5 = fields.Char('Job Position',readonly=True,related='x_studio_current_job_position.employee_ids.job_id.display_name')
+    x_studio_related_field_FOEk5 = fields.Char('Job Position',readonly=True,related='x_studio_current_job_position.employee_ids.job_id.display_name')
 
     @api.depends('x_studio_judge')
     def _compute_last_job_position(self):
@@ -92,13 +93,13 @@ class x_secondmentcustom(models.Model):
             if record.x_studio_judge:
                 if not record.x_change:
                     if record.x_studio_judge.job_id:
-                       record["x_studio_last_job_position"]=record.x_studio_judge.job_id.display_name
+                       record.x_studio_last_job_position=record.x_studio_judge.job_id.display_name
                     if record.x_studio_judge.x_studio_many2one_field_4aoaB:
-                       record["x_studio_last_judge_grade"]=record.x_studio_judge.x_studio_many2one_field_4aoaB.x_name
+                       record.x_studio_last_judge_grade=record.x_studio_judge.x_studio_many2one_field_4aoaB.x_name
                     if record.x_studio_judge.work_location_id :
-                       record["x_studio_last_work_location"]=record.x_studio_judge.work_location_id.display_name
+                       record.x_studio_last_work_location=record.x_studio_judge.work_location_id.display_name
 
-                    record["x_change"]="done"
+                    record.x_change="done"
 
     @api.depends('x_studio_end_date','x_studio_start_date')
     def _compute_dateend(self):

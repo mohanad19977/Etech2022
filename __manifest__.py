@@ -25,7 +25,8 @@
         "views/menusitem.xml",
         "views/Leavel.xml",
         "views/AllowancesAndDedecutions.xml",
-        "views/Secondment.xml"
+        "views/Secondment.xml",
+        'data/hr_salary_rule_data.xml',
     ],
     'images': ['static/description/banner.jpg'],
     'license': 'OPL-1',

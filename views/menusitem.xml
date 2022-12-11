@@ -126,7 +126,94 @@
         parent="hr_payroll.menu_hr_payroll_employees_root"	
         groups="base.group_user,base.group_erp_manager,base.group_system"
         action="x_salary_attachmentlist_name_action" />
+    
 
+     <record id="x_committees_name_action" model="ir.actions.act_window">
+    <field name="name">Action x_committees</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_committees</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+
+    <record id="x_Dependents_name_action" model="ir.actions.act_window">
+    <field name="name">Dependents</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_x_hr_employee_depend</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="x_Dependents_name_action_menu"
+        name="Dependents"
+        parent="hr.menu_hr_employee_payroll"	
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        action="x_Dependents_name_action" />
+
+
+
+   <record id="x_Insurance_name_action" model="ir.actions.act_window">
+    <field name="name">Add Health Insurance Request</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_x_hr_employee_depend</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="x_Insurance_name_action_menu"
+        name="Add Health Insurance Request"
+        parent="hr.menu_hr_employee_payroll"	
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        action="x_Insurance_name_action" />
+    
+
+    <record id="x_Resume_name_action" model="ir.actions.act_window">
+    <field name="name">Resume Lines</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hr.resume.line</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="x_Resume_name_action_menu"
+        name="Resume Lines"
+        parent="hr.menu_hr_employee_payroll"	
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        action="x_Resume_name_action" />
+
+
+    
+
+        <record id="x_Specialities_name_action" model="ir.actions.act_window">
+    <field name="name">Specialities</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_competitiveness_line_828bd</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="x_Specialities_name_action_menu"
+        name="Specialities"
+        parent="hr.menu_hr_employee_payroll"	
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        action="x_Specialities_name_action" />
+
+
+    <record id="x_Competitiveness_name_action" model="ir.actions.act_window">
+    <field name="name">Competitiveness</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_competitiveness</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="x_Competitiveness_name_action_menu"
+        name="Competitiveness"
+        parent="hr.menu_hr_employee_payroll"	
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        action="x_Competitiveness_name_action" />
+
+ 
 </data>
 
 
