@@ -42,6 +42,7 @@ class x_x_hr_external_messio(models.Model):
 
 class x_mission_extension (models.Model):
     _name = 'x_mission_extension'
+    _rec_name="x_name"
 
     x_studio_extension_date = fields.Date('Extension Date')
     x_studio_new_end_date = fields.Date('New End Date')
@@ -121,10 +122,10 @@ class x_employeecustom(models.Model):
     
 
     x_studio_selection_field_5CEax = fields.Selection([
-        ('تم تقديم الطلب','initiated'),
-        ('بانتظار الموافقة','inprocess'),
-        ('تمت الموافقة','approved'),
-        ('مرفوض','rejected'),
+        ('initiated','تم تقديم الطلب'),
+        ('inprocess','بانتظار الموافقة'),
+        ('approved','تمت الموافقة'),
+        ('rejected','مرفوض'),
     ], string='Pipeline status bar')
 
     

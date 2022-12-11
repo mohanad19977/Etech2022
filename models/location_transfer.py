@@ -10,6 +10,7 @@ class x_location_transfer(models.Model):
 
     _name = 'x_location_transfer'
     _description = 'x_location_transfer'
+    _rec_name="x_name"
 
     x_studio_judge = fields.Many2one('hr.employee', string='اسم القاضي',required=True)
     x_studio_new_work_location = fields.Many2one('hr.work.location', string='جهة النقل',required=True)
@@ -20,11 +21,12 @@ class x_location_transfer(models.Model):
     x_studio_tdocno = fields.Char('TDOCNO')
     x_studio_transfer_date = fields.Date('تاريخ طلب النقل',required=True)
     x_studio_many2one_field_TdUQu = fields.Many2one('x_transfer_status', string='Transfer Status')
+
     x_studio_selection_field_GUisB = fields.Selection([
-        ('initiated', 'تم تقديم الطلب'),
-        ('inprocess', 'بانتظار الموافقة'),
-        ('approved', 'تمت الموافقة'),
-        ('Rejected', 'مرفوض'),
+        ('initiated','تم تقديم الطلب'),
+        ('inprocess','بانتظار الموافقة'),
+        ( 'approved','تمت الموافقة'),
+        ('Rejected','مرفوض'),
     ], string='Pipeline status bar')
 
     x_active = fields.Boolean('Active',default=True)

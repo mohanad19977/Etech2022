@@ -86,7 +86,7 @@ class DisciplinaryActionscustom(models.Model):
 
     x_studio_selection_field_ZGU2N = fields.Selection([
         ('initiated', 'تم تقديم الطلب'),
-        ('Inprocess', 'بانتظار الموافقة'),
+        ('inprocess', 'بانتظار الموافقة'),
         ('approved', 'تمت الموافقة'),
         ('rejected', 'مرفوض'),
     ], string='Pipeline status bar')

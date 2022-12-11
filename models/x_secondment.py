@@ -69,10 +69,10 @@ class x_secondmentcustom(models.Model):
     x_secondment_line_ids_31063 = fields.One2many('x_secondment_line_6ef9b', 'x_secondment_id', string='تمديدات الانتداب')
 
     x_studio_selection_field_elckG = fields.Selection([
-        ('تم تقديم الطلب', 'initiated'),
-        ('بانتظار الموافقة', 'inprocess'),
-        ('تمت الموافقة', 'approved'),
-        ('مرفوض', 'Rejected'),
+        ('initiated','تم تقديم الطلب'),
+        ('inprocess','بانتظار الموافقة'),
+        ('approved','تمت الموافقة'),
+        ('Rejected','مرفوض'),
     ], string='Pipeline status bar')
 
 
