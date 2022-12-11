@@ -50,3 +50,4 @@ class x_transfer_status(models.Model):
     _rec_name="x_name"
 
     x_name = fields.Char('Name')
+
