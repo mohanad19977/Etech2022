@@ -20,11 +20,12 @@ class x_location_transfer(models.Model):
     x_studio_tdocno = fields.Char('TDOCNO')
     x_studio_transfer_date = fields.Date('تاريخ طلب النقل',required=True)
     x_studio_many2one_field_TdUQu = fields.Many2one('x_transfer_status', string='Transfer Status')
+
     x_studio_selection_field_GUisB = fields.Selection([
-        ('initiated', 'تم تقديم الطلب'),
-        ('inprocess', 'بانتظار الموافقة'),
-        ('approved', 'تمت الموافقة'),
-        ('Rejected', 'مرفوض'),
+        ('تم تقديم الطلب', 'initiated'),
+        ('بانتظار الموافقة', 'inprocess'),
+        ('تمت الموافقة', 'approved'),
+        ('مرفوض', 'Rejected'),
     ], string='Pipeline status bar')
 
     x_active = fields.Boolean('Active',default=True)

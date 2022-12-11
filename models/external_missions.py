@@ -127,8 +127,6 @@ class x_employeecustom(models.Model):
         ('مرفوض','rejected'),
     ], string='Pipeline status bar')
 
-    
-
     @api.depends('x_studio_judge_name')
     def _compute_x_studio_last_work_location(self):
         for record in self:  
