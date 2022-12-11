@@ -88,12 +88,15 @@ class x_competitiveness_line_828bd(models.Model):
     x_competitiveness_id = fields.Many2one('x_competitiveness', string='Competitiveness')
     x_studio_id = fields.Char('ID')
     x_studio_many2one_field_emvoa = fields.Many2one('hr.employee', string='Employee')
+
     x_studio_priority = fields.Selection([
-        ('Normal', '0'),
-        ('Low', '1'),
-        ('High', '2'),
-        ('Very High', '3'),
+        ('0', 'Normal'),
+        ('1', 'Low'),
+        ('2', 'High'),
+        ('3', 'Very High'),
     ], string='Skillset Level')
+
+
 
     x_studio_sequence = fields.Integer('Sequence')
 
@@ -160,7 +163,7 @@ class x_x_hr_employee_depend(models.Model): #from mahmoud code
     x_studio_contno = fields.Char('CONTNO')
     x_studio_date = fields.Date('Date')
     x_studio_edit_attachment = fields.Boolean('Edit Attachment')
-    x_studio_email = fields.Char('Email')
+    x_studio_email = fields.Char('Email') #CheckSelection
     x_studio_gender = fields.Selection([
         ('ذكر', 'Male'),
         ('أنثى', 'Female'),
@@ -182,10 +185,10 @@ class x_x_hr_employee_depend(models.Model): #from mahmoud code
     ], string='Relation')
 
     x_studio_selection_field_reAR9 = fields.Selection([
-        ('not submitted', 'NS'),
-        ('Submitted', 'S'),
-        ('Approved', 'APV'),
-        ('Rejected', 'Rejected'),
+        ('NS','not submitted'),
+        ( 'S','Submitted'),
+        ('APV','Approved'),
+        ('Rejected','Rejected'),
     ], string='Pipeline status bar')
 
     x_studio_sequence = fields.Integer('Sequence')

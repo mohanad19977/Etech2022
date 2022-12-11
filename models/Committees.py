@@ -29,6 +29,7 @@ class x_funding_party(models.Model):
 class x_committees(models.Model):
     _name = 'x_committees'
     _description = 'X Committees'
+    _rec_name="x_name"
 
     x_studio_many2one_field_UrDkk = fields.Many2one('x_committe_type', string='Committe Type',required=True)
     x_studio_commencement_date = fields.Date('تاريخ تشكيل اللجنة أو الهيئة',required=True)
@@ -60,7 +61,8 @@ class x_committees(models.Model):
 
 class x_committees_line_1678dtcustom(models.Model):
     _name = 'x_committees_line_1678d'
-    
+    _rec_name="x_name"
+
 
     x_committees_id = fields.Integer('x_committees_id')
     x_studio_judge =fields.Many2one('hr.employee', string='Judge' ,domain="[('x_studio_employee_status','=','على رأس عمله')]")

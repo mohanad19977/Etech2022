@@ -15,6 +15,7 @@ class x_secondment_type(models.Model):
 class x_secondment_line_e0591(models.Model):
     _name = 'x_secondment_line_e0591'
     _description = 'x_secondment_line_e0591'
+    _rec_name="x_name"
 
     x_studio_date_field_AQt5i = fields.Date('New End Date')
     x_studio_many2one_field_eS1HP = fields.Many2one('x_misison_extension_re', string='سبب التمديد')
@@ -68,10 +69,10 @@ class x_secondmentcustom(models.Model):
     x_secondment_line_ids_31063 = fields.One2many('x_secondment_line_6ef9b', 'x_secondment_id', string='تمديدات الانتداب')
 
     x_studio_selection_field_elckG = fields.Selection([
-        ('تم تقديم الطلب', 'initiated'),
-        ('بانتظار الموافقة', 'inprocess'),
-        ('تمت الموافقة', 'approved'),
-        ('مرفوض', 'Rejected'),
+        ('initiated','تم تقديم الطلب'),
+        ('inprocess','بانتظار الموافقة'),
+        ('approved','تمت الموافقة'),
+        ('Rejected','مرفوض'),
     ], string='Pipeline status bar')
 
 

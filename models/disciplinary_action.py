@@ -85,10 +85,10 @@ class DisciplinaryActionscustom(models.Model):
     x_studio_sequence = fields.Integer('Sequance')
 
     x_studio_selection_field_ZGU2N = fields.Selection([
-        ('تم تقديم الطلب','initiated'),
-        ('بانتظار الموافقة','inprocess'),
-        ('تمت الموافقة','approved'),
-        ('مرفوض','rejected'),
+        ('initiated', 'تم تقديم الطلب'),
+        ('inprocess', 'بانتظار الموافقة'),
+        ('approved', 'تمت الموافقة'),
+        ('rejected', 'مرفوض'),
     ], string='Pipeline status bar')
 
     x_studio_reporting_attachment_filename = fields.Char('Filename for x_studio_binary_field_qp5He')
