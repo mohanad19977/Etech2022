@@ -27,14 +27,14 @@ class TrainingSchedule(models.Model):
    x_studio_many2one_field_15I43 = fields.Many2one('res.country', string='الدولة')
    x_studio_many2one_field_2djPD = fields.Many2one('x_funding_party', string='Funding Source')
    x_studio_many2one_field_bpnkP = fields.Many2one('x_funding_party', string='funding Party')
-   x_studio_many2one_field_nQumW = fields.Many2one('x_specialty', string='Specialty')
+  #  x_studio_many2one_field_nQumW = fields.Many2one('x_specialty', string='Specialty')
    x_studio_many2one_field_SRn9u = fields.Many2one('x_institue', string='Institute')
    x_studio_start_date = fields.Date(' Start Date')
    x_studio_sequence = fields.Integer('Sequence')
    x_studio_scholrship_date = fields.Date(' Scholrship Date')
    x_studio_scholarship_code = fields.Char(' Scholarship Code')
-   x_studio_many2one_field_q6fvv = fields.Many2one( 'x_participationtype', string='Participation Type')
-   x_studio_many2one_field_qACdR = fields.Many2one('x_specialty', string='Specialty')
+  #  x_studio_many2one_field_q6fvv = fields.Many2one( 'x_participationtype', string='Participation Type')
+  #  x_studio_many2one_field_qACdR = fields.Many2one('x_specialty', string='Specialty')
    x_studio_many2one_field_kqyV7 = fields.Many2one('res.country', string='Country')
    date_end = fields.Date(compute='_compute_dateend', string='End Date')
     
@@ -73,17 +73,38 @@ class X_Scholarship_Line_29636(models.Model):
     x_studio_authorization = fields.Boolean('Authorization')
     x_studio_job_position = fields.Char('Job Position',readonly=True)
     x_studio_last_report_date = fields.Date('Last Report Date')
-    # x_studio_many2one_field_1Cl23 = fields.Many2one('x_thieses', string='Thesis')
-    # x_studio_many2one_field_1Pi7x = fields.Many2one('x_institue', string='Institute')
-    # x_studio_many2one_field_9E6gH = fields.Many2one('x_judge_status', string='judge status')
+    x_studio_many2one_field_1Cl23 = fields.Many2one('x_thieses', string='Thesis')
+    x_studio_many2one_field_1Pi7x = fields.Many2one('x_institue', string='Institute')
+    x_studio_many2one_field_9E6gH = fields.Many2one('x_judge_status', string='judge status')
     x_studio_resumption_date = fields.Date('Resumption Date')
     x_studio_sequence = fields.Integer('Sequence')
     x_studio_work_location = fields.Char('work location')
 
 
+class x_thiesesmodel(models.Model):
+    _name = 'x_thieses'
+    _description = 'thieses'
+    _rec_name="x_name"
+    
+
+    x_name = fields.Char('Name')
 
 
+class x_instituemodel(models.Model):
+    _name = 'x_institue'
+    _description = 'institue'
+    _rec_name="x_name"
+    
 
+    x_name = fields.Char('Name')
+
+class x_judgemodel(models.Model):
+    _name = 'x_judge_status'
+    _description = 'judge status'
+    _rec_name="x_name"
+    
+
+    x_name = fields.Char('Name')    
 
 
 
