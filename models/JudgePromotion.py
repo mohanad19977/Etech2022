@@ -9,7 +9,8 @@ class XJudgepromotionLineAc79D(models.Model):
     _name = 'x_judgepromotion_line_ac79d'
     _description = 'X Judgepromotion Line Ac79D'
     _rec_name="x_name"
-   
+    
+    x_judgepromotion_id_id = fields.Many2one('x_judgepromotion', string='Judgepromotion')
     x_name = fields.Char('x_name')
     x_studio_many2one_field_gXLon = fields.Many2one('hr.employee', string='Judge',required=True)
     x_studio_old_job_position= fields.Char('Old Job Position',readonly=True ,related='x_studio_many2one_field_gXLon.job_id.display_name')   
@@ -32,7 +33,7 @@ class JudgePromotion(models.Model):
     x_studio_promotions_letter_no = fields.Char('Promotions Letter No.')
     x_studio_effective_date = fields.Date('effective Date')
     x_studio_reference = fields.Char('Reference') 
-    # x_judgepromotion_line_ids_c0b72 = fields.One2many('x_judgepromotion_line_ac79d', 'x_judgepromotion_id', string='Judges List')
-    x_active = fields.Boolean('Active')
-    
+    x_judgepromotion_line_ids_c0b72 = fields.One2many('x_judgepromotion_line_ac79d', 'x_judgepromotion_id', string='Judges List')
+    x_active = fields.Boolean('Active',default=True)
+    x_studio_sequence = fields.Integer('Sequence')
     

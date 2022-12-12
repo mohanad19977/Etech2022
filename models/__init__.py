@@ -15,5 +15,5 @@ from . import x_secondment
 from . import AllowancesAndDedecutions
 from . import JudgePromotion
 from . import TrainingAbsenceReq
-from . import TrainingSchedule
+from . import Scholarship
 from . import Departments

@@ -5,7 +5,7 @@ from datetime import date,datetime
 from dateutil.relativedelta import relativedelta
 import re
 
-class TrainingSchedule(models.Model):
+class scholarship(models.Model):
    _name = 'x_scholarship'
    _description = 'x_scholarship'
    _rec_name="x_name"
@@ -27,14 +27,14 @@ class TrainingSchedule(models.Model):
    x_studio_many2one_field_15I43 = fields.Many2one('res.country', string='الدولة')
    x_studio_many2one_field_2djPD = fields.Many2one('x_funding_party', string='Funding Source')
    x_studio_many2one_field_bpnkP = fields.Many2one('x_funding_party', string='funding Party')
-  #  x_studio_many2one_field_nQumW = fields.Many2one('x_specialty', string='Specialty')
+   x_studio_many2one_field_nQumW = fields.Many2one('x_specialty', string='Specialty')
    x_studio_many2one_field_SRn9u = fields.Many2one('x_institue', string='Institute')
    x_studio_start_date = fields.Date(' Start Date')
    x_studio_sequence = fields.Integer('Sequence')
    x_studio_scholrship_date = fields.Date(' Scholrship Date')
    x_studio_scholarship_code = fields.Char(' Scholarship Code')
-  #  x_studio_many2one_field_q6fvv = fields.Many2one( 'x_participationtype', string='Participation Type')
-  #  x_studio_many2one_field_qACdR = fields.Many2one('x_specialty', string='Specialty')
+   x_studio_many2one_field_q6fvv = fields.Many2one( 'x_participationtype', string='Participation Type')
+   x_studio_many2one_field_qACdR = fields.Many2one('x_specialty', string='Specialty')
    x_studio_many2one_field_kqyV7 = fields.Many2one('res.country', string='Country')
    date_end = fields.Date(compute='_compute_dateend', string='End Date')
     
@@ -80,6 +80,25 @@ class X_Scholarship_Line_29636(models.Model):
     x_studio_sequence = fields.Integer('Sequence')
     x_studio_work_location = fields.Char('work location')
 
+
+
+class participationtype(models.Model):
+    _name = 'x_participationtype'
+    _description = 'participationtype'
+    _rec_name="x_name"
+    
+
+    x_name = fields.Char('Name')
+
+
+
+class specialty(models.Model):
+    _name = 'x_specialty'
+    _description = 'specialty'
+    _rec_name="x_name"
+    
+
+    x_name = fields.Char('Name')
 
 class x_thiesesmodel(models.Model):
     _name = 'x_thieses'
