@@ -213,6 +213,29 @@
         groups="base.group_user,base.group_erp_manager,base.group_system"
         action="x_Competitiveness_name_action" />
 
+        
+    <!-- <menuitem
+        id="TrainingManagement_menu"
+        name="Training Management"
+        parent="hr.menu_hr_root"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        sequence="11"/>
+
+
+    <record id="x_TrainingSchedule_action" model="ir.actions.act_window">
+        <field name="name">Action TrainingSchedule</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">x_trainingunit</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="TrainingSchedule_menu"
+        name="Training Schedule"
+        parent="etech.TrainingManagement_menu"
+        action="x_TrainingSchedule_action"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        sequence="1"/> -->
  
 </data>
 

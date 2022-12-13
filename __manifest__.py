@@ -26,6 +26,7 @@
         "views/Leavel.xml",
         "views/AllowancesAndDedecutions.xml",
         "views/Secondment.xml",
+        #"views/Trainingunit.xml",
         'data/hr_salary_rule_data.xml',
     ],
     'images': ['static/description/banner.jpg'],

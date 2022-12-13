@@ -1,0 +1,1389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="default_form_view_fo_4c6f43f8-424a-47df-8edf-9a2de0feaecb" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit</field>
+        <field name="model">x_trainingunit</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="TrainingUnit">
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                    <field name="x_active" invisible="1"/>
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_9dcf8c">
+                    <group name="studio_group_9dcf8c_left"/>
+                    <group name="studio_group_9dcf8c_right"/>
+                    </group>
+                </sheet>
+                <!-- <div class="oe_chatter" name="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                    <field name="activity_ids"/>
+                </div> -->
+            </form>
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__b065ec49-3c31-4a1f-adf8-b39bac7735d9" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default form view for x_trainingunit customization</field>
+        <field name="model">x_trainingunit</field>
+        <field name="inherit_id" ref="default_form_view_fo_4c6f43f8-424a-47df-8edf-9a2de0feaecb"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//group[@name='studio_group_9dcf8c']" position="replace">
+                    <group name="studio_group_u2pEJ">
+                    <group name="studio_group_u2pEJ_left">
+                        <field name="x_studio_cource_code" string="Cource Code"/>
+                    </group>
+                    <group name="studio_group_u2pEJ_right">
+                        <field name="x_studio_many2one_field_HZhMd"/>
+                    </group>
+                    </group>
+                    <group name="studio_group_Jaw1Z">
+                    <group name="studio_group_Jaw1Z_left">
+                        <field name="x_studio_attendance_type" string="Attendance Type"/>
+                    </group>
+                    <group name="studio_group_Jaw1Z_right">
+                        <field name="x_studio_serial_no" string="Serial No."/>
+                    </group>
+                    </group>
+                    <group name="studio_group_jaR9o">
+                    <group name="studio_group_jaR9o_left">
+                        <field name="x_studio_many2one_field_WMiv9"/>
+                    </group>
+                    <group name="studio_group_jaR9o_right">
+                        <field name="x_studio_many2one_field_oE4gS"/>
+                    </group>
+                    </group>
+                    <group name="studio_group_Ao50C">
+                    <group name="studio_group_Ao50C_left">
+                        <field name="x_studio_start_date" string="Start Date"/>
+                    </group>
+                    <group name="studio_group_Ao50C_right">
+                        <field name="x_studio_end_date" string="End Date"/>
+                    </group>
+                    </group>
+                    <group name="studio_group_6fsVL">
+                    <group name="studio_group_6fsVL_left">
+                        <field name="x_studio_many2one_field_zF8r1"/>
+                    </group>
+                    <group name="studio_group_6fsVL_right">
+                        <field name="x_studio_many2one_field_wh3Nr"/>
+                    </group>
+                    </group>
+                    <group name="studio_group_6e0OO">
+                    <group name="studio_group_6e0OO_left">
+                        <field name="x_studio_many2one_field_jCZUC"/>
+                    </group>
+                    <group name="studio_group_6e0OO_right">
+                        <field name="x_studio_commitment_" string="Commitment ?"/>
+                    </group>
+                    </group>
+                    <group name="studio_group_UBumn">
+                    <group name="studio_group_UBumn_left">
+                        <field name="x_studio_financial_effect_" string="Financial Effect ?"/>
+                    </group>
+                    <group name="studio_group_UBumn_right">
+                        <field name="x_studio_allow_expenses" string="Allow Expenses?"/>
+                    </group>
+                    </group>
+                    <notebook name="studio_notebook_WKkEp">
+                    <page string="Training Team" name="studio_page_WKkEp">
+                        <group name="studio_group_WKkEp">
+                        <group name="studio_group_WKkEp_left">
+                            <field name="x_studio_many2one_field_w8UM9"/>
+                            <field name="x_studio_many2one_field_WKgRp"/>
+                        </group>
+                        <group name="studio_group_WKkEp_right">
+                            <field name="x_studio_many2one_field_CENRk"/>
+                        </group>
+                        </group>
+                    </page>
+                    <page string="Assigned Judges" name="studio_page_JbIi5">
+                        <group name="studio_group_JbIi5">
+                        <field name="x_trainingunit_line_ids_a1c3f" string="Judges">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_judge" string="Judge"/>
+                            <field optional="show" name="x_studio_work_location" string="Work location"/>
+                            <field optional="show" name="x_studio_position" string="Position"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name"/>
+                            </tree>
+                        </field>
+                        <field name="x_studio_one_from_every_position" string="One from every Position"/>
+                        </group>
+                    </page>
+                    <page string="Pre-Requesites" name="studio_page_wY2rZ">
+                        <group name="studio_group_wY2rZ">
+                        <field name="x_trainingunit_line_ids_2d387">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_many2one_field_qUY9l"/>
+                            <field optional="show" name="x_studio_many2one_field_ZPooD"/>
+                            <field optional="show" name="x_studio_min" string="Min."/>
+                            <field optional="show" name="x_studio_max" string="Max."/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" attrs="{}" invisible="1"/>
+                            </tree>
+                        </field>
+                        <field name="x_studio_max_trainees" string="Max Trainees"/>
+                        <field name="x_studio_min_trainees" string="Min. Trainees"/>
+                        </group>
+                    </page>
+                    <page string="Schedule" name="studio_page_9PTgt">
+                        <group name="studio_group_9PTgt">
+                        <field name="x_trainingunit_line_ids_1dfad">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_day" string="Day"/>
+                            <field optional="show" name="x_studio_from_hour" string="From Hour"/>
+                            <field optional="show" name="x_studio_from_min" string="From Min"/>
+                            <field optional="show" name="x_studio_to_hour" string="To Hour"/>
+                            <field optional="show" name="x_studio_to_min" string="To Min"/>
+                            <field name="display_name" optional="show" attrs="{}"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" optional="hide"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </page>
+                    <page string="Course Objectives" name="studio_page_oHWeN">
+                        <group name="studio_group_oHWeN">
+                        <field name="x_studio_text_field_MBcAQ"/>
+                        </group>
+                    </page>
+                    </notebook>
+                </xpath>
+                <xpath expr="//form[1]/header[1]" position="inside">
+                    <field widget="statusbar" options="{'clickable': '1'}" name="x_studio_selection_field_7Am97"/>
+                </xpath>
+                <xpath expr="//form[1]/sheet[1]/div[1]/h1[1]/field[@name='x_name']" position="attributes">
+                    <attribute name="placeholder">Training Course Name</attribute>
+                    <attribute name="string">Training Course Name</attribute>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_b447fcb2-9243-4220-a5df-73b2caadbeb1" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_177ae</field>
+        <field name="model">x_trainingunit_line_177ae</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_00f64f">
+                    <group name="studio_group_00f64f_left"/>
+                    <group name="studio_group_00f64f_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_525fa009-f526-4ae9-baea-9f8fe39dbc8c" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_177ae</field>
+        <field name="model">x_trainingunit_line_177ae</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_daf300">
+                    <group name="studio_group_daf300_left"/>
+                    <group name="studio_group_daf300_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_beb52762-9e3a-4c5e-be90-a75f35c1071c" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_20a0f</field>
+        <field name="model">x_trainingunit_line_20a0f</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_83cd10">
+                    <group name="studio_group_83cd10_left"/>
+                    <group name="studio_group_83cd10_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_728404da-f905-4504-af25-fd17cc6a96c1" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_20a0f</field>
+        <field name="model">x_trainingunit_line_20a0f</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_7d8e42">
+                    <group name="studio_group_7d8e42_left"/>
+                    <group name="studio_group_7d8e42_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_02ae7d7f-e61d-46c5-b9b0-abb709e1f56f" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_213b8</field>
+        <field name="model">x_trainingunit_line_213b8</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_0da00c">
+                    <group name="studio_group_0da00c_left"/>
+                    <group name="studio_group_0da00c_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_b55ed084-6c65-4d6d-9252-df2eac4ecf27" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_213b8</field>
+        <field name="model">x_trainingunit_line_213b8</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_89b2db">
+                    <group name="studio_group_89b2db_left"/>
+                    <group name="studio_group_89b2db_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_2f72a6f0-b4b9-4202-bce1-96f51904fb84" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_6efa9</field>
+        <field name="model">x_trainingunit_line_6efa9</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_0b2a80">
+                    <group name="studio_group_0b2a80_left"/>
+                    <group name="studio_group_0b2a80_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_481edbb7-2afd-4351-b220-a4d77f1cdca5" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_6efa9</field>
+        <field name="model">x_trainingunit_line_6efa9</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_e10d0e">
+                    <group name="studio_group_e10d0e_left"/>
+                    <group name="studio_group_e10d0e_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_73d32725-06d1-4702-9585-ac94008a9c02" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_6fae4</field>
+        <field name="model">x_trainingunit_line_6fae4</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_d0afa9">
+                    <group name="studio_group_d0afa9_left"/>
+                    <group name="studio_group_d0afa9_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_096259a4-7f99-4fdf-a296-96d5afe2fc25" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_6fae4</field>
+        <field name="model">x_trainingunit_line_6fae4</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_08b2b2">
+                    <group name="studio_group_08b2b2_left"/>
+                    <group name="studio_group_08b2b2_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_a966f40c-063e-4277-9b90-cac67d154311" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_727c3</field>
+        <field name="model">x_trainingunit_line_727c3</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_ec1a43">
+                    <group name="studio_group_ec1a43_left"/>
+                    <group name="studio_group_ec1a43_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_4e6b0610-3478-4c77-90e8-724c323304bb" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_727c3</field>
+        <field name="model">x_trainingunit_line_727c3</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_b1193c">
+                    <group name="studio_group_b1193c_left"/>
+                    <group name="studio_group_b1193c_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_b0fc7611-f1aa-4467-8df7-f47bf5ff9226" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_73a61</field>
+        <field name="model">x_trainingunit_line_73a61</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_5d9248">
+                    <group name="studio_group_5d9248_left"/>
+                    <group name="studio_group_5d9248_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_d4aca0d4-d656-4806-aee2-f2e52f506833" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_73a61</field>
+        <field name="model">x_trainingunit_line_73a61</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_363b9d">
+                    <group name="studio_group_363b9d_left"/>
+                    <group name="studio_group_363b9d_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_5e753eaf-b798-473e-bb30-9d3a990d6bff" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_a275d</field>
+        <field name="model">x_trainingunit_line_a275d</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_531f0d">
+                    <group name="studio_group_531f0d_left"/>
+                    <group name="studio_group_531f0d_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_3b0050a0-b8b8-43c6-8c5f-135a7e538463" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_a275d</field>
+        <field name="model">x_trainingunit_line_a275d</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_6a8081">
+                    <group name="studio_group_6a8081_left"/>
+                    <group name="studio_group_6a8081_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_a0a3eb51-f6ba-4259-81c2-9b72b724ac35" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_b2000</field>
+        <field name="model">x_trainingunit_line_b2000</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_feb7c3">
+                    <group name="studio_group_feb7c3_left"/>
+                    <group name="studio_group_feb7c3_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_49326c23-8082-4a87-8d21-a0c58c44fa51" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_b2000</field>
+        <field name="model">x_trainingunit_line_b2000</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_afb66d">
+                    <group name="studio_group_afb66d_left"/>
+                    <group name="studio_group_afb66d_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_f18f3cae-4a36-4c54-9986-3884679bb063" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_bff8a</field>
+        <field name="model">x_trainingunit_line_bff8a</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_308cfe">
+                    <group name="studio_group_308cfe_left"/>
+                    <group name="studio_group_308cfe_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_f18f3cae-4a36-4c54-9986-3884679bb063" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_bff8a</field>
+        <field name="model">x_trainingunit_line_bff8a</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_308cfe">
+                    <group name="studio_group_308cfe_left"/>
+                    <group name="studio_group_308cfe_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_df9b98b2-4687-46df-b5d1-e64a63f1ba7c" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_bff8a</field>
+        <field name="model">x_trainingunit_line_bff8a</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_b4101b">
+                    <group name="studio_group_b4101b_left"/>
+                    <group name="studio_group_b4101b_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_ddbdccd1-6ead-4fc6-ac27-63e7ff91279c" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_c713c</field>
+        <field name="model">x_trainingunit_line_c713c</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_2f32a5">
+                    <group name="studio_group_2f32a5_left"/>
+                    <group name="studio_group_2f32a5_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_0974ec32-6018-484b-b36e-80c3cdf2f84d" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_c713c</field>
+        <field name="model">x_trainingunit_line_c713c</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_e568bd">
+                    <group name="studio_group_e568bd_left"/>
+                    <group name="studio_group_e568bd_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_6ad6d059-9f07-41fd-b6f2-e6a5e3426c2b" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_c7f73</field>
+        <field name="model">x_trainingunit_line_c7f73</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_92a55f">
+                    <group name="studio_group_92a55f_left"/>
+                    <group name="studio_group_92a55f_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_b6acdbd5-3804-4ad8-a6c1-d22f31a52a4e" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_c7f73</field>
+        <field name="model">x_trainingunit_line_c7f73</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_23abea">
+                    <group name="studio_group_23abea_left"/>
+                    <group name="studio_group_23abea_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_74608a48-ecb9-48f7-88a9-d0a53e37fbd2" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_e020b</field>
+        <field name="model">x_trainingunit_line_e020b</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_7afda0">
+                    <group name="studio_group_7afda0_left"/>
+                    <group name="studio_group_7afda0_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_3c74be9e-0e4e-4f60-acc9-8e91cf26c21e" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_e020b</field>
+        <field name="model">x_trainingunit_line_e020b</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_a85ce6">
+                    <group name="studio_group_a85ce6_left"/>
+                    <group name="studio_group_a85ce6_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_40bcd884-0cb9-4aad-b6ea-951d3647def9" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_e8e88</field>
+        <field name="model">x_trainingunit_line_e8e88</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_f2850d">
+                    <group name="studio_group_f2850d_left"/>
+                    <group name="studio_group_f2850d_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_e6a2724d-9eec-4b75-8421-89e965e7983e" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_e8e88</field>
+        <field name="model">x_trainingunit_line_e8e88</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_5a5c6b">
+                    <group name="studio_group_5a5c6b_left"/>
+                    <group name="studio_group_5a5c6b_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_a2e8bc30-bebd-4bd9-8394-3d47f9d9d389" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_efd36</field>
+        <field name="model">x_trainingunit_line_efd36</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_d32cd8">
+                    <group name="studio_group_d32cd8_left"/>
+                    <group name="studio_group_d32cd8_right"/>
+                    </group>
+                </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_b8c3f37a-66a6-4cd0-81cb-275aa8011619" model="ir.ui.view">
+        <field name="name">Default form view for x_trainingunit_line_efd36</field>
+        <field name="model">x_trainingunit_line_efd36</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Trainingunit  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_e67c8c">
+                    <group name="studio_group_e67c8c_left"/>
+                    <group name="studio_group_e67c8c_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+
+    <record id="default_list_view_fo_c5192dbc-6ed6-4ddb-ad7d-45c5e7367b05" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit</field>
+        <field name="model">x_trainingunit</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__927c03ca-0951-4609-a014-aaa2de1e3a0a" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default list view for x_trainingunit customization</field>
+        <field name="model">x_trainingunit</field>
+        <field name="inherit_id" ref="default_list_view_fo_c5192dbc-6ed6-4ddb-ad7d-45c5e7367b05"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='x_studio_sequence']" position="before">
+                    <field name="x_studio_cource_code" optional="show"/>
+                    <field name="x_studio_many2one_field_HZhMd" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='x_name']" position="after">
+                    <field name="x_studio_many2one_field_zF8r1" optional="show"/>
+                    <field name="x_studio_many2one_field_WMiv9" optional="show"/>
+                    <field name="x_studio_many2one_field_oE4gS" optional="show"/>
+                    <field name="x_studio_start_date" optional="show"/>
+                    <field name="x_studio_end_date" optional="show"/>
+                </xpath>
+            </data>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_c094181c-a957-416f-9204-ba6155284087" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_177ae</field>
+        <field name="model">x_trainingunit_line_177ae</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_2602bc75-30d3-4834-adce-4dedf7c1ae6c" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_177ae</field>
+        <field name="model">x_trainingunit_line_177ae</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_a5576b16-07c3-4d58-9e50-a7155a28b17e" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_20a0f</field>
+        <field name="model">x_trainingunit_line_20a0f</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_f02f5272-c741-41a9-bb43-bd2a7a5749fc" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_20a0f</field>
+        <field name="model">x_trainingunit_line_20a0f</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_f30e6dad-9cd7-479a-ae22-e2a332eb5b32" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_213b8</field>
+        <field name="model">x_trainingunit_line_213b8</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_2f2e6e3d-e1bc-4f06-b0ea-f6cc6c4a6739" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_213b8</field>
+        <field name="model">x_trainingunit_line_213b8</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_d4bb104e-1c8e-4a7f-a644-de87f65133c3" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_6efa9</field>
+        <field name="model">x_trainingunit_line_6efa9</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_baae46f2-0822-41e1-b7fe-2b7b204ffffe" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_6efa9</field>
+        <field name="model">x_trainingunit_line_6efa9</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_822cc5ae-0f69-4419-a917-84c86d6a3606" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_6fae4</field>
+        <field name="model">x_trainingunit_line_6fae4</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_d68278f0-5132-4be7-83c5-53c7f1a8d185" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_6fae4</field>
+        <field name="model">x_trainingunit_line_6fae4</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_eb607427-4ae5-4550-a25a-aa2da917ec83" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_727c3</field>
+        <field name="model">x_trainingunit_line_727c3</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_3bf8524b-a6b4-45c9-8081-45595001c2a6" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_727c3</field>
+        <field name="model">x_trainingunit_line_727c3</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_f0b26c69-c18d-4ea3-bee4-f0ca76904fe4" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_73a61</field>
+        <field name="model">x_trainingunit_line_73a61</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_250c0662-219c-4926-8752-f80a66f0ae57" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_73a61</field>
+        <field name="model">x_trainingunit_line_73a61</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_1c7c5ab3-ac16-4729-a4dc-9a9c67e3eb42" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_a275d</field>
+        <field name="model">x_trainingunit_line_a275d</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_39666892-792d-4ff3-af34-f4ee2d42fd06" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_a275d</field>
+        <field name="model">x_trainingunit_line_a275d</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_710c17d8-f5a7-4e0c-bf1b-0ce2ecbeb61f" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_b2000</field>
+        <field name="model">x_trainingunit_line_b2000</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_5d9259ef-e6ae-4287-a366-19d802e0996e" model="ir.ui.view">
+        <field name="name">model_name.view.tree</field>
+        <field name="model">x_trainingunit_line_b2000</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_6609033d-0d3c-4155-bb7d-177527f7308e" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_bff8a</field>
+        <field name="model">x_trainingunit_line_bff8a</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_ee30cdc3-9956-45ac-a94c-e8302fbd50df" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_bff8a</field>
+        <field name="model">x_trainingunit_line_bff8a</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_eda6c551-e9b1-4a6b-b6d8-68d7c5f20f12" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_c713c</field>
+        <field name="model">x_trainingunit_line_c713c</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_547c1be5-cfcb-4e9a-9c7b-9d56feef8fcb" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_c713c</field>
+        <field name="model">x_trainingunit_line_c713c</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_b7950609-f27d-4614-a761-9c392e3cf199" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_c7f73</field>
+        <field name="model">x_trainingunit_line_c7f73</field>
+        <field name="arch" type="xml">
+           <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_fea0f115-59f0-47aa-9557-eb9120845456" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_c7f73</field>
+        <field name="model">x_trainingunit_line_c7f73</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_4647cb2d-10b0-406c-834e-889d82109894" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_e020b</field>
+        <field name="model">x_trainingunit_line_e020b</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_2a251fd6-d36d-470a-8f2d-c470d84190a8" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_e020b</field>
+        <field name="model">x_trainingunit_line_e020b</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_f6456f1f-abb5-430e-b046-72cd128a9659" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_e8e88</field>
+        <field name="model">x_trainingunit_line_e8e88</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_6ebb3682-26ba-4079-9c46-ddaf37f790f4" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_e8e88</field>
+        <field name="model">x_trainingunit_line_e8e88</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_16d885f0-d862-477f-aeff-c0cd54c71640" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_efd36</field>
+        <field name="model">x_trainingunit_line_efd36</field>
+        <field name="arch" type="xml">
+           <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_8369330c-fc8e-4013-b0ec-9738ac7593d6" model="ir.ui.view">
+        <field name="name">Default list view for x_trainingunit_line_efd36</field>
+        <field name="model">x_trainingunit_line_efd36</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_search_view__71f576de-18dd-45f4-89df-0912b30cc80c" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit</field>
+        <field name="model">x_trainingunit</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+                <separator/>
+                <filter string="Archived" name="archived_x_trainingunit" domain="[['x_active', '=', False]]"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__477032f3-4320-41a3-a3b4-e094c3a1bea9" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_177ae</field>
+        <field name="model">x_trainingunit_line_177ae</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__4ea1bd39-c02c-4ea9-8e52-fd0061a12986" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_177ae</field>
+        <field name="model">x_trainingunit_line_177ae</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__ce00253e-d12e-42c2-a3ff-76276f13bb47" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_20a0f</field>
+        <field name="model">x_trainingunit_line_20a0f</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__fdb25148-6768-4d97-9927-339d088922dd" model="ir.ui.view">
+        <field name="name">	Default search view for x_trainingunit_line_20a0f</field>
+        <field name="model">x_trainingunit_line_20a0f</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__fd821b5d-e11e-4977-b14a-ca93ba9cb164" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_213b8</field>
+        <field name="model">x_trainingunit_line_213b8</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__0925021d-11ad-4144-88f3-89d9a6e20f24" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_213b8</field>
+        <field name="model">x_trainingunit_line_213b8</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__26a72252-8ef8-4515-851c-7e0d67a10433" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_6efa9</field>
+        <field name="model">x_trainingunit_line_6efa9</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+
+        </field>
+    </record>
+
+
+    <record id="default_search_view__893a63de-a720-45ed-ac5c-c0bae18507dd" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_6efa9</field>
+        <field name="model">x_trainingunit_line_6efa9</field>
+        <field name="arch" type="xml">
+            <search>
+            <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__77349774-e388-4858-977b-53f1875713a0" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_6fae4</field>
+        <field name="model">x_trainingunit_line_6fae4</field>
+        <field name="arch" type="xml">
+            <search string="">
+                  <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__7e840acf-938e-46b8-8a90-7d77d65432f5" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_6fae4</field>
+        <field name="model">x_trainingunit_line_6fae4</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__fe755c46-845c-4d08-9f37-fe3124aac15b" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_727c3</field>
+        <field name="model">x_trainingunit_line_727c3</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__7e1897c8-fa3a-418f-8dbe-f19bb7a38c2b" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_727c3</field>
+        <field name="model">x_trainingunit_line_727c3</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+
+        </field>
+    </record>
+
+    <record id="default_search_view__4970e5d6-b248-48fd-9f9a-8f206a35f802" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_73a61</field>
+        <field name="model">x_trainingunit_line_73a61</field>
+        <field name="arch" type="xml">
+            <search string="">
+                  <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__d30aca12-4769-4d0f-af10-6eb081c3f9e0" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_73a61</field>
+        <field name="model">x_trainingunit_line_73a61</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__83807c95-b115-40a7-b346-55e20392d115" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_a275d</field>
+        <field name="model">x_trainingunit_line_a275d</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__603a3444-cd06-4930-8564-e90b54bf302b" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_a275d</field>
+        <field name="model">x_trainingunit_line_a275d</field>
+        <field name="arch" type="xml">
+            <search>
+            <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__104cea11-f8f3-4b8c-b0dc-8b329ae92728" model="ir.ui.view">
+        <field name="name">Default search view for x_trainingunit_line_b2000</field>
+        <field name="model">x_trainingunit_line_b2000</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

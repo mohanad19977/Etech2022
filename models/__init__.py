@@ -17,3 +17,4 @@ from . import JudgePromotion
 from . import TrainingAbsenceReq
 from . import Scholarship
 from . import Departments
+#from . import x_trainingunit
