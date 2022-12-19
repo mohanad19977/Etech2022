@@ -5,12 +5,6 @@ from datetime import date,datetime
 from dateutil.relativedelta import relativedelta
 import re
 
-class x_birth_country(models.Model):
-    _name = 'x_birth_country'
-    _description = 'x_birth_country'
-    _rec_name="x_name"
-
-    x_name = fields.Char('Name')
 
 class x_misison_extension_re (models.Model):
     _name = 'x_misison_extension_re'

@@ -206,8 +206,6 @@
     <field name="model">x_scholarship</field>
     <field name="inherit_id" ref="default_list_view_fo_5c02bd2d-20c0-4b85-8031-4311eacc8153"/>
     <field name="arch" type="xml">
-        <tree>
-
             <data>
                 <xpath expr="//field[@name='x_studio_sequence']" position="after">
                     <field name="x_studio_scholarship_code" optional="show"/>
@@ -218,7 +216,6 @@
                     <field name="x_studio_date_field_1Eqvy" optional="show"/>
                 </xpath>
             </data>
-        </tree>
     </field>
 </record>
 
@@ -230,7 +227,6 @@
     <field name="model">x_scholarship</field>
     <field name="inherit_id" ref="default_search_view__ed4606f0-a279-4e26-b614-fa3af2fd1908"/>
     <field name="arch" type="xml">
-        <tree>
 
 
          <data>
@@ -238,7 +234,6 @@
                     <field name="x_studio_scholarship_code"/>
                 </xpath>
          </data>
-        </tree>
     </field>
 </record>
 

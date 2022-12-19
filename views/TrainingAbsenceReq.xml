@@ -160,7 +160,7 @@
 
 <record id="odoo_studio_default__4c7f4552-ce97-4570-adfa-77d5705d9122" model="ir.ui.view">
     <field name="name">Defaultformviewforx_training_absence_reqcustomizationview.form.inherit</field>
-    <field name="model">	x_training_absence_req</field>
+    <field name="model">x_training_absence_req</field>
     <field name="inherit_id" ref="default_form_view_fo_fd130b0f-bdcf-4cbe-96c7-9640652234cd"/>
     <field name="arch" type="xml">
                             <data>

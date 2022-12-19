@@ -371,6 +371,7 @@
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_end']" position="after">
     <field widget="priority" name="x_studio_grade"/>
+    
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="attributes">
     <attribute name="help">التقدير</attribute>
@@ -1106,6 +1107,7 @@
   </xpath>
   <xpath expr="//field[@name='work_email']" position="after">
     <field name="x_studio_many2one_field_4aoaB"/>
+    <field name="changedate"/>
     <field name="x_studio_many2one_field_1thIi"/>
   </xpath>
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[1]/group[1]/field[3]" position="attributes">

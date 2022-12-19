@@ -21,14 +21,15 @@
                     <xpath expr="//field[@name='parent_id']" position="after">
                         <field name="x_location" attrs="{}" invisible="1"/>
                         <field name="x_studio_many2one_field_RbZgM"/>
+                        <field name="x_studio_many2one_field_DQFxa"/>
                     </xpath>
-                    <xpath expr="//field[@name='custom_appraisal_templates']" position="attributes">
+                    <!-- <xpath expr="//field[@name='custom_appraisal_templates']" position="attributes">
                         <attribute name="attrs">{}</attribute>
                         <attribute name="invisible">1</attribute>
                     </xpath>
                     <xpath expr="//field[@name='custom_appraisal_templates']" position="after">
                         <field name="x_studio_many2one_field_DQFxa"/>
-                    </xpath>
+                    </xpath> -->
             </data>
     </field>
 </record>

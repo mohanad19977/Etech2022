@@ -19,9 +19,10 @@ class scholarship(models.Model):
    x_studio_approval_letter_no= fields.Char('Approval Letter No')
    x_studio_attachment = fields.Binary('Attachment')
    x_studio_binary_field_9v8iU_filename= fields.Char('Filename for x_studio_binary_field_9v8iU')
+   x_studio_binary_field_9v8iU = fields.Binary('New الملف')
    x_studio_country = fields.Many2one('x_birth_country', string='country')
    x_studio_date_field_1Eqvy = fields.Date('Letter Date')
-   x_studio_date_field_UjIuN = fields.Date('End Date')
+   x_studio_date_field_UjIuN = fields.Date('New التاريخ')
    x_studio_duration_years= fields.Integer('Duration Years')
    x_studio_end_date = fields.Date('End Date')
    x_studio_many2one_field_15I43 = fields.Many2one('res.country', string='الدولة')
@@ -29,7 +30,7 @@ class scholarship(models.Model):
    x_studio_many2one_field_bpnkP = fields.Many2one('x_funding_party', string='funding Party')
    x_studio_many2one_field_nQumW = fields.Many2one('x_specialty', string='Specialty')
    x_studio_many2one_field_SRn9u = fields.Many2one('x_institue', string='Institute')
-   x_studio_start_date = fields.Date(' Start Date')
+   x_studio_start_date = fields.Date('Start Date')
    x_studio_sequence = fields.Integer('Sequence')
    x_studio_scholrship_date = fields.Date(' Scholrship Date')
    x_studio_scholarship_code = fields.Char(' Scholarship Code')
@@ -79,7 +80,7 @@ class X_Scholarship_Line_29636(models.Model):
     x_studio_resumption_date = fields.Date('Resumption Date')
     x_studio_sequence = fields.Integer('Sequence')
     x_studio_work_location = fields.Char('work location')
-
+    x_studio_many2one_field_z9f19 = fields.Many2one('hr.employee', string='Judge' ,domain="[('x_studio_employee_status','=','على رأس عمله')]")
 
 
 class participationtype(models.Model):

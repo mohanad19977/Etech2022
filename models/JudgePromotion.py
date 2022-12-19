@@ -14,13 +14,13 @@ class XJudgepromotionLineAc79D(models.Model):
     x_name = fields.Char('x_name')
     x_studio_many2one_field_gXLon = fields.Many2one('hr.employee', string='Judge',required=True)
     x_studio_old_job_position= fields.Char('Old Job Position',readonly=True ,related='x_studio_many2one_field_gXLon.job_id.display_name')   
-    x_studio_old_grade= fields.Char('Old Grade',readonly=True) 
+    x_studio_old_grade= fields.Many2one('x_job_grade', string='الدرجة القديمة',required=True) 
     x_studio_related_field_LHjqP = fields.Char('موقع العمل الحالي',readonly=True)
     x_studio_years_in_old_grade = fields.Float('الدرجة الحالية')
     x_studio_years_in_grade = fields.Float('سنة في الدرجة')
     x_studio_new_job_position = fields.Many2one('hr.job', string='الوظيفة الجديدة',required=True)
     x_studio_new_job_grade = fields.Many2one('x_job_grade', string='الدرجة الجديدة',required=True)
-    
+    x_studio_sequence = fields.Integer('Sequence')
 
 
 class JudgePromotion(models.Model):
@@ -36,4 +36,41 @@ class JudgePromotion(models.Model):
     x_judgepromotion_line_ids_c0b72 = fields.One2many('x_judgepromotion_line_ac79d', 'x_judgepromotion_id', string='Judges List')
     x_active = fields.Boolean('Active',default=True)
     x_studio_sequence = fields.Integer('Sequence')
-    
+    state = fields.Boolean('state')
+
+
+    def GetPromotionJudge(self): 
+         for record in self:
+            users=self.env["hr.employee"].search(["&",("changedate", "<", date.today()- relativedelta(day=+1800)),('x_studio_employee_status','=','على رأس عمله')])     
+            if users:    
+                order_lines = []
+                #  try:
+                for judge in users:
+                    
+                    grade= self.env["x_job_grade"].search([("x_studio_level", "=", str(int(judge.x_studio_many2one_field_4aoaB.x_studio_level)+1))])
+                    if grade:
+                        order_lines.append((0, 0, {
+                            'x_studio_many2one_field_gXLon': judge.id,
+                            'x_studio_old_grade': judge.x_studio_many2one_field_4aoaB.id,
+                            'x_studio_years_in_grade': (date.today().year - judge.changedate.year) ,
+                            'x_studio_new_job_position': judge.job_id.id,
+                            'x_studio_new_job_grade': grade[0].id
+                        }))
+                        
+                        # judge.write({'x_studio_many2one_field_4aoaB':grade[0]})
+
+                record.x_judgepromotion_line_ids_c0b72=order_lines
+
+
+   
+
+
+    def Confirm(self):
+        for record in self:
+            record.state=True
+
+
+    @api.onchange('state')
+    def _onchange_state(self):
+        for record in self:
+            pass

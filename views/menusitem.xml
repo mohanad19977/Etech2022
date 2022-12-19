@@ -95,6 +95,20 @@
         
         action="x_employee_action_name_action" />
 
+    <record id="x_judgepromotion_action_name_action" model="ir.actions.act_window">
+    <field name="name">Judge Promotion</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">x_judgepromotion</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="x_judgepromotion_action_name_menu"
+        name="Judge Promotion"
+        parent="etech.judgeactions_menu"	
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        
+        action="x_judgepromotion_action_name_action" />
 
     <record id="x_secondment_name_action" model="ir.actions.act_window">
     <field name="name">Secondment</field>
@@ -214,15 +228,66 @@
         action="x_Competitiveness_name_action" />
 
         
-    <!-- <menuitem
+    <menuitem
         id="TrainingManagement_menu"
         name="Training Management"
         parent="hr.menu_hr_root"
         groups="base.group_user,base.group_erp_manager,base.group_system"
         sequence="11"/>
 
+      
 
-    <record id="x_TrainingSchedule_action" model="ir.actions.act_window">
+
+
+
+    <record id="x_Scholarship_action" model="ir.actions.act_window">
+        <field name="name">Scholarship</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">x_scholarship</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="Scholarship_menu"
+        name="Scholarship"
+        parent="etech.TrainingManagement_menu"
+        action="x_Scholarship_action"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        sequence="1"/>
+
+
+            <record id="x_training_absence_action" model="ir.actions.act_window">
+        <field name="name">Training Absence Req</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">x_training_absence_req</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="x_training_absence_menu"
+        name="Training Absence Req"
+        parent="etech.TrainingManagement_menu"
+        action="x_training_absence_action"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        sequence="2"/>
+
+
+            <record id="x_training_absence_req_action" model="ir.actions.act_window">
+        <field name="name">Training Absence Req Stages</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">x_training_absence_req_stage</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="x_training_absence_req_menu"
+        name="Training Absence Req Stages"
+        parent="etech.TrainingManagement_menu"
+        action="x_training_absence_req_action"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        sequence="3"/>
+
+            <record id="x_TrainingSchedule_action" model="ir.actions.act_window">
         <field name="name">Action TrainingSchedule</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">x_trainingunit</field>
@@ -235,7 +300,7 @@
         parent="etech.TrainingManagement_menu"
         action="x_TrainingSchedule_action"
         groups="base.group_user,base.group_erp_manager,base.group_system"
-        sequence="1"/> -->
+        sequence="4"/>
  
 </data>
 

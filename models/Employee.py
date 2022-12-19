@@ -68,8 +68,9 @@ class x_job_grade(models.Model):
     x_studio_description = fields.Char('Description')
     x_studio_grade = fields.Char('Grade')
     x_studio_level = fields.Char('Level')
+   
     x_studio_sequence = fields.Integer('Sequence')
-
+    
 class x_competitiveness_line_27484(models.Model):
     _name = 'x_competitiveness_line_27484'
     _description = 'x_competitiveness_line_27484'
@@ -392,6 +393,8 @@ class x_CustomEmployee(models.Model):
         ('مصنف', 'مصنف'),
         ('غير مصنف', 'غير مصنف'),
     ], string='Employment Category')
+    
+
 
     x_studio_char_field_Sowp2 = fields.Char('New النص')
     x_studio_char_field_T6xkO = fields.Char('New النص')
@@ -497,7 +500,7 @@ class x_CustomEmployee(models.Model):
     x_studio_title = fields.Many2one('res.partner.title', string='Title')
     x_studio_work_center = fields.Many2one('x_work_center', string='Work center')
     x_studio_work_mobile_2 = fields.Char('Work Mobile 2')
-
+    changedate = fields.Date('Change Grade Date',default=date.today())
 
 
     @api.depends('x_studio_first_name_en','x_studio_second_name_en','x_studio_third_name_en','x_studio_fourth_name_en')
@@ -510,7 +513,10 @@ class x_CustomEmployee(models.Model):
         for record in self:
             record['x_studio_full_name_ar'] = str(record.x_studio_first_name) + ' ' + str(record.x_studio_second_name) + ' ' + str(record.x_studio_third_name) + ' ' + str(record.x_studio_last_name)
 
-
+    @api.onchange('x_studio_many2one_field_4aoaB')
+    def _onchange_x_studio_many2one_field_4aoaB(self):
+        for record in self:
+            record.changedate=date.today()
 
 
 
