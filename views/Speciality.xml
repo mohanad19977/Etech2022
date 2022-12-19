@@ -88,6 +88,362 @@
         </field>
     </record>
 
-    
+    <!--new -->
+
+    <record id="default_form_view_fo_3b3c2a91-c640-4bdb-9405-81ae48566fab" model="ir.ui.view">
+        <field name="name">Default form view for x_competitiveness</field>
+        <field name="model">x_competitiveness</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Competitiveness">
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                    <field name="x_active" invisible="1"/>
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_b2e5fe">
+                    <group name="studio_group_b2e5fe_left"/>
+                    <group name="studio_group_b2e5fe_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__0fd69d37-6d2e-4e8b-8e21-f243966a8288" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default form view for x_competitiveness customization</field>
+        <field name="model">x_competitiveness</field>
+        <field name="inherit_id" ref="default_form_view_fo_3b3c2a91-c640-4bdb-9405-81ae48566fab"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//group[@name='studio_group_b2e5fe_left']" position="inside">
+                    <field name="x_studio_class_code"/>
+                    <field name="x_studio_is_active_1" string="is active"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_b2e5fe_right']" position="inside">
+                    <field name="x_studio_parent" string="Parent"/>
+                </xpath>
+            </data>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_0d1c0fc5-1771-4113-a2c0-db5de97b2e57" model="ir.ui.view">
+        <field name="name">mDefault form view for x_competitiveness_line_1a44d</field>
+        <field name="model">x_competitiveness_line_1a44d</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Competitiveness  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_6a7c02">
+                    <group name="studio_group_6a7c02_left"/>
+                    <group name="studio_group_6a7c02_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_ede495cb-76df-4363-bd56-77d227c2142a" model="ir.ui.view">
+        <field name="name">Default form view for x_competitiveness_line_1a44d</field>
+        <field name="model">x_competitiveness_line_1a44d</field>
+        <field name="arch" type="xml">
+            <form>
+            <header/>
+            <sheet string="Competitiveness  Lines">
+                <div class="oe_title">
+                            <h1>
+                                <field name="x_name" required="1" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                <group name="studio_group_680a8b">
+                <group name="studio_group_680a8b_left"/>
+                <group name="studio_group_680a8b_right"/>
+                </group>
+            </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_0f1a8eaf-e975-4912-960f-c2fe9e33a94b" model="ir.ui.view">
+        <field name="name">Default form view for x_competitiveness_line_27484</field>
+        <field name="model">x_competitiveness_line_27484</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Competitiveness  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_c054ea">
+                    <group name="studio_group_c054ea_left"/>
+                    <group name="studio_group_c054ea_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_e9bfffb7-b16a-4c9e-91b8-990d7bdfeb19" model="ir.ui.view">
+        <field name="name">Default form view for x_competitiveness_line_27484</field>
+        <field name="model">x_competitiveness_line_27484</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Competitiveness  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_1cae14">
+                    <group name="studio_group_1cae14_left"/>
+                    <group name="studio_group_1cae14_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_21b0996f-1349-4428-9b74-9c2b11d63380" model="ir.ui.view">
+        <field name="name">Default form view for x_competitiveness_line_828bd</field>
+        <field name="model">x_competitiveness_line_828bd</field>
+        <field name="arch" type="xml">
+            <form>
+            <header/>
+            <sheet string="Competitiveness  Lines">
+                <div class="oe_title">
+                            <h1>
+                                <field name="x_name" required="1" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                <group name="studio_group_c11b0f">
+                <group name="studio_group_c11b0f_left"/>
+                <group name="studio_group_c11b0f_right"/>
+                </group>
+            </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_form_view_fo_f2a2753f-060f-49fa-9ef4-9a38f86bf48e" model="ir.ui.view">
+        <field name="name">Default form view for x_competitiveness_line_828bd</field>
+        <field name="model">x_competitiveness_line_828bd</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Competitiveness  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_66883e">
+                    <group name="studio_group_66883e_left"/>
+                    <group name="studio_group_66883e_right"/>
+                    </group>
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_541187f1-d474-454f-b08d-50af3a43b872" model="ir.ui.view">
+        <field name="name">Default list view for x_competitiveness</field>
+        <field name="model">x_competitiveness</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                  <field name="x_studio_sequence" widget="handle"/>
+                   <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__794d847b-c135-4129-9213-b62871c7d526" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default list view for x_competitiveness customization</field>
+        <field name="model">x_competitiveness</field>
+        <field name="inherit_id" ref="default_list_view_fo_541187f1-d474-454f-b08d-50af3a43b872"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='x_studio_sequence']" position="before">
+                    <field optional="show" name="x_studio_class_code" string="CLASS_CODE"/>
+                    <xpath expr="//field[@name='x_name']" position="move"/>
+                    <field name="x_studio_parent" optional="show"/>
+                    <field name="x_studio_is_active_1" optional="show"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_eb477ffb-9984-4483-ac0a-4d3f420ccb02" model="ir.ui.view">
+        <field name="name">Default list view for x_competitiveness_line_1a44d</field>
+        <field name="model">x_competitiveness_line_1a44d</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_6b505734-3d78-411d-8296-f78fedd09c45" model="ir.ui.view">
+        <field name="name">Default list view for x_competitiveness_line_1a44d</field>
+        <field name="model">x_competitiveness_line_1a44d</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="default_list_view_fo_438302c6-788c-4b41-aae0-6aadded2fd76" model="ir.ui.view">
+        <field name="name">Default list view for x_competitiveness_line_27484</field>
+        <field name="model">x_competitiveness_line_27484</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_f26f3bf4-0961-4ae3-bc7c-a35b6f27063f" model="ir.ui.view">
+        <field name="name">Default list view for x_competitiveness_line_27484</field>
+        <field name="model">x_competitiveness_line_27484</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_e39ff1da-df0b-4301-a291-49e21daccf51" model="ir.ui.view">
+        <field name="name">model_name.view.tree</field>
+        <field name="model">x_competitiveness_line_828bd</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_list_view_fo_9060da76-ce88-4d25-9d93-27d9a47e85ab" model="ir.ui.view">
+        <field name="name">Default list view for x_competitiveness_line_828bd</field>
+        <field name="model">x_competitiveness_line_828bd</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                  <field name="x_studio_sequence" widget="handle"/>
+                   <field name="x_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="default_search_view__4a26212a-0714-4950-9c1e-79ddaa791aeb" model="ir.ui.view">
+        <field name="name">Default search view for x_competitiveness</field>
+        <field name="model">x_competitiveness</field>
+        <field name="arch" type="xml">
+            <search>
+            <field name="x_name"/>
+            <separator/>
+            <filter string="Archived" name="archived_x_competitiveness" domain="[['x_active', '=', False]]"/>
+            <separator/>
+            </search>
+
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__4edea360-8b11-4bc0-bf49-dbbfa0669f58" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default search view for x_competitiveness customization</field>
+        <field name="model">x_competitiveness</field>
+        <field name="inherit_id" ref="default_search_view__4a26212a-0714-4950-9c1e-79ddaa791aeb"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='x_name']" position="before">
+                    <field name="x_studio_class_code"/>
+                </xpath>
+            </data>
+
+        </field>
+    </record>
+
+    <record id="default_search_view__d7d63fa7-6a4b-45c3-82c6-a62f929b3c18" model="ir.ui.view">
+        <field name="name">Default search view for x_competitiveness_line_1a44d</field>
+        <field name="model">x_competitiveness_line_1a44d</field>
+        <field name="arch" type="xml">
+            <search string="">
+                  <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__3241f707-65dd-402a-a019-a602abfbce3b" model="ir.ui.view">
+        <field name="name">Default search view for x_competitiveness_line_1a44d</field>
+        <field name="model">x_competitiveness_line_1a44d</field>
+        <field name="arch" type="xml">
+            <search string="">
+                  <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__5cd7eff6-6446-447e-9609-4b9b2438714c" model="ir.ui.view">
+        <field name="name">Default search view for x_competitiveness_line_27484</field>
+        <field name="model">x_competitiveness_line_27484</field>
+        <field name="arch" type="xml">
+            <search string="">
+                  <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__d139272d-6ef5-4c74-aafe-f69d019c39be" model="ir.ui.view">
+        <field name="name">Default search view for x_competitiveness_line_27484</field>
+        <field name="model">x_competitiveness_line_27484</field>
+        <field name="arch" type="xml">
+            <search string="">
+                  <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__0ccc8435-70eb-45c7-8066-e64b0b3b03c7" model="ir.ui.view">
+        <field name="name">Default search view for x_competitiveness_line_828bd</field>
+        <field name="model">x_competitiveness_line_828bd</field>
+        <field name="arch" type="xml">
+            <search string="">
+                  <field name="x_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="default_search_view__8028d58d-335a-4bcd-9cec-8e370343c210" model="ir.ui.view">
+        <field name="name">Default search view for x_competitiveness_line_828bd</field>
+        <field name="model">x_competitiveness_line_828bd</field>
+        <field name="arch" type="xml">
+            <search string="">
+                  <field name="x_name"/>
+            </search>
+        </field>
+    </record>
 
 </odoo>
