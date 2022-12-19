@@ -10,7 +10,7 @@
     "author": "e-tech.",
     "website": "http://www.e-tech.com",
     "category": "HR",
-    "depends": ['hr','account','base','hr_payroll'],
+    "depends": ['hr','account','base','hr_payroll','hr_contract','hr_skills','hr_holidays'],
     "data": [
         "security/ir.model.access.csv",
         "views/Committe.xml",

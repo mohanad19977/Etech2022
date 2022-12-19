@@ -286,6 +286,7 @@ class x_trainingunit_line_727c3(models.Model):
 class x_trainingunit_line_213b8(models.Model):
     _name = 'x_trainingunit_line_213b8'
     _description = 'x_trainingunit_line_213b8'
+    _rec_name="x_name"
 
     x_name = fields.Char('Name',required=True)
     x_studio_sequence = fields.Integer('Sequence')
@@ -295,6 +296,8 @@ class x_trainingunit_line_213b8(models.Model):
 class x_trainingunit(models.Model):
     _name = 'x_trainingunit'
     _description = 'x_trainingunit'
+    _rec_name="x_name"
+
 
     x_active = fields.Boolean('Active',default=True)
     x_name = fields.Char('Name')

@@ -27,7 +27,7 @@ class x_x_hr_external_messio_line_13deb(models.Model):
 
     x_name = fields.Char('Name',required=True)
     x_studio_sequence = fields.Integer('Sequence')
-    x_x_hr_external_messio_id = fields.Many2one('x_x_hr_external_messio', string='X X Hr External Messio')    
+    x_x_hr_external_messio_id = fields.Many2one('x_x_hr_external_messio', string='Hr External Messio')    
 
 class x_x_hr_external_messio(models.Model):
     _name = 'x_x_hr_external_messio'

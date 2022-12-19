@@ -39,10 +39,4 @@ class TrainingAbsenceReqstage(models.Model):
     x_studio_sequence = fields.Integer('Sequence')
 
 
-class TrainingAbsenceReq(models.Model):
-    _name = 'x_trainingunit'
-    _description = 'x_trainingunit'
-    _rec_name="x_name"
-
-    x_name = fields.Char('Stage Name',required=True)
      

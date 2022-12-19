@@ -8,7 +8,6 @@ import re
 class x_grade(models.Model):
     _name = 'x_grade'
     _description = 'x_grade'
-
     _rec_name="x_name"
 
     x_name = fields.Char('Name')
@@ -16,7 +15,6 @@ class x_grade(models.Model):
 class x_termination_reason(models.Model):
     _name = 'x_termination_reason'
     _description = 'x_termination_reason'
-
     _rec_name="x_name"
 
     x_name = fields.Char('Name')
