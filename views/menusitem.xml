@@ -81,9 +81,9 @@
 
 
     <record id="x_employee_action_name_action" model="ir.actions.act_window">
-    <field name="name">Action disciplinary_action</field>
+    <field name="name"> External Mession </field>
     <field name="type">ir.actions.act_window</field>
-    <field name="res_model">x_disciplinary_action</field>
+    <field name="res_model">x_employee_actions</field>
     <field name="view_mode">tree,form</field>
     </record>
     
