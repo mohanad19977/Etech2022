@@ -177,6 +177,15 @@ class x_job_card_line_e464d(models.Model):
     x_studio_sequence = fields.Integer('Sequence')
     x_name = fields.Char('Description',required=True)
     x_job_card_id = fields.Many2one('x_job_card', string='X Job Card')
+
+class x_job_card_line_662eb(models.Model):
+    _name = 'x_job_card_line_662eb'
+    _description = 'x_job_card_line_662eb'
+
+    _rec_name="x_name"
+    x_studio_sequence = fields.Integer('Sequence')
+    x_name = fields.Char('Description',required=True)
+    x_job_card_id = fields.Many2one('x_job_card', string='X Job Card')
     
 class x_job_card_line_724fa(models.Model):
     _name = 'x_job_card_line_724fa'
@@ -1459,7 +1468,7 @@ class x_job_card(models.Model):
     x_job_card_line_ids_fdd9f = fields.One2many('x_job_card_line_e0e97', 'x_job_card_id', string='New Lines')
     x_name = fields.Char('Name')
     x_job_card_line_ids_eb8a1 = fields.One2many('x_job_card_line_66f05', 'x_job_card_id', string='External Relations')
-    x_studio_direct_manager = fields.One2many('hr.employee', 'x_job_card_id', string='Direct Manager')
+    x_studio_direct_manager = fields.Many2one('hr.employee', string='Direct Manager')
     x_studio_general_description = fields.Text('General Description')
     x_studio_job_code = fields.Char('Job Code')
 
