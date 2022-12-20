@@ -13,6 +13,20 @@
             <field name="country_id" ref="base.jo"/>
             <field name="type_id" ref="etech.RegularPay_type"/>
         </record>
+                 <record id="allowance_salary_rule4" model="hr.salary.rule">
+            <field name="name">Grade Benefits</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="code">Grade</field>
+            <field name="sequence">4</field>
+            <field name="condition_select">range</field>
+            <field name="condition_range">contract.wage</field>
+            <field name="condition_range_min">0</field>
+            <field name="condition_range_max">10000000000.00</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result=contract.employee_id.x_studio_many2one_field_4aoaB.gradebenefits </field>
+            <field name="struct_id" ref="etech.RegularPay"/>
+        </record>
+
         <record id="allowance_salary_rule3" model="hr.salary.rule">
             <field name="name">Daman</field>
             <field name="category_id" ref="hr_payroll.DED"/>
