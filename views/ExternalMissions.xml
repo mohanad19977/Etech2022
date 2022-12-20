@@ -144,7 +144,7 @@
 
 
 
-  <record id="default_form_view_fo_c438aa18-7a6f-4e00-b336-7aa1c6c7fe2c" model="ir.ui.view">
+  <!-- <record id="default_form_view_fo_c438aa18-7a6f-4e00-b336-7aa1c6c7fe2c" model="ir.ui.view">
     <field name="name">Default form view for ir.model(755,)</field>
     <field name="model">x_employee_actions</field>
     <field name="arch" type="xml">
@@ -166,7 +166,7 @@
         </xpath>
       </data>
     </field>
-  </record>
+  </record> -->
 
 
 

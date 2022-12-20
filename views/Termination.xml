@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <record id="default_form_view_fo_3ac82af2-1f6f-45c5-bdf3-ab4638685628" model="ir.ui.view">
-        <field name="name">View Name	Default form view for x_termination</field>
+        <field name="name">Default form view for x_termination</field>
         <field name="model">x_termination</field>
         <field name="arch" type="xml">
             <form>
-                <header/>
-                <sheet string="Termination">
-                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
-                    <field name="x_active" invisible="1"/>
-                    <div class="oe_title">
-                                <h1>
-                                    <field name="x_name" required="1" placeholder="Name..."/>
-                                </h1>
-                            </div>
-                    <group name="studio_group_8e9769">
-                    <group name="studio_group_8e9769_left"/>
-                    <group name="studio_group_8e9769_right"/>
-                    </group>
-                </sheet>
-                
+            <header/>
+            <sheet string="Termination">
+                <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                <field name="x_active" invisible="1"/>
+                <div class="oe_title">
+                            <h1>
+                                <field name="x_name" required="1" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                <group name="studio_group_8e9769">
+                <group name="studio_group_8e9769_left"/>
+                <group name="studio_group_8e9769_right"/>
+                </group>
+            </sheet>
+            <div class="oe_chatter" name="oe_chatter">
+            
+            </div>
             </form>
         </field>
     </record>
+
 
     <record id="odoo_studio_default__f84b95f3-6515-4bf8-832c-bb718888b40d" model="ir.ui.view">
         <field name="name">Odoo Studio: Default form view for x_termination customization</field>
@@ -56,19 +58,20 @@
         <field name="model">x_termination_reason</field>
         <field name="arch" type="xml">
             <form>
-                <header/>
-                <sheet string="termination reason">
-                    <div class="oe_title">
-                                <h1>
-                                    <field name="x_name" required="1" placeholder="Name..."/>
-                                </h1>
-                            </div>
-                    <group name="studio_group_7a10ed">
-                    <group name="studio_group_7a10ed_left"/>
-                    <group name="studio_group_7a10ed_right"/>
-                    </group>
-                </sheet>
+            <header/>
+            <sheet string="termination reason">
+                <div class="oe_title">
+                            <h1>
+                                <field name="x_name" required="1" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                <group name="studio_group_7a10ed">
+                <group name="studio_group_7a10ed_left"/>
+                <group name="studio_group_7a10ed_right"/>
+                </group>
+            </sheet>
             </form>
+
         </field>
     </record>
 
@@ -86,7 +89,7 @@
     <record id="odoo_studio_default__2a80911b-72b9-467b-8ebf-184fffef66c6" model="ir.ui.view">
         <field name="name">Odoo Studio: Default list view for x_termination customization</field>
         <field name="model">x_termination</field>
-        <field name="inherit_id" ref="default_list_view_fo_fd355560-7f13-4a1d-9757-b3c6d5954fac"/>
+        <field name="inherit_id" ref="inherit_module_name.inherit_view_id"/>
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//field[@name='x_name']" position="replace"/>
@@ -99,20 +102,21 @@
                     <field name="x_studio_many2one_field_CDskR" optional="show"/>
                 </xpath>
             </data>
+
         </field>
     </record>
+
 
     <record id="default_list_view_fo_9869fba5-481d-43c3-8a2d-e05583e8a27c" model="ir.ui.view">
         <field name="name">Default list view for x_termination_reason</field>
         <field name="model">x_termination_reason</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="x_name"/>
+            <tree string="">
+                <field name="x_name"/>  
             </tree>
         </field>
     </record>
 
-    <!--search-->
     <record id="default_search_view__975025d2-b7e5-4e47-b344-f1cc669e5dc3" model="ir.ui.view">
         <field name="name">Default search view for x_termination</field>
         <field name="model">x_termination</field>
@@ -126,13 +130,12 @@
         </field>
     </record>
 
-    <!--search-->
     <record id="default_search_view__f7125ec2-86d4-4280-b9c4-c5b99010cefc" model="ir.ui.view">
         <field name="name">Default search view for x_termination_reason</field>
         <field name="model">x_termination_reason</field>
         <field name="arch" type="xml">
-            <search>
-                <field name="x_name"/>
+            <search string="">
+                 <field name="x_name"/> 
             </search>
         </field>
     </record>
