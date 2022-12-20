@@ -68,7 +68,8 @@ class x_job_grade(models.Model):
     x_studio_description = fields.Char('Description')
     x_studio_grade = fields.Char('Grade')
     x_studio_level = fields.Char('Level')
-   
+    gradebenefits = fields.Float('grade benefits',required=True,default=0.0)
+
     x_studio_sequence = fields.Integer('Sequence')
     
 class x_competitiveness_line_27484(models.Model):
