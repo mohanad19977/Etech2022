@@ -428,14 +428,14 @@ class x_CustomEmployee(models.Model):
         ('استشاري', 'استشاري'),
     ], string='Employment Type')
 
-    x_studio_first_name = fields.Char('First Name')
-    x_studio_first_name_en = fields.Char('first name EN')
+    x_studio_first_name = fields.Char('First Name',required=True)
+    x_studio_first_name_en = fields.Char('first name EN',required=True)
     x_studio_first_name_en_1 = fields.Char('first Name En')
 
     # #page2 
 
     x_studio_float_field_g1V8r	 = fields.Float('New Decimal')
-    x_studio_fourth_name_en = fields.Char('Fourth Name En')
+    x_studio_fourth_name_en = fields.Char('Fourth Name En',required=True)
     x_studio_full_name = fields.Char(compute="_compute_x_studio_full_name",string='English Full Name',readonly=True)
     x_studio_full_name_ar = fields.Char(compute="_compute_x_studio_full_name_ar",string='Full Name Ar',readonly=True)
     x_studio_Garde = fields.Char('Grade')
@@ -443,7 +443,7 @@ class x_CustomEmployee(models.Model):
     x_studio_job_position_1 = fields.Char('Job Position',readonly=True)
     x_studio_joining_date = fields.Date('Joining Date')
     x_studio_judge_code = fields.Char('Judge Code')
-    x_studio_last_name = fields.Char('Last Name')
+    x_studio_last_name = fields.Char('Last Name',required=True)
 
 
     x_studio_many2many_field_Ak76e = fields.Many2many('x_competitiveness','x_hr_employee_x_competitiveness_rel_1','hr_employee_id','x_competitiveness_id', string='Competitiveness')
@@ -472,8 +472,8 @@ class x_CustomEmployee(models.Model):
     x_studio_mother_name_ar = fields.Char('Mother Name Ar')
     x_studio_one2many_field_aEyHc = fields.One2many('x_x_hr_employee_depend', 'x_studio_many2one_field_pIoXl', string='New One2many')
     x_studio_po_box = fields.Char('Po Box')
-    x_studio_second_name = fields.Char('Second Name')
-    x_studio_second_name_en = fields.Char('second name EN')
+    x_studio_second_name = fields.Char('Second Name',required=True)
+    x_studio_second_name_en = fields.Char('second name EN',required=True)
     x_studio_second_name_en_1 = fields.Char('Second Name En')
     x_studio_second_nationality = fields.Many2one('res.country', string='Second Nationality')
 
@@ -496,8 +496,8 @@ class x_CustomEmployee(models.Model):
     x_studio_specialities = fields.One2many('x_competitiveness', 'x_studio_many2one_field_B0KEP', string='Specialities')
     x_studio_status_date = fields.Date('Status Date')
     x_studio_system_id = fields.Char('System')
-    x_studio_third_name = fields.Char('Third Name')
-    x_studio_third_name_en = fields.Char('Third Name En')
+    x_studio_third_name = fields.Char('Third Name',required=True)
+    x_studio_third_name_en = fields.Char('Third Name En',required=True)
     x_studio_title = fields.Many2one('res.partner.title', string='Title')
     x_studio_work_center = fields.Many2one('x_work_center', string='Work center')
     x_studio_work_mobile_2 = fields.Char('Work Mobile 2')

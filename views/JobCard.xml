@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="studio_customization.default_form_view_fo_e785e803-a0c8-4988-9ba6-0879dddb93fd" model="ir.ui.view">
+    <record id="default_form_view_fo_e785e803-a0c8-4988-9ba6-0879dddb93fd" model="ir.ui.view">
         <field name="name">Default form view for x_job_card</field>
         <field name="model">x_job_card</field>
         <field name="arch" type="xml">
@@ -26,10 +26,10 @@
         </field>
     </record>
 
-    <record id="studio_customization.odoo_studio_default__4fc7a0eb-cfb9-481e-8dc2-c900c4f465cc" model="ir.ui.view">
+    <record id="odoo_studio_default__4fc7a0eb-cfb9-481e-8dc2-c900c4f465cc" model="ir.ui.view">
         <field name="name">Odoo Studio: Default form view for x_job_card customization</field>
         <field name="model">x_job_card</field>
-        <field name="inherit_id" ref="inherit_module_name.inherit_view_id"/>
+        <field name="inherit_id" ref="default_form_view_fo_e785e803-a0c8-4988-9ba6-0879dddb93fd"/>
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//field[@name='x_name']" position="attributes">
@@ -214,6 +214,22 @@
         </field>
     </record>
 
+
+    <record id="default_list_view_fo_196a7f96-4e5b-402b-afe3-640685b86a5d" model="ir.ui.view">
+        <field name="name">Default list view for x_job_card</field>
+        <field name="model">x_job_card</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+                <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+            </tree>
+
+        </field>
+    </record>
+
+
+    
     
 
 </odoo>

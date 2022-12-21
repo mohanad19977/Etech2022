@@ -287,7 +287,7 @@
         groups="base.group_user,base.group_erp_manager,base.group_system"
         sequence="3"/>
 
-            <record id="x_TrainingSchedule_action" model="ir.actions.act_window">
+    <record id="x_TrainingSchedule_action" model="ir.actions.act_window">
         <field name="name">Action TrainingSchedule</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">x_trainingunit</field>
@@ -301,6 +301,29 @@
         action="x_TrainingSchedule_action"
         groups="base.group_user,base.group_erp_manager,base.group_system"
         sequence="4"/>
+
+    <menuitem
+        id="planing_menu"
+        name="التخطيط"
+        parent="hr.menu_hr_root"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+    sequence="20"/>
+
+
+    <record id="x_Job_Card_action" model="ir.actions.act_window">
+        <field name="name">Job Card</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">x_job_card</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="Job_Card_menu"
+        name="Job Card"
+        parent="etech.planing_menu"
+        action="x_Job_Card_action"
+        groups="base.group_user,base.group_erp_manager,base.group_system"
+        sequence="1"/>
  
 </data>
 

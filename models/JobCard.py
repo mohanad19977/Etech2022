@@ -371,6 +371,7 @@ class x_job_card_line_c9d70(models.Model):
     x_studio_mandatory = fields.Boolean('Mandatory?')
     x_studio_max_years = fields.Integer('Max Years')
     x_studio_max_years_1 = fields.Integer('Max Years')
+    x_studio_min_years_1 = fields.Integer('min Years')
     x_studio_practical_serial_no = fields.Integer('Practical Serial No')
     x_studio_many2one_field_Glsb2 = fields.Many2one('x_practical_qualificat', string='Practical Qualification')
 
@@ -392,6 +393,7 @@ class x_job_card_line_72dd4(models.Model):
     x_studio_sequence = fields.Integer('Sequence')
     x_name = fields.Char('Description',required=True)
     x_job_card_id = fields.Many2one('x_job_card', string='X Job Card')
+    
 
 class x_job_card_line_4f4a9(models.Model):
     _name = 'x_job_card_line_4f4a9'
@@ -928,15 +930,6 @@ class x_job_card_line_f91c6(models.Model):
     x_name = fields.Char('Description',required=True)
     x_job_card_id = fields.Many2one('x_job_card', string='X Job Card')
 
-class x_job_card_line_f91c6(models.Model):
-    _name = 'x_job_card_line_f91c6'
-    _description = 'x_job_card_line_f91c6'
-
-    _rec_name="x_name"
-    x_studio_sequence = fields.Integer('Sequence')
-    x_name = fields.Char('Description',required=True)
-    x_job_card_id = fields.Many2one('x_job_card', string='X Job Card')
-
 class x_job_card_line_0904e(models.Model):
     _name = 'x_job_card_line_0904e'
     _description = 'x_job_card_line_0904e'
@@ -1231,8 +1224,12 @@ class x_job_card_line_93c60(models.Model):
 
     _rec_name="x_name"
     x_studio_sequence = fields.Integer('Sequence')
-    x_name = fields.Char('Description',required=True)
+    x_name = fields.Char('duty Description',required=True)
     x_job_card_id = fields.Many2one('x_job_card', string='X Job Card')
+    x_studio_duty_details = fields.Char('Duty Details')
+    x_studio_duty_serial = fields.Integer('duty Serial')
+
+
 
 class x_job_card_line_58478(models.Model):
     _name = 'x_job_card_line_58478'
