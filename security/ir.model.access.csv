@@ -250,3 +250,4 @@ access_model_x_committees229,access_model_x_committees177,model_x_job_item,base.
 access_model_x_committees230,access_model_x_committees177,model_x_job_card_tag,base.group_user,1,1,1,1
 access_model_x_committees231,access_model_x_committees177,model_x_job_card,base.group_user,1,1,1,1
 access_model_x_committees232,access_model_x_committees177,model_x_job_standard_name,base.group_user,1,1,1,1
+access_model_x_committees233,access_model_x_committees177,model_x_employment_type,base.group_user,1,1,1,1
