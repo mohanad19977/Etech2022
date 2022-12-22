@@ -345,13 +345,18 @@ class x_Customresumline(models.Model):
             record.x_studio_course_name=record.name
             record.x_studio_job_title=record.name
 
-    
     @api.onchange('date_start','date_end')
-    def _DateCheck(self):
-        for record in self: 
-            if record.date_start and record.date_end:    
-                if record.date_end < record.date_start:
-                    raise ValidationError("End Date Must Grater Than Start Date")
+    @api.constrains('date_start','date_end')
+    def _constrainsdate2(self):
+           for record in self: 
+            if record.date_end and record.date_start:    
+
+             if record.date_end < record.date_start:
+                  raise ValidationError("End Date Must Grater Than Start Date")
+
+            if record.date_end>date.today() or  record.date_start>date.today():
+                raise ValidationError("Start and End date cannot be in future")
+
 
 
 class birth_countrytechnical(models.Model):
