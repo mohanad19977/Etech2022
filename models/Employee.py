@@ -272,7 +272,7 @@ class x_Customresumline(models.Model):
     
     x_studio_edit_attachment = fields.Boolean('Edit Attachment')
     x_studio_attachment = fields.Binary('Attachment', readonly="['&',('id','>','0'),('x_studio_edit_attachment','=','false']")
-    x_studio_job_title = fields.Char('Job Title')
+    x_studio_job_title = fields.Char('Job Title',readonly=True)
     x_studio_job_type = fields.Selection([
         ('1', 'عام'),
          ('2', 'خاص')
@@ -312,7 +312,7 @@ class x_Customresumline(models.Model):
     x_studio_qualified_from = fields.Date('Qualified from')
     x_studio_thesis = fields.Char('Thesis')
     x_studio_type_desc = fields.Char('TYPE_DESC')
-    x_studio_course_name = fields.Char('Course Name')
+    x_studio_course_name = fields.Char('Course Name',readonly=True)
     x_studio_description = fields.Text('Description')
 
     x_studio_skill = fields.Char('Skill')
@@ -337,6 +337,21 @@ class x_Customresumline(models.Model):
     x_studio_absent_type = fields.Char('ABSENT_TYPE')
     x_studio_absent_reason = fields.Char('ABSENT_Reason')
 
+    date_start = fields.Date('Date Start',required=False)
+
+    @api.onchange('name')
+    def fillcourse_name(self):
+        for record in self:
+            record.x_studio_course_name=record.name
+            record.x_studio_job_title=record.name
+
+    
+    @api.onchange('date_start','date_end')
+    def _DateCheck(self):
+        for record in self: 
+            if record.date_start and record.date_end:    
+                if record.date_end < record.date_start:
+                    raise ValidationError("End Date Must Grater Than Start Date")
 
 
 class birth_countrytechnical(models.Model):
@@ -518,6 +533,7 @@ class x_CustomEmployee(models.Model):
     def _onchange_x_studio_many2one_field_4aoaB(self):
         for record in self:
             record.changedate=date.today()
+
 
 
 
