@@ -17,10 +17,10 @@ class x_secondment_line_e0591(models.Model):
     _description = 'x_secondment_line_e0591'
     _rec_name="x_name"
 
-    x_studio_date_field_AQt5i = fields.Date('New End Date')
+    x_studio_date_field_AQt5i = fields.Date('تاريخ انتهاء الانتداب الجديد')
     x_studio_many2one_field_eS1HP = fields.Many2one('x_misison_extension_re', string='سبب التمديد')
-    x_studio_text_field_VEiLi = fields.Text('Extension Letter No.')
-    x_studio_date_field_CIQTI = fields.Date('Extension Letter No.')
+    x_studio_text_field_VEiLi = fields.Text('رقم كتاب التمديد')
+    x_studio_date_field_CIQTI = fields.Date('تاريخ كتاب التمديد')
     x_name = fields.Char('الوصف')
     x_secondment_id = fields.Many2one('x_secondment', string='X Secondment')
     x_studio_sequence = fields.Integer('Sequance')
@@ -65,6 +65,8 @@ class x_secondmentcustom(models.Model):
     x_name = fields.Char('Name')
     x_studio_judge_grade_2 = fields.Char('Judge Grade',readonly=True)
     x_studio_related_field_LCaCq = fields.Char('Judge Grade',related='x_studio_judge.x_studio_many2one_field_4aoaB.x_studio_grade')
+    x_End_Secondment = fields.Boolean('انهاء الانتداب ؟')
+    x_End_Secondment_Attachment = fields.Binary('مرفق')
 
     x_secondment_line_ids_31063 = fields.One2many('x_secondment_line_6ef9b', 'x_secondment_id', string='تمديدات الانتداب')
 

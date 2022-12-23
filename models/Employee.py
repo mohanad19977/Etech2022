@@ -351,11 +351,14 @@ class x_Customresumline(models.Model):
            for record in self: 
             if record.date_end and record.date_start:    
 
-             if record.date_end < record.date_start:
+                if record.date_end < record.date_start:
                   raise ValidationError("End Date Must Grater Than Start Date")
 
-            if record.date_end>date.today() or  record.date_start>date.today():
-                raise ValidationError("Start and End date cannot be in future")
+                if record.date_end>date.today() or  record.date_start>date.today():
+                    raise ValidationError("Start and End date cannot be in future")
+
+
+    
 
 
 
@@ -482,7 +485,7 @@ class x_CustomEmployee(models.Model):
     x_studio_many2one_field_IxOfq = fields.Many2one('hr.job', string='Job Position')
     x_studio_many2one_field_Jdzux = fields.Many2one('x_religion', string='Religion')
     x_studio_many2one_field_LPO0Y = fields.Many2one('x_x_hr_employee_depend_line_6466e', string='X Hr Employee Depend  Lines')
-    x_studio_many2one_field_OHxlc = fields.Many2one('x_job_grade', string='X Studio Many2One Field Ohxlc')    
+    x_studio_many2one_field_OHxlc = fields.Many2one('x_job_grade', string='Degree')    
     x_studio_many2one_field_qU4Lc = fields.Many2one('account.account', string='Account')
     x_studio_many2one_field_X2xk3 = fields.Many2one('x_grade', string='grade') #x_grade model in termination file
     x_studio_many2one_field_Z0Im7 = fields.Many2one('x_employment_type', string='employment type')
@@ -523,6 +526,8 @@ class x_CustomEmployee(models.Model):
     x_studio_work_mobile_2 = fields.Char('Work Mobile 2')
     changedate = fields.Date('Change Grade Date',default=date.today())
 
+    name = fields.Char('Employee Name')
+    First_Last_Name = fields.Char('Name',readonly=True,compute="_compute_auto_fill_name")
 
     @api.depends('x_studio_first_name_en','x_studio_second_name_en','x_studio_third_name_en','x_studio_fourth_name_en')
     def _compute_x_studio_full_name(self):
@@ -540,7 +545,29 @@ class x_CustomEmployee(models.Model):
             record.changedate=date.today()
 
 
+    @api.onchange('km_home_work')
+    @api.constrains('km_home_work')
+    def _constraintkm_home_work(self):
+        for record in self:
+            if record.km_home_work < 0:
+                raise ValidationError("Home work distance can't be less than 0")
 
+    @api.depends('x_studio_first_name','x_studio_last_name')
+    def _compute_auto_fill_name(self):
+        for record in self:
+
+            FullName=""
+
+            if record.x_studio_first_name:
+
+                FullName+=  record.x_studio_first_name  + " " 
+
+            if record.x_studio_last_name:
+
+                FullName+=  record.x_studio_last_name
+
+        record.name = FullName
+        record.First_Last_Name = FullName
 
 
 
