@@ -329,6 +329,7 @@ class x_Customresumline(models.Model):
     x_studio_description = fields.Text('Description')
     x_studio_description_1 = fields.Html('Description')
     x_studio_major = fields.Char('Major')
+    x_studio_minor = fields.Char('Minor')
     x_studio_course_length = fields.Integer('COURSE_LENGTH')
     x_studio_hours = fields.Integer('HOURS')
     x_studio_no = fields.Integer('No')
@@ -395,6 +396,8 @@ class qualificationstechnical(models.Model):
     _rec_name='x_name'
      
     x_name = fields.Char('name')
+
+    #x_country = fields.Many2one('x_birth_country', string='Country')
     
 class x_CustomEmployee(models.Model):
     _inherit="hr.employee"
@@ -568,6 +571,12 @@ class x_CustomEmployee(models.Model):
 
         record.name = FullName
         record.First_Last_Name = FullName
+
+
+    @api.onchange('x_studio_many2one_field_OHxlc')
+    def FillGrade(self):
+        for record in self:
+            record.x_studio_many2one_field_4aoaB=record.x_studio_many2one_field_OHxlc
 
 
 

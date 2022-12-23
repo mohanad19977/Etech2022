@@ -1138,7 +1138,7 @@
     <field name="x_studio_many2one_field_Z0Im7"/>
   </xpath>
   <xpath expr="//field[@name='work_email']" position="after">
-    <field name="x_studio_many2one_field_4aoaB"/>
+    <field name="x_studio_many2one_field_4aoaB" invisible="1" />
     <field name="changedate"/>
     <field name="x_studio_many2one_field_1thIi"/>
   </xpath>
@@ -1296,6 +1296,14 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_major']" position="attributes">
     <attribute name="string">Major</attribute>
   </xpath>
+
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_major']" position="after">
+      <field name="x_studio_minor"/>
+    </xpath>
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_minor']" position="attributes">
+      <attribute name="string">Minor</attribute>
+    </xpath>
+
   <xpath expr="/form[1]/sheet[1]/div[2]/h1[1]/field[1]" position="attributes">
     <attribute name="attrs">{}</attribute>
     <attribute name="required"/>
