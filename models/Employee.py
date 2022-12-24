@@ -270,9 +270,10 @@ class x_work_center(models.Model):
 class x_Customresumline(models.Model):
     _inherit="hr.resume.line"  
     
+   
     x_studio_edit_attachment = fields.Boolean('Edit Attachment')
     x_studio_attachment = fields.Binary('Attachment', readonly="['&',('id','>','0'),('x_studio_edit_attachment','=','false']")
-    x_studio_job_title = fields.Char('Job Title',readonly=True)
+    x_studio_job_title = fields.Char('Job Title')
     x_studio_job_type = fields.Selection([
         ('1', 'عام'),
          ('2', 'خاص')
@@ -312,7 +313,7 @@ class x_Customresumline(models.Model):
     x_studio_qualified_from = fields.Date('Qualified from')
     x_studio_thesis = fields.Char('Thesis')
     x_studio_type_desc = fields.Char('TYPE_DESC')
-    x_studio_course_name = fields.Char('Course Name',readonly=True)
+    x_studio_course_name = fields.Char('Course Name')
     x_studio_description = fields.Text('Description')
 
     x_studio_skill = fields.Char('Skill')
@@ -340,11 +341,27 @@ class x_Customresumline(models.Model):
 
     date_start = fields.Date('Date Start',required=False)
 
-    @api.onchange('name')
+   
+    @api.onchange('x_studio_qualification', 'x_studio_major')
+    def fillqualification_name(self):
+        for record in self:
+            if record.x_studio_qualification and record.x_studio_major :
+               record.name=str(record.x_studio_qualification) + str(' ')+ str(record.x_studio_major)
+            if record.x_studio_qualification:
+                record.name=str(record.x_studio_qualification) 
+            if record.x_studio_major :
+                record.name= str(record.x_studio_major)
+    @api.onchange('x_studio_course_name')
     def fillcourse_name(self):
         for record in self:
-            record.x_studio_course_name=record.name
-            record.x_studio_job_title=record.name
+            if record.x_studio_course_name: 
+              record.name=record.x_studio_course_name
+
+    @api.onchange('x_studio_job_title')
+    def filljob_name(self):
+        for record in self:
+           if record.x_studio_job_title:  
+            record.name=record.x_studio_job_title
 
     @api.onchange('date_start','date_end')
     @api.constrains('date_start','date_end')
@@ -531,6 +548,15 @@ class x_CustomEmployee(models.Model):
 
     name = fields.Char('Employee Name')
     First_Last_Name = fields.Char('Name',readonly=True,compute="_compute_auto_fill_name")
+   
+
+    def name_get(self):
+        result = []
+        for record in self:
+            if record.name and record.x_studio_employee_id:
+             result.append((record.id,str(record.name)+','+record.x_studio_employee_id))
+        
+        return result
 
     @api.depends('x_studio_first_name_en','x_studio_second_name_en','x_studio_third_name_en','x_studio_fourth_name_en')
     def _compute_x_studio_full_name(self):
@@ -569,8 +595,8 @@ class x_CustomEmployee(models.Model):
 
                 FullName+=  record.x_studio_last_name
 
-        record.name = FullName
-        record.First_Last_Name = FullName
+            record.name = FullName
+            record.First_Last_Name = FullName
 
 
     @api.onchange('x_studio_many2one_field_OHxlc')

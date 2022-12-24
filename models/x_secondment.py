@@ -133,7 +133,7 @@ class x_secondmentcustom(models.Model):
                year=int(dates)
                days=dates-int(dates)
                record.Fullduration=" " + str(year) + " Year and "+ str(int(days*365)) +" Days"    
-
+              
 
          
         # except ValueError:

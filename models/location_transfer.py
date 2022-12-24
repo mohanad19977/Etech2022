@@ -14,7 +14,7 @@ class x_location_transfer(models.Model):
 
     x_studio_judge = fields.Many2one('hr.employee', string='اسم القاضي',required=True,domain="[('x_studio_employee_status','=','على رأس عمله')]")
     x_studio_new_work_location = fields.Many2one('hr.work.location', string='جهة النقل',required=True)
-    x_studio_many2one_field_RymCx = fields.Many2one('hr.job', string='الوظيفة',readonly=True)   
+    x_studio_many2one_field_RymCx = fields.Many2one('hr.job', string='الوظيفة')   
     x_studio_many2one_field_X1jqs = fields.Many2one('x_transfer_reason', string='سبب النقل')
     transfer_apply_chanel = fields.Many2one('x_transfer_apply_chanel', string='قناة تقديم الطلب')
     x_studio_many2one_field_mNvNk = fields.Many2one('hr.work.location', string='مركز العمل قبل النقل')
@@ -37,7 +37,17 @@ class x_location_transfer(models.Model):
     message_ids = fields.One2many('mail.message', 'res_id', string='Messages')
     activity_ids = fields.One2many('mail.activity', 'res_id', string='Activities')
     x_studio_sequence = fields.Integer('Sequance')
-
+    
+    @api.onchange('x_studio_selection_field_GUisB')
+    def _onchange_x_studio_selection_field_5CEax(self):
+         for record in self:   
+            if record.x_studio_selection_field_GUisB == 'approved':
+               user=self.env["hr.employee"].search([("id", "=", record.x_studio_judge.id)])     
+               if user:    
+                #  try:
+                 user.write({
+                    'job_id':record.x_studio_many2one_field_RymCx
+                    })
 class x_transfer_reason(models.Model):
     _name = 'x_transfer_reason'
     _description = 'x_transfer_reason'

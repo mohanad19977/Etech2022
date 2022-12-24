@@ -361,16 +361,16 @@
       <div class="oe_title">
         <label for="name" string="Title"/>
         <h1>
-          <field name="name" placeholder="e.g. Odoo Inc." required="True"/>
+          <field name="name" placeholder="Title" required="True"/>
         </h1>
       </div>
       <group>
         <group>
           <field name="line_type_id"/>
-          <field name="display_type" required="1"/>
+          <field name="display_type"/>
         </group>
         <group>
-          <field name="date_start" required="True"/>
+          <field name="date_start" required="False"/>
           <field name="date_end"/>
         </group>
       </group>
@@ -380,6 +380,7 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='line_type_id']" position="after">
     <field name="x_studio_qualification"/>
   </xpath>
+
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="attributes">
     <attribute name="string">Qualification</attribute>
   </xpath>
@@ -403,7 +404,10 @@
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_end']" position="after">
     <field widget="priority" name="x_studio_grade"/>
-    
+  </xpath>
+  
+    <xpath expr="//field[@name='resume_line_ids']" position="attributes">
+    <attribute name="context">{'order_display':'x_studio_qualified_from desc'}</attribute>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="attributes">
     <attribute name="help">التقدير</attribute>

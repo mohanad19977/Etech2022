@@ -20,6 +20,7 @@ class x_disciplinaryactionty(models.Model):
 
     x_name = fields.Char('Name')
     PreviesAction = fields.Many2one('x_disciplinaryactionty', string='Previous Action') 
+    duration = fields.Integer('duration',required=True)
 
 class x_disciplinaryactionju(models.Model):
     _name = 'x_disciplinaryactionju'
@@ -124,7 +125,11 @@ class DisciplinaryActionscustom(models.Model):
                    
                 #  except ValueError:
                 #     pass
-
+    @api.onchange('x_studio_many2one_field_SkrpV')
+    def _onchange_x_studio_many2one_field_SkrpV(self):
+         for record in self:
+            if record.x_studio_many2one_field_SkrpV:
+               record.x_studio_duration=str(record.x_studio_many2one_field_SkrpV.duration)
     @api.constrains('x_studio_many2one_field_SkrpV')
     def _check_name(self):
         for record in self:

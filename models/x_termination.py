@@ -24,7 +24,7 @@ class x_termination(models.Model):
     _description = 'x_termination'
     
 
-    x_studio_judge  = fields.Many2one('hr.employee', string='اسم القاضي',required=True)
+    x_studio_judge  = fields.Many2one('hr.employee', string='اسم القاضي',required=True,domain="[('x_studio_employee_status','=','على رأس عمله')]")
     x_studio_many2one_field_vufKW = fields.Many2one('hr.job', string='الوظيفة',readonly=True)
     x_studio_termination_letter = fields.Char('رقم الكتاب',required=True)
     x_studio_informing_date  = fields.Date('تاريخ التبليغ',required=True)

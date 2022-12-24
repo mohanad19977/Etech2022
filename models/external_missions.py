@@ -132,7 +132,8 @@ class x_employeecustom(models.Model):
     #                 record["x_studio_last_work_location"]=record.x_studio_judge_name.work_location_id.display_name
     #                 record["x_change"]="done"
 
-
+   
+               
     # PreviesPso = fields.Many2one('hr.employee', string='Judge' ,domain="['active','=',true]")
     @api.depends('x_studio_end_date_1','x_studio_start_date')
     def _compute_dateend(self):
@@ -164,7 +165,10 @@ class x_employeecustom(models.Model):
                dates=int(sum(self.env["x_employee_actions"].search([("x_studio_judge_name.id", "=", self.x_studio_judge_name.id)]).mapped('duration')))/365
                year=int(dates)
                days=dates-int(dates)
-               record.Fullduration=" " + str(year) + " Year and "+ str(int(days*365)) +" Days"  
+               record.Fullduration=" " + str(year) + " Year and "+ str(int(days*365)) +" Days" 
+               if year > 5 :
+                  self.x_studio_judge_name=False
+                  raise ValidationError("مدة الاعارة يجب الا تتجاوز ال 5 السنوات")
         except ValueError:
              record.Fullduration= "0"
 
