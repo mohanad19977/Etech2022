@@ -140,4 +140,17 @@ class DisciplinaryActionscustom(models.Model):
                     raise ValidationError("This Action Type Need Previous Action")
 
 
+    @api.onchange('x_studio_action_date','x_studio_disciplinary_end_date')
+    @api.constrains('x_studio_action_date','x_studio_disciplinary_end_date')
+    def _constrainsdate2(self):
+           for record in self: 
+            if record.x_studio_disciplinary_end_date and record.x_studio_action_date:    
+
+                if record.x_studio_disciplinary_end_date < record.x_studio_action_date:
+                  raise ValidationError("End Date Must Grater Than Start Date")
+
+                if record.x_studio_disciplinary_end_date>date.today() or  record.x_studio_action_date>date.today():
+                    raise ValidationError("Start and End date cannot be in future")
+
+
     
