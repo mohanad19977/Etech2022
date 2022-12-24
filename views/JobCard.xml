@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="default_form_view_fo_e785e803-a0c8-4988-9ba6-0879dddb93fd" model="ir.ui.view">
+        <field name="name">Default form view for x_job_card</field>
+        <field name="model">x_job_card</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet string="Job Card">
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+                    <field name="x_active" invisible="1"/>
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_59990a">
+                    <group name="studio_group_59990a_left">
+                        <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+                    </group>
+                    <group name="studio_group_59990a_right"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="odoo_studio_default__4fc7a0eb-cfb9-481e-8dc2-c900c4f465cc" model="ir.ui.view">
+        <field name="name">Odoo Studio: Default form view for x_job_card customization</field>
+        <field name="model">x_job_card</field>
+        <field name="inherit_id" ref="default_form_view_fo_e785e803-a0c8-4988-9ba6-0879dddb93fd"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='x_name']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                    <attribute name="required"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_59990a_right']" position="inside">
+                    <field name="x_studio_job_code" string="Job Code"/>
+                </xpath>
+                <xpath expr="//group[@name='studio_group_59990a']" position="after">
+                    <group name="studio_group_CfNgS">
+                    <group name="studio_group_CfNgS_left">
+                        <field name="x_studio_many2one_field_NCUEQ" attrs="{}" required="1"/>
+                        <field name="x_studio_direct_manager" string="Direct Manager" attrs="{}" required="1"/>
+                        <field name="x_studio_many2one_field_WenRb" attrs="{}" required="1"/>
+                    </group>
+                    <group name="studio_group_CfNgS_right">
+                        <field name="x_studio_work_location" string="work location" attrs="{}" required="1"/>
+                        <field name="x_studio_many2one_field_tqZgy" attrs="{}" required="1"/>
+                        <field name="x_studio_many2one_field_CuFqA" attrs="{}" required="1"/>
+                    </group>
+                    </group>
+                    <group name="studio_group_irTdS">
+                    <group name="studio_group_irTdS_left">
+                        <field name="x_studio_many2one_field_3DNrS" attrs="{}" required="1"/>
+                    </group>
+                    <group name="studio_group_irTdS_right">
+                        <field name="x_studio_many2one_field_8vRQo" attrs="{}" required="1"/>
+                    </group>
+                    </group>
+                    <notebook name="studio_notebook_zqpc1">
+                    <page string="duties" name="studio_page_zqpc1">
+                        <group name="studio_group_zqpc1">
+                        <field name="x_job_card_line_ids_f7b68" string="Duties List">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_duty_serial" string="duty Serial" attrs="{}" required="1"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" string="duty Description"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </page>
+                    <page string="Administration Tasks" name="studio_page_6u0cm">
+                        <group name="studio_group_6u0cm">
+                        <field name="x_job_card_line_ids_31948" string="Administration tasks list">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_admin_serial_no" string="Admin Serial No" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_administrative_task" string="Administrative task"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" string="Admin Assignment Description"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </page>
+                    <page string="Int. Relations" name="studio_page_0Ga4V">
+                        <group name="studio_group_0Ga4V">
+                        <field name="x_job_card_line_ids_9b68f" string="Internal Relations">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_int_serial_no" string="Int Serial No" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_many2one_field_GYzQJ"/>
+                            <field optional="show" name="x_studio_many2one_field_QGeEd"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" string="Remarks"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </page>
+                    <page string="Ext. Relations" name="studio_page_G0PkF">
+                        <group name="studio_group_G0PkF">
+                        <field name="x_job_card_line_ids_eb8a1" string="External Relations">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_ext_serial_no" string="Ext Serial No" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_many2one_field_r2EcZ" attrs="{}" required="1"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" string="Ext. Remarks"/>
+                            </tree>
+                            <form>
+                            <header/>
+                            <sheet string="Job Card  Lines" name="studio_sheet_7e9f94">
+                                <div class="oe_title" name="studio_div_3bb094">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                                </div>
+                                <group name="studio_group_3cc369">
+                                <group name="studio_group_3cc369_left"/>
+                                <group name="studio_group_3cc369_right"/>
+                                </group>
+                            </sheet>
+                            </form>
+                        </field>
+                        </group>
+                    </page>
+                    <page string="Supervision Scope" name="studio_page_ORrIH">
+                        <group name="studio_group_ORrIH">
+                        <field name="x_job_card_line_ids_75301" string="Supervision Scope">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_supervision_serial" string="Supervision Serial" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_many2one_field_B6j5b"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" string="Supervision Remarks"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </page>
+                    <page string="Education Qualification" name="studio_page_cxx3F">
+                        <group name="studio_group_cxx3F">
+                        <field name="x_job_card_line_ids_75e37" string="Qualification List">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_edu_serial_no" attrs="{}" required="1" string="Edu Serial No"/>
+                            <field optional="show" name="x_studio_many2one_field_sQoKm" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_importance" string="Importance"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" string="Edu Description"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </page>
+                    <page string="Practical qualification" name="studio_page_lNEk2">
+                        <group name="studio_group_lNEk2">
+                        <field name="x_job_card_line_ids_44a49" string="Experience List">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_practical_serial_no" string="Practical Serial No" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_many2one_field_Glsb2" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_importance" string="Importance"/>
+                            <field optional="show" name="x_studio_experience_field" string="Experience field" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_min_years_1" string="min Years" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_max_years_1" string="Max Years" attrs="{}" required="1"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" string="Experience Remarks"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </page>
+                    <page string="Personal" name="studio_page_DRkzP">
+                        <group name="studio_group_DRkzP">
+                        <field name="x_job_card_line_ids_89b54" string="Personal Characteristics">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_personal_serial_no" string="Personal Serial No" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_many2one_field_RfHM2" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_selection_field_ZmFbZ"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" string="Personal Description"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </page>
+                    <page string="Competencies" name="studio_page_XXstI">
+                        <group name="studio_group_XXstI">
+                        <field name="x_job_card_line_ids_3b891" string="Competencies List">
+                            <tree editable="bottom">
+                            <field optional="show" name="x_studio_competency_serial_no" string="Competency Serial no" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_many2one_field_fNd8S" attrs="{}" required="1"/>
+                            <field optional="show" name="x_studio_many2one_field_3F0DG"/>
+                            <field optional="show" name="x_studio_minimum_level" string="Minimum Level"/>
+                            <field name="x_studio_sequence" widget="handle"/>
+                            <field name="x_name" string="Competency Details"/>
+                            </tree>
+                        </field>
+                        </group>
+                    </page>
+                    </notebook>
+                </xpath>
+                <xpath expr="//field[@name='x_job_card_line_ids_f7b68']" position="inside">
+                    <form>
+                <header/>
+                <sheet string="Job Card  Lines">
+                    <div class="oe_title">
+                                <h1>
+                                    <field name="x_name" required="1" placeholder="Name..."/>
+                                </h1>
+                            </div>
+                    <group name="studio_group_c3fc81">
+                    <group name="studio_group_c3fc81_left"/>
+                    <group name="studio_group_c3fc81_right"/>
+                    </group>
+                </sheet>
+                </form>
+                </xpath>
+                </data>
+
+        </field>
+    </record>
+
+
+    <record id="default_list_view_fo_196a7f96-4e5b-402b-afe3-640685b86a5d" model="ir.ui.view">
+        <field name="name">Default list view for x_job_card</field>
+        <field name="model">x_job_card</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="x_studio_sequence" widget="handle"/>
+                <field name="x_name"/>
+                <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/>
+            </tree>
+
+        </field>
+    </record>
+
+
+    
+    
+
+</odoo>

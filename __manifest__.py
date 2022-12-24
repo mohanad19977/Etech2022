@@ -32,6 +32,7 @@
         "views/TrainingAbsenceReq.xml",
         "views/JudgePromotion.xml",
         'data/hr_salary_rule_data.xml',
+        'views/JobCard.xml',
     ],
     'images': ['static/description/banner.jpg'],
     'license': 'OPL-1',

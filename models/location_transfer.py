@@ -12,10 +12,11 @@ class x_location_transfer(models.Model):
     _description = 'x_location_transfer'
     _rec_name="x_name"
 
-    x_studio_judge = fields.Many2one('hr.employee', string='اسم القاضي',required=True)
+    x_studio_judge = fields.Many2one('hr.employee', string='اسم القاضي',required=True,domain="[('x_studio_employee_status','=','على رأس عمله')]")
     x_studio_new_work_location = fields.Many2one('hr.work.location', string='جهة النقل',required=True)
     x_studio_many2one_field_RymCx = fields.Many2one('hr.job', string='الوظيفة',readonly=True)   
     x_studio_many2one_field_X1jqs = fields.Many2one('x_transfer_reason', string='سبب النقل')
+    transfer_apply_chanel = fields.Many2one('x_transfer_apply_chanel', string='قناة تقديم الطلب')
     x_studio_many2one_field_mNvNk = fields.Many2one('hr.work.location', string='مركز العمل قبل النقل')
     x_studio_grade_years = fields.Many2one('hr.payroll.structure', string='Grade / Years')
     x_studio_tdocno = fields.Char('TDOCNO')
@@ -23,9 +24,9 @@ class x_location_transfer(models.Model):
     x_studio_many2one_field_TdUQu = fields.Many2one('x_transfer_status', string='Transfer Status')
 
     x_studio_selection_field_GUisB = fields.Selection([
-        ('initiated','تم تقديم الطلب'),
-        ('inprocess','بانتظار الموافقة'),
-        ( 'approved','تمت الموافقة'),
+        ('initiated','جديد'),
+        ('inprocess','تحت التنفيذ'),
+        ( 'approved','تم'),
         ('Rejected','مرفوض'),
     ], string='Pipeline status bar')
 
@@ -47,6 +48,13 @@ class x_transfer_reason(models.Model):
 class x_transfer_status(models.Model):
     _name = 'x_transfer_status'
     _description = 'x_transfer_status'
+    _rec_name="x_name"
+
+    x_name = fields.Char('Name')
+
+class x_transfer_apply_chanel(models.Model): #by mohanad
+    _name = 'x_transfer_apply_chanel'
+    _description = 'x_transfer_apply_chanel'
     _rec_name="x_name"
 
     x_name = fields.Char('Name')

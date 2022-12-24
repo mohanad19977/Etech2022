@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!--test-->
+
+  <record id="update_emp_name_module_name" model="ir.ui.view">
+    <field name="name">update employee name</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="arch" type="xml">
+        <data>
+          <field name="name" position="replace">
+            <field name="name" readonly="0" required="0" invisible="1"></field>
+           </field>
+
+           <xpath expr="//form[1]/sheet[1]/field[1]" position="before">
+            <field name="First_Last_Name" readonly="1"></field>
+           </xpath>
+
+          <field name="job_id" position="replace"></field>
+           <field name="marital" position="before">
+              <field name="job_id"></field>
+           </field>
+
+          <field name="work_location_id" position="replace"></field>
+           <field name="parent_id" position="before">
+              <field name="work_location_id"></field>
+           </field>
+
+        </data>
+        
+    </field>
+  </record>
+  
+  
+
     <record id="hr_emplo_my_custom_1" model="ir.ui.view">
         <field name="name">Odoo Studio: hr.employee.form customization_copy</field>
         <field name="model">hr.employee</field>
@@ -35,7 +67,7 @@
         <group name="studio_group_frTSL">
           <group name="studio_group_frTSL_left">
             <field name="x_studio_title" string="Title"/>
-            <field name="x_studio_employee_id" string="Employee ID" help="الرقم الوظيفي"/>
+            <field name="x_studio_employee_id" string="Employee ID" help="الرقم الوظيفي" placeholder="Employee ID"/>
             <field name="x_studio_system_id" string="System ID" help="تسلسل النظام"/>
             <field name="x_studio_employment_type" help="نوع التوظيف" string="Employment Type"/>
           </group>
@@ -86,7 +118,7 @@
     <attribute name="placeholder">المدير المباشر</attribute>
   </xpath>
 
-  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]/group[2]" position="inside">
+  <xpath expr="//field[@name='name']" position="before">
     <xpath expr="//field[@name='x_studio_employee_id'][not(ancestor::field)]" position="move"/>
   </xpath>
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[1]/group[3]/group[2]/field[1]" position="before">
@@ -1018,7 +1050,7 @@
     <attribute name="string">Job</attribute>
   </xpath>
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]" position="inside">
-    <field name="x_studio_many2one_field_OHxlc"/>
+    <field name="x_studio_many2one_field_OHxlc" string="Degree"/>
   </xpath>
  
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[1]" position="after">
@@ -1106,7 +1138,7 @@
     <field name="x_studio_many2one_field_Z0Im7"/>
   </xpath>
   <xpath expr="//field[@name='work_email']" position="after">
-    <field name="x_studio_many2one_field_4aoaB"/>
+    <field name="x_studio_many2one_field_4aoaB" invisible="1" />
     <field name="changedate"/>
     <field name="x_studio_many2one_field_1thIi"/>
   </xpath>
@@ -1249,7 +1281,7 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_average']" position="attributes">
     <attribute name="string">Average</attribute>
   </xpath>
-  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_many2one_field_1oArJ']" position="after">
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="before">
     <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_average']" position="move"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="after">
@@ -1264,6 +1296,14 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_major']" position="attributes">
     <attribute name="string">Major</attribute>
   </xpath>
+
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_major']" position="after">
+      <field name="x_studio_minor"/>
+    </xpath>
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_minor']" position="attributes">
+      <attribute name="string">Minor</attribute>
+    </xpath>
+
   <xpath expr="/form[1]/sheet[1]/div[2]/h1[1]/field[1]" position="attributes">
     <attribute name="attrs">{}</attribute>
     <attribute name="required"/>
@@ -1850,7 +1890,7 @@
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//field[@name='job_id']" position="after">
-                    <field name="x_studio_many2one_field_4aoaB" optional="show"/>
+                    <field name="x_studio_many2one_field_OHxlc" string="Degree" optional="show"/>
                 </xpath>
             </data>
         </field>

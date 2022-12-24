@@ -41,6 +41,7 @@
                     <field name="x_studio_new_work_location" placeholder="جهة النقل" attrs="{}" required="1"/>
                     <field name="x_studio_many2one_field_RymCx" placeholder="الوظيفة " force_save="True" attrs="{}" readonly="1"/>
                     <field name="x_studio_many2one_field_X1jqs"/>
+                    <field name="transfer_apply_chanel" placeholder='قناة تقديم الطلب' />
                 </xpath>
                 <xpath expr="//group[@name='studio_group_93af37_right']" position="inside">
                     <field name="x_studio_many2one_field_mNvNk" placeholder="مركز العمل قبل النقل"/>

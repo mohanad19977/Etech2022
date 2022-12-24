@@ -124,13 +124,13 @@ class x_employeecustom(models.Model):
 
     
 
-    @api.depends('x_studio_judge_name')
-    def _compute_x_studio_last_work_location(self):
-        for record in self:  
-            if record.x_studio_judge_name:
-                if not record.x_change:
-                    record["x_studio_last_work_location"]=record.x_studio_judge_name.work_location_id.display_name
-                    record["x_change"]="done"
+    # @api.depends('x_studio_judge_name')
+    # def _compute_x_studio_last_work_location(self):
+    #     for record in self:  
+    #         if record.x_studio_judge_name:
+    #             if not record.x_change:
+    #                 record["x_studio_last_work_location"]=record.x_studio_judge_name.work_location_id.display_name
+    #                 record["x_change"]="done"
 
 
     # PreviesPso = fields.Many2one('hr.employee', string='Judge' ,domain="['active','=',true]")

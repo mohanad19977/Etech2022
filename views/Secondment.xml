@@ -55,6 +55,7 @@
         <field name="duration" optional="show"/>
         <field name="x_studio_selection_field_elckG" optional="show"/>
       </xpath>
+
     </data>
   </field>
 </record>
@@ -82,6 +83,8 @@
     <field name="x_studio_new_job_position" placeholder="الوظيفة المنتدب اليها" attrs="{}" required="1"/>
     <field name="x_studio_end_date" string="End Date" placeholder="تاريخ نهاية الانتداب" attrs="{}" required="1"/>
     <field name="x_studio_notes" placeholder="ملاحظات"/>
+    <field name="x_End_Secondment"></field>
+    <field name="x_End_Secondment_Attachment"></field>
   </xpath>
   <xpath expr="//group[@name='studio_group_124373']" position="after">
     <group name="studio_group_oF2yV">
@@ -150,6 +153,12 @@
   </xpath>
   <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[4]" position="after">
     <xpath expr="//field[@name='x_studio_notes'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[5]" position="after">
+    <xpath expr="//field[@name='x_End_Secondment'][not(ancestor::field)]" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[6]" position="after">
+    <xpath expr="//field[@name='x_End_Secondment_Attachment'][not(ancestor::field)]" position="move"/>
   </xpath>
   <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[4]" position="after">
     <xpath expr="//field[@name='x_studio_start_date'][not(ancestor::field)]" position="move"/>

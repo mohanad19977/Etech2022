@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <!-- <record id="salary.attachmentlistssss_actiondsadas" model="ir.actions.act_window">
+            <field name="name">salary Attachment list </field>
+            <field name="res_model">salary.attachmentlist</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new product variant
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="product_product_menutests" name="salary Attachmentlist" action="salary.attachmentlistssss_actiondsadas"
+             sequence="21"/> -->
+
+  
+
+
+    
+</odoo>

@@ -272,7 +272,7 @@ class x_Customresumline(models.Model):
     
     x_studio_edit_attachment = fields.Boolean('Edit Attachment')
     x_studio_attachment = fields.Binary('Attachment', readonly="['&',('id','>','0'),('x_studio_edit_attachment','=','false']")
-    x_studio_job_title = fields.Char('Job Title')
+    x_studio_job_title = fields.Char('Job Title',readonly=True)
     x_studio_job_type = fields.Selection([
         ('1', 'عام'),
          ('2', 'خاص')
@@ -312,7 +312,7 @@ class x_Customresumline(models.Model):
     x_studio_qualified_from = fields.Date('Qualified from')
     x_studio_thesis = fields.Char('Thesis')
     x_studio_type_desc = fields.Char('TYPE_DESC')
-    x_studio_course_name = fields.Char('Course Name')
+    x_studio_course_name = fields.Char('Course Name',readonly=True)
     x_studio_description = fields.Text('Description')
 
     x_studio_skill = fields.Char('Skill')
@@ -329,6 +329,7 @@ class x_Customresumline(models.Model):
     x_studio_description = fields.Text('Description')
     x_studio_description_1 = fields.Html('Description')
     x_studio_major = fields.Char('Major')
+    x_studio_minor = fields.Char('Minor')
     x_studio_course_length = fields.Integer('COURSE_LENGTH')
     x_studio_hours = fields.Integer('HOURS')
     x_studio_no = fields.Integer('No')
@@ -336,6 +337,29 @@ class x_Customresumline(models.Model):
     x_studio_attendance_status = fields.Char('ATTENDANCE_STATUS')
     x_studio_absent_type = fields.Char('ABSENT_TYPE')
     x_studio_absent_reason = fields.Char('ABSENT_Reason')
+
+    date_start = fields.Date('Date Start',required=False)
+
+    @api.onchange('name')
+    def fillcourse_name(self):
+        for record in self:
+            record.x_studio_course_name=record.name
+            record.x_studio_job_title=record.name
+
+    @api.onchange('date_start','date_end')
+    @api.constrains('date_start','date_end')
+    def _constrainsdate2(self):
+           for record in self: 
+            if record.date_end and record.date_start:    
+
+                if record.date_end < record.date_start:
+                  raise ValidationError("End Date Must Grater Than Start Date")
+
+                if record.date_end>date.today() or  record.date_start>date.today():
+                    raise ValidationError("Start and End date cannot be in future")
+
+
+    
 
 
 
@@ -372,6 +396,8 @@ class qualificationstechnical(models.Model):
     _rec_name='x_name'
      
     x_name = fields.Char('name')
+
+    #x_country = fields.Many2one('x_birth_country', string='Country')
     
 class x_CustomEmployee(models.Model):
     _inherit="hr.employee"
@@ -428,14 +454,14 @@ class x_CustomEmployee(models.Model):
         ('استشاري', 'استشاري'),
     ], string='Employment Type')
 
-    x_studio_first_name = fields.Char('First Name')
-    x_studio_first_name_en = fields.Char('first name EN')
+    x_studio_first_name = fields.Char('First Name',required=True)
+    x_studio_first_name_en = fields.Char('first name EN',required=True)
     x_studio_first_name_en_1 = fields.Char('first Name En')
 
     # #page2 
 
     x_studio_float_field_g1V8r	 = fields.Float('New Decimal')
-    x_studio_fourth_name_en = fields.Char('Fourth Name En')
+    x_studio_fourth_name_en = fields.Char('Fourth Name En',required=True)
     x_studio_full_name = fields.Char(compute="_compute_x_studio_full_name",string='English Full Name',readonly=True)
     x_studio_full_name_ar = fields.Char(compute="_compute_x_studio_full_name_ar",string='Full Name Ar',readonly=True)
     x_studio_Garde = fields.Char('Grade')
@@ -443,7 +469,7 @@ class x_CustomEmployee(models.Model):
     x_studio_job_position_1 = fields.Char('Job Position',readonly=True)
     x_studio_joining_date = fields.Date('Joining Date')
     x_studio_judge_code = fields.Char('Judge Code')
-    x_studio_last_name = fields.Char('Last Name')
+    x_studio_last_name = fields.Char('Last Name',required=True)
 
 
     x_studio_many2many_field_Ak76e = fields.Many2many('x_competitiveness','x_hr_employee_x_competitiveness_rel_1','hr_employee_id','x_competitiveness_id', string='Competitiveness')
@@ -462,7 +488,7 @@ class x_CustomEmployee(models.Model):
     x_studio_many2one_field_IxOfq = fields.Many2one('hr.job', string='Job Position')
     x_studio_many2one_field_Jdzux = fields.Many2one('x_religion', string='Religion')
     x_studio_many2one_field_LPO0Y = fields.Many2one('x_x_hr_employee_depend_line_6466e', string='X Hr Employee Depend  Lines')
-    x_studio_many2one_field_OHxlc = fields.Many2one('x_job_grade', string='X Studio Many2One Field Ohxlc')    
+    x_studio_many2one_field_OHxlc = fields.Many2one('x_job_grade', string='Degree')    
     x_studio_many2one_field_qU4Lc = fields.Many2one('account.account', string='Account')
     x_studio_many2one_field_X2xk3 = fields.Many2one('x_grade', string='grade') #x_grade model in termination file
     x_studio_many2one_field_Z0Im7 = fields.Many2one('x_employment_type', string='employment type')
@@ -472,8 +498,8 @@ class x_CustomEmployee(models.Model):
     x_studio_mother_name_ar = fields.Char('Mother Name Ar')
     x_studio_one2many_field_aEyHc = fields.One2many('x_x_hr_employee_depend', 'x_studio_many2one_field_pIoXl', string='New One2many')
     x_studio_po_box = fields.Char('Po Box')
-    x_studio_second_name = fields.Char('Second Name')
-    x_studio_second_name_en = fields.Char('second name EN')
+    x_studio_second_name = fields.Char('Second Name',required=True)
+    x_studio_second_name_en = fields.Char('second name EN',required=True)
     x_studio_second_name_en_1 = fields.Char('Second Name En')
     x_studio_second_nationality = fields.Many2one('res.country', string='Second Nationality')
 
@@ -496,13 +522,15 @@ class x_CustomEmployee(models.Model):
     x_studio_specialities = fields.One2many('x_competitiveness', 'x_studio_many2one_field_B0KEP', string='Specialities')
     x_studio_status_date = fields.Date('Status Date')
     x_studio_system_id = fields.Char('System')
-    x_studio_third_name = fields.Char('Third Name')
-    x_studio_third_name_en = fields.Char('Third Name En')
+    x_studio_third_name = fields.Char('Third Name',required=True)
+    x_studio_third_name_en = fields.Char('Third Name En',required=True)
     x_studio_title = fields.Many2one('res.partner.title', string='Title')
     x_studio_work_center = fields.Many2one('x_work_center', string='Work center')
     x_studio_work_mobile_2 = fields.Char('Work Mobile 2')
     changedate = fields.Date('Change Grade Date',default=date.today())
 
+    name = fields.Char('Employee Name')
+    First_Last_Name = fields.Char('Name',readonly=True,compute="_compute_auto_fill_name")
 
     @api.depends('x_studio_first_name_en','x_studio_second_name_en','x_studio_third_name_en','x_studio_fourth_name_en')
     def _compute_x_studio_full_name(self):
@@ -520,6 +548,35 @@ class x_CustomEmployee(models.Model):
             record.changedate=date.today()
 
 
+    @api.onchange('km_home_work')
+    @api.constrains('km_home_work')
+    def _constraintkm_home_work(self):
+        for record in self:
+            if record.km_home_work < 0:
+                raise ValidationError("Home work distance can't be less than 0")
+
+    @api.depends('x_studio_first_name','x_studio_last_name')
+    def _compute_auto_fill_name(self):
+        for record in self:
+
+            FullName=""
+
+            if record.x_studio_first_name:
+
+                FullName+=  record.x_studio_first_name  + " " 
+
+            if record.x_studio_last_name:
+
+                FullName+=  record.x_studio_last_name
+
+        record.name = FullName
+        record.First_Last_Name = FullName
+
+
+    @api.onchange('x_studio_many2one_field_OHxlc')
+    def FillGrade(self):
+        for record in self:
+            record.x_studio_many2one_field_4aoaB=record.x_studio_many2one_field_OHxlc
 
 
 
