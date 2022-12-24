@@ -38,6 +38,13 @@ class JudgePromotion(models.Model):
     x_studio_sequence = fields.Integer('Sequence')
     state = fields.Boolean('state')
 
+    x_studio_selection_field_GUisB = fields.Selection([
+        ('initiated','جديد'),
+        ('inprocess','تحت التنفيذ'),
+        ( 'approved','تم'),
+        ('Rejected','مرفوض'),
+    ], string='Status')
+
 
     def GetPromotionJudge(self): 
          for record in self:

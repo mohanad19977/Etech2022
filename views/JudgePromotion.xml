@@ -80,6 +80,7 @@
                                                             <field name="x_studio_letter_date" optional="show"/>
                                                             <field name="x_studio_promotions_letter_no" optional="show"/>
                                                             <field name="x_studio_effective_date" optional="show"/>
+                                                            <field name="x_studio_selection_field_GUisB" optional="show"/>
                                                         </xpath>
                                                 </data>
                                                 </field>
@@ -87,11 +88,14 @@
 
 
     <record id="odoo_studio_default__f17d80e3-03a0-461d-af39-bc58d9fededd" model="ir.ui.view">
-                                            <field name="name">x_judgepromotionorm.inherit</field>
-                                            <field name="model">x_judgepromotion</field>
-                                            <field name="inherit_id" ref="default_form_view_fo_2099b7ef-7109-480f-9dfb-a5c6d07b911f"/>
-                                            <field name="arch" type="xml">
+        <field name="name">x_judgepromotionorm.inherit</field>
+        <field name="model">x_judgepromotion</field>
+        <field name="inherit_id" ref="default_form_view_fo_2099b7ef-7109-480f-9dfb-a5c6d07b911f"/>
+        <field name="arch" type="xml">
                                                 <data>
+                                                <xpath expr="//form[1]/header[1]" position="inside">
+                                                    <field widget="statusbar" options="{'clickable': '1'}" name="x_studio_selection_field_GUisB"/>
+                                                </xpath>
                                         <xpath expr="//form[1]/sheet[1]/div[1]/h1[1]" position="replace"/>
                                         <xpath expr="//group[@name='studio_group_bab047_left']" position="inside">
                                             <field name="x_studio_promotions_letter_no" string="Promotions Letter No." placeholder="رقم قرار الترفيعات"/>
