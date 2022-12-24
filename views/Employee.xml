@@ -924,7 +924,7 @@
   </xpath>
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="replace"/>
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[2]" position="after">
-    <field name="x_studio_work_center"/>
+    <field name="x_studio_work_center" invisible="1"/>
   </xpath>
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[1]/field[3]" position="attributes">
     <attribute name="string">Work center</attribute>
