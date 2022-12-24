@@ -24,9 +24,9 @@ class x_location_transfer(models.Model):
     x_studio_many2one_field_TdUQu = fields.Many2one('x_transfer_status', string='Transfer Status')
 
     x_studio_selection_field_GUisB = fields.Selection([
-        ('initiated','تم تقديم الطلب'),
-        ('inprocess','بانتظار الموافقة'),
-        ( 'approved','تمت الموافقة'),
+        ('initiated','جديد'),
+        ('inprocess','تحت التنفيذ'),
+        ( 'approved','تم'),
         ('Rejected','مرفوض'),
     ], string='Pipeline status bar')
 
