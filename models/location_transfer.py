@@ -22,6 +22,7 @@ class x_location_transfer(models.Model):
     x_studio_tdocno = fields.Char('TDOCNO')
     x_studio_transfer_date = fields.Date('تاريخ طلب النقل',required=True)
     x_studio_many2one_field_TdUQu = fields.Many2one('x_transfer_status', string='Transfer Status')
+    Attachment = fields.Binary('Attachment')
 
     x_studio_selection_field_GUisB = fields.Selection([
         ('initiated','جديد'),
