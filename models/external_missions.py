@@ -76,7 +76,7 @@ class x_employeecustom(models.Model):
     x_studio_job_title  = fields.Many2one('hr.job', string='مسمى وظيفي',required=True)
     x_studio_related_field_F5BJc = fields.Char('موقع العمل قبل الاعارة',readonly=True) # check (Dependencies = x_studio_judge_name)
     x_studio_work_center_before = fields.Char('Work Center Before',related='x_studio_judge_name.department_id.name',readonly=True)
-    x_studio_last_work_location = fields.Char(compute='_compute_x_studio_last_work_location', string='Last Work location',readonly=True)
+    x_studio_last_work_location = fields.Char(string='Last Work location',readonly=True)
     x_studio_reference_institution = fields.Char('المرجع المختص بالإعارة',required=True)
     x_studio_end_date_1 = fields.Date('تاريخ انتهاء الاعارة')
     x_studio_accumulative_periods = fields.Char('مدة الاعارة التراكمية')
@@ -124,13 +124,13 @@ class x_employeecustom(models.Model):
 
     
 
-    # @api.depends('x_studio_judge_name')
-    # def _compute_x_studio_last_work_location(self):
-    #     for record in self:  
-    #         if record.x_studio_judge_name:
-    #             if not record.x_change:
-    #                 record["x_studio_last_work_location"]=record.x_studio_judge_name.work_location_id.display_name
-    #                 record["x_change"]="done"
+    @api.depends('x_studio_judge_name')
+    def _compute_x_studio_last_work_location(self):
+        for record in self:  
+            if record.x_studio_judge_name:
+                if not record.x_change:
+                    record["x_studio_last_work_location"]=record.x_studio_judge_name.work_location_id.display_name
+                    record["x_change"]="done"
 
    
                
@@ -157,7 +157,16 @@ class x_employeecustom(models.Model):
             if enddatebewteen != 1:     
                     raise ValidationError("Judge have another Extenal Mission in same Date")      
 
-
+   
+    # @api.onchange('Fullduration')
+    # def _constrains_Fullduration(self):
+    #       for record in self:
+    #         if record.Fullduration:
+    #            dates=int(sum(self.env["x_employee_actions"].search([("x_studio_judge_name.id", "=", self.x_studio_judge_name.id)]).mapped('duration')))/365
+    #            year=int(dates)
+              
+    
+    
     @api.depends('duration','x_studio_judge_name')
     def _compute_duration(self):
         try:
@@ -166,9 +175,8 @@ class x_employeecustom(models.Model):
                year=int(dates)
                days=dates-int(dates)
                record.Fullduration=" " + str(year) + " Year and "+ str(int(days*365)) +" Days" 
-               if year > 5 :
-                  self.x_studio_judge_name=False
-                  raise ValidationError("مدة الاعارة يجب الا تتجاوز ال 5 السنوات")
+            #    if int(year+(record.duration/365)) >= 5 :
+            #       raise ValidationError("مدة الاعارة يجب الا تتجاوز ال 5 السنوات")
         except ValueError:
              record.Fullduration= "0"
 

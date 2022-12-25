@@ -46,7 +46,7 @@ class x_location_transfer(models.Model):
                if user:    
                 #  try:
                  user.write({
-                    'job_id':record.x_studio_many2one_field_RymCx
+                    'work_location_id':record.x_studio_new_work_location
                     })
 class x_transfer_reason(models.Model):
     _name = 'x_transfer_reason'

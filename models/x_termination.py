@@ -39,3 +39,6 @@ class x_termination(models.Model):
     message_ids = fields.One2many('mail.message', 'res_id', string='Messages')
     activity_ids = fields.One2many('mail.activity', 'res_id', string='Activities')
     x_studio_sequence = fields.Integer('Sequence')
+    
+
+    
