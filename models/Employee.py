@@ -553,9 +553,18 @@ class x_CustomEmployee(models.Model):
     def name_get(self):
         result = []
         for record in self:
-            if record.name and record.x_studio_employee_id:
-             result.append((record.id,str(record.name)+','+record.x_studio_employee_id))
-        
+            if record.First_Last_Name and record.work_location_id and record.job_id:
+              result.append((record.id,str(record.First_Last_Name)+','+ str(record.work_location_id.display_name)+','+str(record.job_id.display_name)))
+            else:
+             if record.First_Last_Name and record.job_id:
+               result.append((record.id,str(record.First_Last_Name)+','+str(record.job_id.display_name)))
+             else: 
+              if record.First_Last_Name and record.work_location_id:
+                result.append((record.id,str(record.First_Last_Name)+','+str(record.work_location_id.display_name))) 
+              else: 
+               if record.First_Last_Name:
+                 result.append((record.id,str(record.First_Last_Name)))
+   
         return result
 
     @api.depends('x_studio_first_name_en','x_studio_second_name_en','x_studio_third_name_en','x_studio_fourth_name_en')
@@ -594,8 +603,10 @@ class x_CustomEmployee(models.Model):
             if record.x_studio_last_name:
 
                 FullName+=  record.x_studio_last_name
-
-            record.name = FullName
+            if record.x_studio_employee_id:
+              record.name = FullName + ','+record.x_studio_employee_id
+            else:
+               record.name = FullName 
             record.First_Last_Name = FullName
 
 
