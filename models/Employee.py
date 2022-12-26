@@ -375,7 +375,15 @@ class x_Customresumline(models.Model):
                 if record.date_end>date.today() or  record.date_start>date.today():
                     raise ValidationError("Start and End date cannot be in future")
 
-
+    @api.onchange('x_studio_country')
+    def _onchange_x_studio_country(self):
+        for reccord in self:
+            if(reccord.x_studio_country):
+                reccord.x_studio_many2one_field_1oArJ=""
+                
+                return {
+                    'domain':{'x_studio_many2one_field_1oArJ':[('x_country.x_name','=',reccord.x_studio_country.x_name)]}
+                }
     
 
 
@@ -413,8 +421,10 @@ class qualificationstechnical(models.Model):
     _rec_name='x_name'
      
     x_name = fields.Char('name')
+    x_studio_sequence = fields.Integer('Sequance')
+    x_active = fields.Boolean('Active',default=True)
 
-    #x_country = fields.Many2one('x_birth_country', string='Country')
+    x_country = fields.Many2one('x_birth_country', string='Country')
     
 class x_CustomEmployee(models.Model):
     _inherit="hr.employee"
@@ -614,6 +624,8 @@ class x_CustomEmployee(models.Model):
     def FillGrade(self):
         for record in self:
             record.x_studio_many2one_field_4aoaB=record.x_studio_many2one_field_OHxlc
+
+
 
 
 

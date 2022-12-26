@@ -1288,12 +1288,7 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_grade']" position="before">
     <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_average']" position="move"/>
   </xpath>
-  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="after">
-    <field name="x_studio_country"/>
-  </xpath>
-  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_country']" position="attributes">
-    <attribute name="string">Country</attribute>
-  </xpath>
+
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification']" position="after">
     <field name="x_studio_major"/>
   </xpath>
@@ -1307,6 +1302,13 @@
     <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_minor']" position="attributes">
       <attribute name="string">Minor</attribute>
     </xpath>
+
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_minor']" position="after">
+    <field name="x_studio_country"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_country']" position="attributes">
+    <attribute name="string">Country</attribute>
+  </xpath>
 
   <xpath expr="/form[1]/sheet[1]/div[2]/h1[1]/field[1]" position="attributes">
     <attribute name="attrs">{}</attribute>
@@ -1899,5 +1901,58 @@
             </data>
         </field>
     </record> 
+
+    <record id="default_form_view_fo_65672ce1-287c-4db4-8d92-71a1296eab9c" model="ir.ui.view">
+      <field name="name">Default form view for x_qualifications_provi</field>
+      <field name="model">x_qualifications_provi</field>
+      <field name="arch" type="xml">
+        <form>
+          <header/>
+          <sheet string="Qualifications Provider">
+            <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+            <field name="x_active" invisible="1"/>
+            <div class="oe_title">
+                        <h1>
+                            <field name="x_name" required="1" placeholder="Name..."/>
+                            <field name="x_country" required="1" placeholder="Country"/>
+                        </h1>
+                    </div>
+            <group name="studio_group_411866">
+              <group name="studio_group_411866_left"/>
+              <group name="studio_group_411866_right"/>
+            </group>
+          </sheet>
+        </form>
+
+      </field>
+    </record>
+
+    <record id="default_list_view_fo_38c87f68-88b5-4d9f-92bb-ef5880fdc6c3" model="ir.ui.view">
+      <field name="name">Default list view for x_qualifications_provi</field>
+      <field name="model">x_qualifications_provi</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="x_studio_sequence" widget="handle"/>
+          <field name="x_name"/>
+        </tree>
+
+      </field>
+    </record>
+
+    <!-- <record id="odoo_studio_default__2242ccb4-12a2-4c8b-b48d-718caad4be1a" model="ir.ui.view">
+      <field name="name">Odoo Studio: Default list view for x_qualifications_provi customization</field>
+      <field name="model">x_qualifications_provi</field>
+      <field name="inherit_id" ref="default_list_view_fo_38c87f68-88b5-4d9f-92bb-ef5880fdc6c3"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="//field[@name='x_studio_sequence']" position="before">
+            <field name="id" optional="show"/>
+          </xpath>
+          <xpath expr="//field[@name='x_name']" position="after">
+            <field optional="show" name="x_studio_many2one_field_B7cUy"/>
+          </xpath>
+        </data>
+      </field>
+    </record> -->
 
 </odoo>
