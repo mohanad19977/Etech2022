@@ -70,7 +70,8 @@ class x_employeecustom(models.Model):
     x_studio_judge_name = fields.Many2one('hr.employee', string='Judge' ,domain="[('x_studio_employee_status','=','على رأس عمله')]",readonly="[('id','>','0')]",required=True)
     x_studio_start_date = fields.Date('تاريخ بدء الاعارة')
     duration = fields.Integer(compute='_compute_dateend', string='المدة (أيام )',readonly=True) #check
-    Fullduration = fields.Char(compute='_compute_duration', string='المدة ( سنوات )',readonly=True)  #check
+    Fullduration = fields.Char(compute='_compute_duration', string='المدة ( سنوات )',readonly=True)
+    Fulldurationfloat = fields.Float(string='المدة)')  #check
     x_studio_letter_ref_no = fields.Char('Ref No',required=True)
     x_studio_many2one_field_XrM3J = fields.Many2one('x_birth_country', string='الدولة')
     x_studio_job_title  = fields.Many2one('hr.job', string='مسمى وظيفي',required=True)
@@ -184,8 +185,22 @@ class x_employeecustom(models.Model):
     def _compute_field_kzUUk(self):
         for record in self:
             record['x_studio_char_field_kzUUk'] = record.x_studio_end_date_1 - record.x_studio_start_date
+   
+
+  
+    @api.onchange('x_studio_end_date_1','x_studio_start_date')
+    def _compute_Fulldurationfloat(self):
+        for record in self:
+             if record.duration:
+                 dates=int(sum(self.env["x_employee_actions"].search([("x_studio_judge_name.id", "=", self.x_studio_judge_name.id)]).mapped('duration')))/365
+                 record.Fulldurationfloat=dates
 
 
+    @api.constrains('Fulldurationfloat')
+    def _constrains_Fulldurationfloat(self):
+        for record in self:
+            if record.Fulldurationfloat and record.Fulldurationfloat+(record.duration/365) >= 5:
+               raise ValidationError("مدة الاعارة يجب الا تتجاوز ال 5 السنوات")
     # @api.depends('duration','x_studio_judge_name')
     # def _compute_duration(self):
     #     try:
