@@ -1899,5 +1899,18 @@
             </data>
         </field>
     </record> 
+   
 
+   <record id="jobbenefits_inherit_module_name" model="ir.ui.view">
+    <field name="name">hr.job.form.jobbenefits</field>
+    <field name="model">hr.job</field>
+    <field name="inherit_id" ref="hr.view_hr_job_form"/>
+    <field name="arch" type="xml">
+       <data>
+                <xpath expr="//field[@name='no_of_recruitment']" position="after">
+                    <field name="jobbenefits"/>
+                </xpath>
+            </data>
+    </field>
+   </record>
 </odoo>

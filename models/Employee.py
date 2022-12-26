@@ -415,7 +415,13 @@ class qualificationstechnical(models.Model):
     x_name = fields.Char('name')
 
     #x_country = fields.Many2one('x_birth_country', string='Country')
+   
+class x_CustomEmployeejob(models.Model):
+    _inherit="hr.job"
+
     
+    jobbenefits = fields.Float('Position benefits',required=True,default=0.0)
+
 class x_CustomEmployee(models.Model):
     _inherit="hr.employee"
 
