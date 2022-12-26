@@ -458,6 +458,15 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="attributes">
     <attribute name="placeholder">عنوان الاطروحة / الرسالة</attribute>
   </xpath>
+  
+
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="after">
+    <field name="has_financial_imact"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='has_financial_imact']" position="attributes">
+    <attribute name="string">Does it has a financial impact ?</attribute>
+  </xpath>
+
   <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
     <attribute name="string">Education</attribute>
   </xpath>
@@ -524,6 +533,12 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_qualification_track']" position="after">
     <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="move"/>
   </xpath>
+  
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_thesis']" position="after">
+    <xpath expr="//field[@name='resume_line_ids']/form//field[@name='has_financial_imact']" position="move"/>
+  </xpath>
+
+
   <xpath expr="//field[@name='resume_line_ids']/form//group" position="attributes">
     <attribute name="string">Experience</attribute>
   </xpath>

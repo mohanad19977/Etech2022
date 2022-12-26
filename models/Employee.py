@@ -339,6 +339,8 @@ class x_Customresumline(models.Model):
     x_studio_absent_type = fields.Char('ABSENT_TYPE')
     x_studio_absent_reason = fields.Char('ABSENT_Reason')
 
+    has_financial_imact = fields.Boolean('Does it has a financial impact ?')
+
     date_start = fields.Date('Date Start',required=False)
 
    
@@ -380,7 +382,7 @@ class x_Customresumline(models.Model):
         for reccord in self:
             if(reccord.x_studio_country):
                 reccord.x_studio_many2one_field_1oArJ=""
-                
+
                 return {
                     'domain':{'x_studio_many2one_field_1oArJ':[('x_country.x_name','=',reccord.x_studio_country.x_name)]}
                 }
