@@ -548,7 +548,15 @@ class x_CustomEmployee(models.Model):
 
     name = fields.Char('Employee Name')
     First_Last_Name = fields.Char('Name',readonly=True,compute="_compute_auto_fill_name")
-   
+     
+    
+
+    # @api.depends('work_location_id')
+    # def _compute_work_location_id(self):
+    #     for record in self:
+    #         if record.work_location_id:
+    #            record.address_id=record.work_location_id.address_id
+
 
     def name_get(self):
         result = []
