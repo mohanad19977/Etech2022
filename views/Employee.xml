@@ -609,6 +609,9 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="attributes">
     <attribute name="placeholder">المسمى الوظيفي</attribute>
   </xpath>
+
+  
+
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="attributes">
     <attribute name="string">H</attribute>
   </xpath>
@@ -618,6 +621,15 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="after">
     <field name="x_studio_employer"/>
   </xpath>
+
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="before">
+    <field name="x_studio_experiance_duration"/>
+  </xpath>
+  <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_experiance_duration']" position="attributes">
+    <attribute name="placeholder"> Experiance Duration </attribute>
+  </xpath>
+
+  
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_employer']" position="attributes">
     <attribute name="string">Employer</attribute>
   </xpath>
@@ -1382,6 +1394,11 @@
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="after">
     <field name="x_studio_job_type"/>
   </xpath>
+
+  <!-- <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="before">
+    <field name="x_studio_experiance_duration"/>
+  </xpath> -->
+
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_type']" position="attributes">
     <attribute name="string">Job Type</attribute>
   </xpath>

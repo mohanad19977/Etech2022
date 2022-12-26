@@ -286,6 +286,7 @@ class x_Customresumline(models.Model):
     ], string='Exp Type')
     x_studio_employer = fields.Text('Employer')
     x_studio_duration = fields.Float('Duration',readonly=True)
+    x_studio_experiance_duration = fields.Char('Experiance Duration',readonly=True)
     x_studio_resignation_reason = fields.Char('Resignation Reason')
     x_studio_many2one_field_7U76H = fields.Many2one('x_experience_country', string='Experience country')
     x_studio_many2one_field_DsV8W = fields.Many2one('x_course_location', string='Course Location')
@@ -373,9 +374,15 @@ class x_Customresumline(models.Model):
 
                 if record.date_end < record.date_start:
                   raise ValidationError("End Date Must Grater Than Start Date")
+                else : 
+                    date_difference= relativedelta(record.date_end,record.date_start)
+                    record.x_studio_experiance_duration= str(date_difference.years) + " year and " + str(date_difference.months) + " month" 
+
+
 
                 if record.date_end>date.today() or  record.date_start>date.today():
                     raise ValidationError("Start and End date cannot be in future")
+
 
     @api.onchange('x_studio_country')
     def _onchange_x_studio_country(self):
