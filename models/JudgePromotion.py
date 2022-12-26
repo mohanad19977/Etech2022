@@ -37,6 +37,7 @@ class JudgePromotion(models.Model):
     x_active = fields.Boolean('Active',default=True)
     x_studio_sequence = fields.Integer('Sequence')
     state = fields.Boolean('state')
+    Attachment = fields.Binary('Attachment')
 
     x_studio_selection_field_GUisB = fields.Selection([
         ('initiated','جديد'),

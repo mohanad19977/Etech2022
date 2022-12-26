@@ -81,6 +81,8 @@
                                                             <field name="x_studio_promotions_letter_no" optional="show"/>
                                                             <field name="x_studio_effective_date" optional="show"/>
                                                             <field name="x_studio_selection_field_GUisB" optional="show"/>
+                                                            <field name="Attachment"></field>
+
                                                         </xpath>
                                                 </data>
                                                 </field>
@@ -103,6 +105,7 @@
                                         </xpath>
                                         <xpath expr="//group[@name='studio_group_bab047_right']" position="inside">
                                             <field name="x_studio_letter_date" string="Letter Date" placeholder="تاريخ كتاب الترفيعات"/>
+                                            <field name="Attachment"></field>
                                             <!-- <field name="x_studio_reference" string="Reference" placeholder="مرجع قرار الترفيعات"/> -->
                                         </xpath>
                                         <xpath expr="//group[@name='studio_group_bab047']" position="after">
