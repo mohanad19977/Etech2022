@@ -8,23 +8,7 @@
     <field name="inherit_id" ref="hr.view_employee_form"/>
     <field name="arch" type="xml">
         <data>
-          <field name="name" position="replace">
-            <field name="name" readonly="0" required="0" invisible="1"></field>
-           </field>
-
-           <xpath expr="//form[1]/sheet[1]/field[1]" position="before">
-            <field name="First_Last_Name" readonly="1"></field>
-           </xpath>
-
-          <field name="job_id" position="replace"></field>
-           <field name="marital" position="before">
-              <field name="job_id"></field>
-           </field>
-
-          <field name="work_location_id" position="replace"></field>
-           <field name="parent_id" position="before">
-              <field name="work_location_id"></field>
-           </field>
+        
 
         </data>
         
@@ -1155,6 +1139,24 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
            <data>
+             <field name="name" position="replace">
+            <field name="name" readonly="0" required="0" invisible="1"></field>
+           </field>
+
+           <xpath expr="//form[1]/sheet[1]/field[1]" position="before">
+            <field name="First_Last_Name" readonly="1"></field>
+           </xpath>
+
+          <field name="job_id" position="replace"></field>
+           <field name="marital" position="before">
+              <field name="job_id"></field>
+           </field>
+
+          <field name="work_location_id" position="replace"></field>
+           <field name="parent_id" position="before">
+              <field name="work_location_id"></field>
+           </field>
+           
   <xpath expr="//field[@name='x_studio_first_name']" position="after">
     <field name="x_studio_first_name_en"/>
   </xpath>

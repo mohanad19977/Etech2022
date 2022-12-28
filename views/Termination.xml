@@ -89,7 +89,7 @@
     <record id="odoo_studio_default__2a80911b-72b9-467b-8ebf-184fffef66c6" model="ir.ui.view">
         <field name="name">Odoo Studio: Default list view for x_termination customization</field>
         <field name="model">x_termination</field>
-        <field name="inherit_id" ref="inherit_module_name.inherit_view_id"/>
+        <field name="inherit_id" ref="default_list_view_fo_fd355560-7f13-4a1d-9757-b3c6d5954fac"/>
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//field[@name='x_name']" position="replace"/>
