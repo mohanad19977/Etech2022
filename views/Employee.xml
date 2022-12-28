@@ -1081,7 +1081,7 @@
     <attribute name="string">Job</attribute>
   </xpath>
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]" position="inside">
-    <field name="x_studio_many2one_field_OHxlc" string="Degree"/>
+    <field name="x_studio_many2one_field_4aoaB" string="Degree"/>
   </xpath>
  
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[1]" position="after">
@@ -1928,7 +1928,7 @@
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//field[@name='job_id']" position="after">
-                    <field name="x_studio_many2one_field_OHxlc" string="Degree" optional="show"/>
+                    <field name="x_studio_many2one_field_4aoaB" string="Degree" optional="show"/>
                 </xpath>
             </data>
         </field>

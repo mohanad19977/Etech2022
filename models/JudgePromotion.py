@@ -77,6 +77,7 @@ class JudgePromotion(models.Model):
     def Confirm(self):
         for record in self:
             record.state=True
+            record.x_studio_selection_field_GUisB='approved'
             for emp in record.x_judgepromotion_line_ids_c0b72:
              user=self.env["hr.employee"].search([("id", "=", emp.x_studio_many2one_field_gXLon.id)])     
              if user:    
@@ -86,4 +87,22 @@ class JudgePromotion(models.Model):
                     'job_id':emp.x_studio_new_job_position,
                     'changedate':date.today()
                     })
-        
+
+
+    def Confirmcron(self):
+        promations=self.env["x_judgepromotion"].search([("state", "=", False)])
+        for record in promations:
+            if record.state==False and record.x_studio_effective_date <date.today():
+             for emp in record.x_judgepromotion_line_ids_c0b72:
+              user=self.env["hr.employee"].search([("id", "=", emp.x_studio_many2one_field_gXLon.id)])     
+              if user:    
+                #  try:
+                 record.write({
+                    'state':True,
+                     'x_studio_selection_field_GUisB':'approved',
+                    }) 
+                 user.write({
+                    'x_studio_many2one_field_4aoaB':emp.x_studio_new_job_grade,
+                    'job_id':emp.x_studio_new_job_position,
+                    'changedate':date.today()
+                    }) 
