@@ -174,7 +174,7 @@ class x_x_hr_employee_depend(models.Model): #from mahmoud code
     x_studio_many2one_field_BHtKm = fields.Many2one('res.lang', string='Languages')
     x_studio_many2one_field_F9toM = fields.Many2one('res.partner', string='Contact')
     x_studio_many2one_field_pIoXl = fields.Many2one('hr.employee', string=' Dep Employee')
-    x_studio_many2one_field_PvJxd = fields.Many2one('hr.employee', string='Employee')
+    x_studio_many2one_field_PvJxd = fields.Many2one('hr.employee', string='Employee',tracking=True)
     x_studio_mobile = fields.Char('Mobile')
     x_studio_name_1 = fields.Char('Name')
     x_studio_nationalid = fields.Char('NationalID')
@@ -265,8 +265,15 @@ class x_work_center(models.Model):
     x_name = fields.Char('Name')
     x_active = fields.Boolean('Active',default=True)
     x_studio_sequence = fields.Integer('Sequence')
-    
-  
+
+class x_work_Employer(models.Model):
+    _name = 'x_employer_work'    
+    _description = 'x_employer_work'
+    _rec_name="x_name"
+
+    x_name = fields.Char('Name')
+
+
 class x_Customresumline(models.Model):
     _inherit="hr.resume.line"  
     
@@ -284,7 +291,8 @@ class x_Customresumline(models.Model):
           ('3', '3'),
            ('4', '4')
     ], string='Exp Type')
-    x_studio_employer = fields.Text('Employer')
+    
+    x_studio_employer = fields.Many2one('x_employer_work', string='Employer')
     x_studio_duration = fields.Float('Duration',readonly=True)
     x_studio_experiance_duration = fields.Char('Experiance Duration',readonly=True)
     x_studio_resignation_reason = fields.Char('Resignation Reason')
@@ -539,7 +547,7 @@ class x_CustomEmployee(models.Model):
     x_studio_mother_en_name = fields.Char('اسم الام - لغة النجليزية')
     x_studio_mother_name = fields.Char('Mother Name')
     x_studio_mother_name_ar = fields.Char('Mother Name Ar')
-    x_studio_one2many_field_aEyHc = fields.One2many('x_x_hr_employee_depend', 'x_studio_many2one_field_pIoXl', string='New One2many')
+    x_studio_one2many_field_aEyHc = fields.One2many('x_x_hr_employee_depend', 'x_studio_many2one_field_PvJxd', string='New One2many',tracking=True)
     x_studio_po_box = fields.Char('Po Box')
     x_studio_second_name = fields.Char('Second Name',required=True)
     x_studio_second_name_en = fields.Char('second name EN',required=True)

@@ -75,7 +75,6 @@
     <field name="x_studio_start_date" string="start Date" placeholder="تاريخ بدء الانتداب" attrs="{}" required="1"/>
     <field name="duration" placeholder="حالة الانتداب"/>
     <field name="Fullduration" placeholder="حالة الانتداب"/>
-    <field name="x_studio_status" placeholder="حالة الانتداب"/>
   </xpath>
   <xpath expr="//group[@name='studio_group_124373_right']" position="inside">
     <field name="x_studio_current_work_location" placeholder="مركز العمل قبل الانتداب" force_save="True" attrs="{}" readonly="1" string="current Work Location"/>
