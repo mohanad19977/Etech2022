@@ -8,23 +8,7 @@
     <field name="inherit_id" ref="hr.view_employee_form"/>
     <field name="arch" type="xml">
         <data>
-          <field name="name" position="replace">
-            <field name="name" readonly="0" required="0" invisible="1"></field>
-           </field>
-
-           <xpath expr="//form[1]/sheet[1]/field[1]" position="before">
-            <field name="First_Last_Name" readonly="1"></field>
-           </xpath>
-
-          <field name="job_id" position="replace"></field>
-           <field name="marital" position="before">
-              <field name="job_id"></field>
-           </field>
-
-          <field name="work_location_id" position="replace"></field>
-           <field name="parent_id" position="before">
-              <field name="work_location_id"></field>
-           </field>
+        
 
         </data>
         
@@ -1081,7 +1065,7 @@
     <attribute name="string">Job</attribute>
   </xpath>
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]" position="inside">
-    <field name="x_studio_many2one_field_OHxlc" string="Degree"/>
+    <field name="x_studio_many2one_field_4aoaB" string="Degree"/>
   </xpath>
  
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[1]" position="after">
@@ -1155,6 +1139,24 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
            <data>
+             <field name="name" position="replace">
+            <field name="name" readonly="0" required="0" invisible="1"></field>
+           </field>
+
+           <xpath expr="//form[1]/sheet[1]/field[1]" position="before">
+            <field name="First_Last_Name" readonly="1"></field>
+           </xpath>
+
+          <field name="job_id" position="replace"></field>
+           <field name="marital" position="before">
+              <field name="job_id"></field>
+           </field>
+
+          <field name="work_location_id" position="replace"></field>
+           <field name="parent_id" position="before">
+              <field name="work_location_id"></field>
+           </field>
+           
   <xpath expr="//field[@name='x_studio_first_name']" position="after">
     <field name="x_studio_first_name_en"/>
   </xpath>
@@ -1928,7 +1930,7 @@
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//field[@name='job_id']" position="after">
-                    <field name="x_studio_many2one_field_OHxlc" string="Degree" optional="show"/>
+                    <field name="x_studio_many2one_field_4aoaB" string="Degree" optional="show"/>
                 </xpath>
             </data>
         </field>

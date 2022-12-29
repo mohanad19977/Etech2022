@@ -49,6 +49,21 @@ class x_location_transfer(models.Model):
                  user.write({
                     'work_location_id':record.x_studio_new_work_location
                     })
+
+    def Confirmcron(self):
+        locations=self.env["x_location_transfer"].search([("x_studio_selection_field_GUisB", "!=", 'approved')])
+        for record in locations:
+            if record.x_studio_selection_field_GUisB != 'approved' and record.x_studio_transfer_date <date.today():
+             user=self.env["hr.employee"].search([("id", "=", record.x_studio_judge.id)])     
+             if user:    
+                #  try:
+                 record.write({
+                    'x_studio_selection_field_GUisB':'approved',
+                    }) 
+                 user.write({
+                    'work_location_id':record.x_studio_new_work_location
+                    })      
+
 class x_transfer_reason(models.Model):
     _name = 'x_transfer_reason'
     _description = 'x_transfer_reason'

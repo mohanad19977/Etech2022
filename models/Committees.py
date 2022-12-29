@@ -69,8 +69,9 @@ class x_committees_line_1678dtcustom(models.Model):
     #x_studio_judge =fields.Many2one('hr.employee', string='Judge')
 
     x_studio_many2one_field_Homib = fields.Many2one('x_participation_type', string='Participation Type')
-    x_studio_many2one_field_2e5p2 = fields.Many2one('hr.work.location', string='Work Location')
-    x_studio_many2one_field_hO5XQ = fields.Many2one('hr.job', string='Job Position')
+    x_studio_many2one_field_2e5p2 = fields.Many2one('hr.work.location', string='Work Location',related='x_studio_judge.work_location_id')
+    x_studio_many2one_field_hO5XQ = fields.Many2one('hr.job', string='Job Position',related='x_studio_judge.job_id')
+    
     x_studio_sequence = fields.Integer('Sequence')
     x_name = fields.Char('Description')
     
