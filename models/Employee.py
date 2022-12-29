@@ -378,8 +378,6 @@ class x_Customresumline(models.Model):
                     date_difference= relativedelta(record.date_end,record.date_start)
                     record.x_studio_experiance_duration= str(date_difference.years) + " year and " + str(date_difference.months) + " month" 
 
-
-
                 if record.date_end>date.today() or  record.date_start>date.today():
                     raise ValidationError("Start and End date cannot be in future")
 

@@ -134,7 +134,9 @@ class x_secondmentcustom(models.Model):
                days=dates-int(dates)
                record.Fullduration=" " + str(year) + " Year and "+ str(int(days*365)) +" Days"    
               
-
-         
-        # except ValueError:
-        #      record.Fullduration= "0"
+    # @api.onchange('x_secondment_line_ids_f9153')
+    # def _onchange_x_secondment_line_ids_f9153(self):
+    #     for record in self:
+    #         first_line = self.env['x_secondment_line_e0591'].search([('x_secondment', 'in',   self.x_secondment_line_ids_f9153.id)], order='sequence, id', limit=1)
+    #         if first_line and first_line.x_studio_date_field_CIQTI:
+    #             record.x_studio_last_judge_grade=first_line.x_studio_date_field_CIQTI
