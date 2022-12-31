@@ -58,6 +58,15 @@ class x_committees(models.Model):
              if record.x_studio_end_date < record.x_studio_commencement_date:
                   raise ValidationError("End Date Must Grater Than Start Date")
 
+    
+
+    
+    # @api.onchange('x_committees_line_ids_9f1e1')
+    # def _onchange_x_committees_line_ids_9f1e1(self):
+    #     for record in self:
+    #         record.x_studio_letter_ref_no=
+
+
 
 class x_committees_line_1678dtcustom(models.Model):
     _name = 'x_committees_line_1678d'
