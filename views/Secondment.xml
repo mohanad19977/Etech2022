@@ -75,6 +75,7 @@
     <field name="x_studio_start_date" string="start Date" placeholder="تاريخ بدء الانتداب" attrs="{}" required="1"/>
     <field name="duration" placeholder="حالة الانتداب"/>
     <field name="Fullduration" placeholder="حالة الانتداب"/>
+    <field name="EndDateWithTmded" placeholder="تاريخ نهاية الانتداب مع التمديد"/>
     <field name="x_studio_status" placeholder="حالة الانتداب" invisible="1"/>
   </xpath>
   <xpath expr="//group[@name='studio_group_124373_right']" position="inside">
@@ -82,12 +83,15 @@
     <field name="x_studio_many2one_field_BKD8J" placeholder="نوع الانتداب"/>
     <field name="x_studio_new_job_position" placeholder="الوظيفة المنتدب اليها" attrs="{}" required="1"/>
     <field name="x_studio_end_date" string="End Date" placeholder="تاريخ نهاية الانتداب" attrs="{}" required="1"/>
+    <field name="EndDateWithTmded" placeholder="تاريخ نهاية الانتداب مع التمديد"/>
     <field name="x_studio_notes" placeholder="ملاحظات"/>
     <field name="x_End_Secondment"></field>
     <field name="x_End_Secondment_Attachment"></field>
+
   </xpath>
   <xpath expr="//group[@name='studio_group_124373']" position="after">
     <group name="studio_group_oF2yV">
+      <field name="EndDateWithTmded" placeholder="تاريخ نهاية الانتداب مع التمديد"/>
       <field name="x_secondment_line_ids_f9153" string="تمديدات الانتداب"/>
     </group>
   </xpath>

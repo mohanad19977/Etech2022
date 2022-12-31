@@ -39,6 +39,27 @@ class x_termination(models.Model):
     message_ids = fields.One2many('mail.message', 'res_id', string='Messages')
     activity_ids = fields.One2many('mail.activity', 'res_id', string='Activities')
     x_studio_sequence = fields.Integer('Sequence')
+    done = fields.Char(string='done?')
     
 
-    
+    @api.model
+    def create(self, vals):
+        result = super(x_termination, self).create(vals)
+            # do what you want
+        user=self.env["hr.employee"].search([("id", "=", result.x_studio_judge.id)])     
+        if user:    
+                    user.write({
+                        'x_studio_employee_status':'انهاء خدمة'
+                        })    
+
+        return result
+    # @api.depends('x_studio_judge')
+    # def _compute_x_studio_judge(self):
+    #     for record in self: 
+    #       if record.done!="done":  
+           
+    #                 record.done="done"  
+    #         else:
+    #             record.done="not Yet"
+    #       else:
+    #         record.done="not Yet"              

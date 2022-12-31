@@ -18,6 +18,7 @@ class x_participation_type(models.Model):
     _rec_name="x_name"
 
     x_name = fields.Char('Name')
+    canntdublicate = fields.Boolean('can not duplicate?')
 
 class x_funding_party(models.Model):
     _name = 'x_funding_party'
@@ -44,7 +45,8 @@ class x_committees(models.Model):
     x_active = fields.Boolean('Active',default=True)
     x_name = fields.Char('Name')
     x_studio_sequence = fields.Integer('Sequence')
-
+    
+    
     x_studio_location = fields.Selection([
         ('داخل الأردن', 'داخل الأردن'),
         ('خارج الأردن', 'خارج الأردن')
@@ -57,8 +59,15 @@ class x_committees(models.Model):
             if record.x_studio_end_date and record.x_studio_commencement_date:    
              if record.x_studio_end_date < record.x_studio_commencement_date:
                   raise ValidationError("End Date Must Grater Than Start Date")
-
-    
+    @api.onchange('x_committees_line_ids_9f1e1')
+    @api.constrains('x_committees_line_ids_9f1e1')
+    def _compute_x_committees_line_ids_9f1e1(self):
+        for record in self:
+                for line1 in record.x_committees_line_ids_9f1e1:
+                   for line2 in record.x_committees_line_ids_9f1e1.filtered(lambda x:x.id!=line1.id):
+                    if line1.x_studio_many2one_field_Homib.canntdublicate == True:
+                        if line1.x_studio_many2one_field_Homib.id == line2.x_studio_many2one_field_Homib.id:
+                           raise ValidationError("You Cant Dublicate Type For Judges List") 
 
     
     # @api.onchange('x_committees_line_ids_9f1e1')

@@ -45,6 +45,7 @@
                     <field name="x_studio_many2one_field_7HPS4" placeholder="مركز العمل " force_save="True" attrs="{}" readonly="1"/>
                     <field name="x_studio_letter_date" string="تاريخ الكتاب" placeholder="تاريخ الكتاب" attrs="{}" required="1"/>
                     <field name="x_studio_many2one_field_CDskR" attrs="{}" required="1"/>
+                    
                 </xpath>
                 <xpath expr="//group[@name='studio_group_8e9769']" position="after">
                     <field name="x_studio_explanation" string="Explanation" help="الشرح"/>
