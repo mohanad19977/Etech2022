@@ -25,10 +25,10 @@ class x_termination(models.Model):
     
 
     x_studio_judge  = fields.Many2one('hr.employee', string='اسم القاضي',required=True,domain="[('x_studio_employee_status','=','على رأس عمله')]")
-    x_studio_many2one_field_vufKW = fields.Many2one('hr.job', string='الوظيفة',readonly=True)
+    x_studio_many2one_field_vufKW = fields.Many2one('hr.job', string='الوظيفة',readonly=True,related='x_studio_judge.job_id')
     x_studio_termination_letter = fields.Char('رقم الكتاب',required=True)
     x_studio_informing_date  = fields.Date('تاريخ التبليغ',required=True)
-    x_studio_many2one_field_nlhaS = fields.Many2one('x_grade', string='الدرجة',readonly=True)
+    x_studio_many2one_field_nlhaS = fields.Many2one('x_grade', string='الدرجة',readonly=True,related='x_studio_judge.x_studio_many2one_field_4aoaB')
     x_studio_many2one_field_7HPS4 = fields.Many2one('hr.work.location', string='مركز العمل ',readonly=True)
     x_studio_letter_date = fields.Date('تاريخ الكتاب',required=True)
     x_studio_many2one_field_CDskR = fields.Many2one('x_termination_reason', string='X Studio Many2One Field Cdskr',required=True)
@@ -41,6 +41,16 @@ class x_termination(models.Model):
     x_studio_sequence = fields.Integer('Sequence')
     done = fields.Char(string='done?')
     
+    @api.constrains('x_studio_informing_date','x_studio_letter_date')
+    def _constrainsdate2(self):
+           for record in self: 
+            if record.x_studio_informing_date and record.x_studio_letter_date:    
+
+                if record.x_studio_informing_date < record.x_studio_letter_date:
+                  raise ValidationError("letter date Must Grater Than inform Date")
+
+                if record.x_studio_informing_date>date.today():
+                    raise ValidationError("inform date cannot be in future")
 
     @api.model
     def create(self, vals):

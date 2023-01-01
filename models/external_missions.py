@@ -124,14 +124,19 @@ class x_employeecustom(models.Model):
     ], string='Pipeline status bar')
 
     
+   
+    @api.model
+    def create(self, vals):
+        if vals.get('x_studio_judge_name'):
+               user=self.env["hr.employee"].search([("id", "=", vals.get('x_studio_judge_name'))])
+               if user:
+                vals["x_studio_last_work_location"]=user.work_location_id.display_name
+        result = super(x_employeecustom, self).create(vals)
+            # do what you want
+        
+        return result
 
-    @api.depends('x_studio_judge_name')
-    def _compute_x_studio_last_work_location(self):
-        for record in self:  
-            if record.x_studio_judge_name:
-                if not record.x_change:
-                    record["x_studio_last_work_location"]=record.x_studio_judge_name.work_location_id.display_name
-                    record["x_change"]="done"
+    
 
    
                

@@ -260,7 +260,7 @@
         <field name="name">Training Absence Req</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">x_training_absence_req</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <menuitem

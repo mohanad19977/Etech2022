@@ -16,7 +16,7 @@ class departmenttechnical(models.Model):
 
     x_location = fields.Char('Location')               
     x_studio_unit_code = fields.Char('Unit Code')
-    x_studio_many2one_field_DQFxa = fields.Many2one('comodel_name', string='Unit Type')
+    x_studio_many2one_field_DQFxa = fields.Many2one('x_unit_type', string='Unit Type')
     x_studio_many2one_field_RbZgM = fields.Many2one('hr.work.location', string='مكان العمل')
 
 

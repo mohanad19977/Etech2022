@@ -210,13 +210,13 @@ class x_job_card_line_bc98f(models.Model):
 class x_job_card_line_14a4d(models.Model):
     _name = 'x_job_card_line_14a4d'
     _description = 'x_job_card_line_14a4d'
-
     _rec_name="x_name"
+
     x_studio_sequence = fields.Integer('Sequence')
     x_name = fields.Char('Admin Assignment Description',required=True)
     x_job_card_id = fields.Many2one('x_job_card', string='X Job Card')
-    x_studio_admin_serial_no = fields.Integer('	Admin Serial No')
-    x_studio_administrative_task = fields.Many2one('comodel_name', string='	Administrative task')
+    x_studio_admin_serial_no = fields.Integer('Admin Serial No')
+    x_studio_administrative_task = fields.Many2one('x_administrative_tas', string='	Administrative task')
 
 class x_administrative_tas(models.Model):
     _name = 'x_administrative_tas'

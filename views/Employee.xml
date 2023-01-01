@@ -588,7 +588,7 @@
     <attribute name="invisible"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="inside">
-    <field name="x_studio_job_title"/>
+    <field name="x_studio_job_title" invisible="1"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_job_title']" position="attributes">
     <attribute name="placeholder">المسمى الوظيفي</attribute>
@@ -1589,7 +1589,7 @@
     <attribute name="string">TYPE_DESC</attribute>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_syb']" position="after">
-    <field name="x_studio_attendance_status"/>
+    <field name="x_studio_attendance_status" invisible="1"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attendance_status']" position="attributes">
     <attribute name="string">ATTENDANCE_STATUS</attribute>
@@ -1607,13 +1607,13 @@
     <attribute name="edit">true</attribute>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_attendance_status']" position="after">
-    <field name="x_studio_absent_type"/>
+    <field name="x_studio_absent_type" invisible="1"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_absent_type']" position="attributes">
     <attribute name="string">ABSENT_TYPE</attribute>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_course_name']" position="before">
-    <field name="x_studio_absent_reason"/>
+    <field name="x_studio_absent_reason" invisible="1"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_absent_reason']" position="attributes">
     <attribute name="string">ABSENT_Reason</attribute>

@@ -253,3 +253,12 @@ access_model_x_committees232,access_model_x_committees177,model_x_job_standard_n
 access_model_x_committees233,access_model_x_committees177,model_x_employment_type,base.group_user,1,1,1,1
 access_model_x_committees234,access_model_x_committees178,model_x_transfer_apply_chanel,base.group_user,1,1,1,1
 access_model_x_committees235,access_model_x_committees179,model_x_employer_work,base.group_user,1,1,1,1
+access_model_x_committees236,access_model_x_committees179,model_x_facilitator,base.group_user,1,1,1,1
+
+access_model_x_committees237,access_model_x_committees179,model_x_execution_party,base.group_user,1,1,1,1
+access_model_x_committees238,access_model_x_committees179,model_x_instructor,base.group_user,1,1,1,1
+access_model_x_committees239,access_model_x_committees179,model_x_training_avenue,base.group_user,1,1,1,1
+access_model_x_committees249,access_model_x_committees179,model_x_syllabus_coordinator,base.group_user,1,1,1,1
+access_model_x_committees241,access_model_x_committees179,model_x_prerequesite_type,base.group_user,1,1,1,1
+access_model_x_committees242,access_model_x_committees179,model_x_prerequisite_details,base.group_user,1,1,1,1
+

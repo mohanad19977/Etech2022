@@ -14,10 +14,10 @@ class x_location_transfer(models.Model):
 
     x_studio_judge = fields.Many2one('hr.employee', string='اسم القاضي',required=True,domain="[('x_studio_employee_status','=','على رأس عمله')]")
     x_studio_new_work_location = fields.Many2one('hr.work.location', string='جهة النقل',required=True)
-    x_studio_many2one_field_RymCx = fields.Many2one('hr.job', string='الوظيفة')   
+    x_studio_many2one_field_RymCx = fields.Many2one('hr.job', string='الوظيفة',related='x_studio_judge.job_id',readonly=True)   
     x_studio_many2one_field_X1jqs = fields.Many2one('x_transfer_reason', string='سبب النقل')
     transfer_apply_chanel = fields.Many2one('x_transfer_apply_chanel', string='قناة تقديم الطلب')
-    x_studio_many2one_field_mNvNk = fields.Many2one('hr.work.location', string='مركز العمل قبل النقل')
+    x_studio_many2one_field_mNvNk = fields.Many2one('hr.work.location', string='مركز العمل قبل النقل',readonly=True)
     x_studio_grade_years = fields.Many2one('hr.payroll.structure', string='Grade / Years')
     x_studio_tdocno = fields.Char('TDOCNO')
     x_studio_transfer_date = fields.Date('تاريخ طلب النقل',required=True)
@@ -38,7 +38,35 @@ class x_location_transfer(models.Model):
     message_ids = fields.One2many('mail.message', 'res_id', string='Messages')
     activity_ids = fields.One2many('mail.activity', 'res_id', string='Activities')
     x_studio_sequence = fields.Integer('Sequance')
-    
+    x_change = fields.Char('x_change')
+
+    # @api.onchange('x_studio_judge')
+    # def _compute_x_studio_last_work_location(self):
+    #     for record in self:  
+    #         if record.x_studio_judge:
+    #             if not record.x_change:
+    #                 record["x_studio_many2one_field_mNvNk"]=record.x_studio_judge.work_location_id
+    #                 record["x_change"]="done"
+    @api.model
+    def create(self, vals):
+        if vals.get('x_studio_judge'):
+               user=self.env["hr.employee"].search([("id", "=", vals.get('x_studio_judge'))])
+               if user:
+                vals["x_studio_many2one_field_mNvNk"]=user.work_location_id.id
+                    
+        result = super(x_location_transfer, self).create(vals)
+            # do what you want
+        
+        return result       
+
+    @api.constrains('x_studio_transfer_date')
+    def _constrainsdate2(self):
+           for record in self: 
+            if record.x_studio_transfer_date:    
+
+                if record.x_studio_transfer_date>date.today():
+                    raise ValidationError("transfer date cannot be in future")
+
     @api.onchange('x_studio_selection_field_GUisB')
     def _onchange_x_studio_selection_field_5CEax(self):
          for record in self:   
