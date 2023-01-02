@@ -740,7 +740,7 @@
     <attribute name="invisible"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_Wr1Mo_right']" position="attributes">
-    <attribute name="attrs">{"invisible": [["line_type_id","!=",1],["line_type_id","!=",4]]}</attribute>
+    <attribute name="attrs">{"invisible": [["line_type_id","!=",1],["line_type_id","!=",4],["line_type_id","!=",5]]}</attribute>
     <attribute name="invisible"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_left']" position="attributes">
@@ -748,7 +748,7 @@
     <attribute name="invisible"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//group[@name='studio_group_48lp1_right']" position="attributes">
-    <attribute name="attrs">{"invisible": [["line_type_id","!=",5]]}</attribute>
+    <attribute name="attrs">{"invisible": [["line_type_id","!=",6]]}</attribute>
     <attribute name="invisible"/>
   </xpath>
    
