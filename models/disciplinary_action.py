@@ -112,19 +112,21 @@ class DisciplinaryActionscustom(models.Model):
             # raise ValidationError("Invalid field value for duration Must be As Dayes")
     
      
-    @api.onchange('x_studio_many2one_field_hm3Un')
+    @api.onchange('x_studio_selection_field_ZGU2N')
     def _degreade(self):
         for record in self:  
-           if record.x_studio_many2one_field_hm3Un and record.x_studio_many2one_field_hm3Un.IsGrade: 
+           if record.x_studio_many2one_field_hm3Un and record.x_studio_many2one_field_hm3Un.IsGrade and record.x_studio_selection_field_ZGU2N:
+              if record.x_studio_selection_field_ZGU2N=='approved' :
                 user=self.env["hr.employee"].search([("id", "=", self.x_studio_judge.id)])     
                 if user:    
                 #  try:
-                    grade= self.env["x_job_grade"].search([("x_studio_level", "=", str(int(user[0].x_studio_many2one_field_4aoaB.x_studio_level)+1))])
+                    grade= self.env["x_job_grade"].search([("x_studio_level", "=", str(int(user[0].x_studio_many2one_field_4aoaB.x_studio_level)-1))])
                     if grade:
                         user.write({'x_studio_many2one_field_4aoaB':grade[0]})
-                   
                 #  except ValueError:
                 #     pass
+
+
     @api.onchange('x_studio_many2one_field_SkrpV')
     def _onchange_x_studio_many2one_field_SkrpV(self):
          for record in self:

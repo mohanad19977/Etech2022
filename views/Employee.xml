@@ -1411,7 +1411,7 @@
     <attribute name="string">Exp Type</attribute>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='date_end']" position="after">
-    <field name="x_studio_duration"/>
+    <field name="x_studio_duration" invisible="1"/>
   </xpath>
   <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_employer']" position="after">
     <xpath expr="//field[@name='resume_line_ids']/form//field[@name='x_studio_duration']" position="move"/>

@@ -68,6 +68,8 @@ class x_committees(models.Model):
                     if line1.x_studio_many2one_field_Homib.canntdublicate == True:
                         if line1.x_studio_many2one_field_Homib.id == line2.x_studio_many2one_field_Homib.id:
                            raise ValidationError("You Cant Dublicate Type For Judges List") 
+                    if line1.x_studio_judge.id == line2.x_studio_judge.id:                      
+                           raise ValidationError("You Cant Dublicate Judges")       
 
     
     # @api.onchange('x_committees_line_ids_9f1e1')

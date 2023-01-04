@@ -174,7 +174,7 @@ class x_x_hr_employee_depend(models.Model): #from mahmoud code
     x_studio_many2one_field_BHtKm = fields.Many2one('res.lang', string='Languages')
     x_studio_many2one_field_F9toM = fields.Many2one('res.partner', string='Contact')
     x_studio_many2one_field_pIoXl = fields.Many2one('hr.employee', string=' Dep Employee')
-    x_studio_many2one_field_PvJxd = fields.Many2one('hr.employee', string='Employee',tracking=True)
+    x_studio_many2one_field_PvJxd = fields.Many2one('hr.employee', string='Employee',tracking=True,readonly=True)
     x_studio_mobile = fields.Char('Mobile')
     x_studio_name_1 = fields.Char('Name')
     x_studio_nationalid = fields.Char('NationalID')
@@ -296,7 +296,7 @@ class x_Customresumline(models.Model):
     x_studio_duration = fields.Float('Duration',readonly=True)
     x_studio_experiance_duration = fields.Char('Experiance Duration',readonly=True)
     x_studio_resignation_reason = fields.Char('Resignation Reason')
-    x_studio_many2one_field_7U76H = fields.Many2one('x_experience_country', string='Experience country')
+    x_studio_many2one_field_7U76H = fields.Many2one('res.country', string='Experience country')
     x_studio_many2one_field_DsV8W = fields.Many2one('x_course_location', string='Course Location')
     x_studio_many2one_field_HJbxW = fields.Many2one('hr.skill.type', string='Skill Type')
     x_studio_many2one_field_NrNns = fields.Many2one('hr.skill.level', string='Skill Level')
@@ -335,7 +335,7 @@ class x_Customresumline(models.Model):
     x_studio_type_desc = fields.Char('TYPE_DESC')
     x_studio_average = fields.Float('Average')
 
-    x_studio_country = fields.Many2one('x_birth_country', string='Country')
+    x_studio_country = fields.Many2one('res.country', string='Country')
     x_studio_description = fields.Text('Description')
     x_studio_description_1 = fields.Html('Description')
     x_studio_major = fields.Char('Major')
@@ -397,7 +397,7 @@ class x_Customresumline(models.Model):
                 reccord.x_studio_many2one_field_1oArJ=""
 
                 return {
-                    'domain':{'x_studio_many2one_field_1oArJ':[('x_country.x_name','=',reccord.x_studio_country.x_name)]}
+                    'domain':{'x_studio_many2one_field_1oArJ':[('x_country.id','=',reccord.x_studio_country.id)]}
                 }
     
 
@@ -439,7 +439,7 @@ class qualificationstechnical(models.Model):
     x_studio_sequence = fields.Integer('Sequance')
     x_active = fields.Boolean('Active',default=True)
 
-    x_country = fields.Many2one('x_birth_country', string='Country')
+    x_country = fields.Many2one('res.country', string='Country')
 class x_CustomEmployeejob(models.Model):
     _inherit="hr.job"
 

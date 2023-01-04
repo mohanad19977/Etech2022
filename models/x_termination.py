@@ -28,7 +28,19 @@ class x_termination(models.Model):
     x_studio_many2one_field_vufKW = fields.Many2one('hr.job', string='الوظيفة',readonly=True,related='x_studio_judge.job_id')
     x_studio_termination_letter = fields.Char('رقم الكتاب',required=True)
     x_studio_informing_date  = fields.Date('تاريخ التبليغ',required=True)
-    x_studio_many2one_field_nlhaS = fields.Many2one('x_grade', string='الدرجة',readonly=True,related='x_studio_judge.x_studio_many2one_field_4aoaB')
+    x_studio_many2one_field_nlhaS = fields.Char(compute='_compute_grade', string='الدرجة',readonly=True)
+    grade = fields.Char(compute='_compute_grade', string='grade')
+    
+    @api.depends('x_studio_judge')
+    def _compute_grade(self):
+         for record in self: 
+            if record.x_studio_judge:
+                if record.x_studio_judge.x_studio_many2one_field_4aoaB:
+                    record.x_studio_many2one_field_nlhaS=record.x_studio_judge.x_studio_many2one_field_4aoaB.x_name
+                else:
+                    record.x_studio_many2one_field_nlhaS=''    
+            else:
+                record.x_studio_many2one_field_nlhaS=''    
     x_studio_many2one_field_7HPS4 = fields.Many2one('hr.work.location', string='مركز العمل ',readonly=True)
     x_studio_letter_date = fields.Date('تاريخ الكتاب',required=True)
     x_studio_many2one_field_CDskR = fields.Many2one('x_termination_reason', string='X Studio Many2One Field Cdskr',required=True)
