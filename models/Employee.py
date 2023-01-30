@@ -287,9 +287,9 @@ class x_Customresumline(models.Model):
     ], string='Job Type')
     x_studio_exp_type = fields.Selection([
         ('1', '1'),
-         ('2', '2'),
-          ('3', '3'),
-           ('4', '4')
+            ('2', '2'),
+            ('3', '3'),
+            ('4', '4')
     ], string='Exp Type')
     
     x_studio_employer = fields.Many2one('x_employer_work', string='Employer')
@@ -358,9 +358,9 @@ class x_Customresumline(models.Model):
         for record in self:
             if record.x_studio_qualification and record.x_studio_major :
                record.name=str(record.x_studio_qualification) + str(' ')+ str(record.x_studio_major)
-            if record.x_studio_qualification:
+            elif record.x_studio_qualification:
                 record.name=str(record.x_studio_qualification) 
-            if record.x_studio_major :
+            elif record.x_studio_major :
                 record.name= str(record.x_studio_major)
     @api.onchange('x_studio_course_name')
     def fillcourse_name(self):
@@ -373,6 +373,9 @@ class x_Customresumline(models.Model):
         for record in self:
            if record.x_studio_job_title:  
             record.name=record.x_studio_job_title
+
+            # if record.x_studio_major:
+            #     record.name = record.name + record.x_studio_major
 
     @api.onchange('date_start','date_end')
     @api.constrains('date_start','date_end')
