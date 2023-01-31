@@ -150,13 +150,13 @@ class DisciplinaryActionscustom(models.Model):
 
                 if record.x_studio_reporting_date:
                    if record.x_studio_action_date < record.x_studio_reporting_date:
-                    raise ValidationError("Start Date Must Grater Than Reporting Date")
+                    raise ValidationError("Action Date Must Grater Than Reporting Date")
                 if record.x_studio_disciplinary_end_date:
                     if record.x_studio_disciplinary_end_date < record.x_studio_action_date:
-                     raise ValidationError("End Date Must Grater Than Start Date")
+                     raise ValidationError("Disciplinary End Date Must Grater Than Action Date")
                 if record.x_studio_disciplinary_end_date:
                   if record.x_studio_disciplinary_end_date>date.today() or  record.x_studio_action_date>date.today():
-                    raise ValidationError("Start and End date cannot be in future")
+                    raise ValidationError("Action Date and End date cannot be in future")
 
 
     

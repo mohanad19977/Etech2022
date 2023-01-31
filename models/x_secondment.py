@@ -68,6 +68,9 @@ class x_secondmentcustom(models.Model):
     x_End_Secondment = fields.Boolean('انهاء الانتداب ؟')
     x_End_Secondment_Attachment = fields.Binary('مرفق')
 
+    x_book = fields.Char('كتاب الانتداب')
+    x_book_data = fields.Date('تاريخ الكتاب')
+
     x_secondment_line_ids_31063 = fields.One2many('x_secondment_line_6ef9b', 'x_secondment_id', string='تمديدات الانتداب')
 
     x_studio_selection_field_elckG = fields.Selection([
