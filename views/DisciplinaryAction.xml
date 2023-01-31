@@ -55,7 +55,7 @@
                     <field filename="x_studio_reporting_attachment_filename" name="x_studio_reporting_attachment" help="مرفقات"/>
                     <field name="x_studio_many2one_field_dDowS"/>
                     <field name="x_studio_effective_date" placeholder="تاريخ سريان و اعتماد الاجراء"/>
-                    <field name="x_studio_disciplinary_end_date" placeholder="تاريخ انتهاء العقوبة"/>
+                    <field name="x_studio_disciplinary_end_date" placeholder="تاريخ انتهاء العقوبة" invisible="True"/>
                     <field name="x_studio_many2one_field_hm3Un" placeholder="تأثير العقوبة"/>
                     <field filename="x_studio_disciplinary_attachment_filename" name="x_studio_disciplinary_attachment" string="disciplinary Attachment"/>
                     <field invisible="1" name="x_studio_reporting_attachment_filename"/>

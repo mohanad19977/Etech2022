@@ -40,13 +40,14 @@ class x_location_transfer(models.Model):
     x_studio_sequence = fields.Integer('Sequance')
     x_change = fields.Char('x_change')
 
-    # @api.onchange('x_studio_judge')
-    # def _compute_x_studio_last_work_location(self):
-    #     for record in self:  
-    #         if record.x_studio_judge:
-    #             if not record.x_change:
-    #                 record["x_studio_many2one_field_mNvNk"]=record.x_studio_judge.work_location_id
-    #                 record["x_change"]="done"
+    @api.onchange('x_studio_judge')
+    def _compute_x_studio_last_work_location(self):
+        for record in self:  
+            if record.x_studio_judge:
+                if not record.x_change:
+                    record["x_studio_many2one_field_mNvNk"]=record.x_studio_judge.work_location_id
+                    record["x_change"]="done"
+                    
     @api.model
     def create(self, vals):
         if vals.get('x_studio_judge'):
