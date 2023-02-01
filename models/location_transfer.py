@@ -69,21 +69,22 @@ class x_location_transfer(models.Model):
                 if record.x_studio_transfer_date>date.today():
                     raise ValidationError("transfer date cannot be in future")
 
-    @api.onchange('x_studio_selection_field_GUisB')
-    def _onchange_x_studio_selection_field_5CEax(self):
-         for record in self:   
-            if record.x_studio_selection_field_GUisB == 'approved':
-               user=self.env["hr.employee"].search([("id", "=", record.x_studio_judge.id)])     
-               if user:    
-                #  try:
-                 user.write({
-                    'work_location_id':record.x_studio_new_work_location
-                    })
+    # @api.onchange('x_studio_selection_field_GUisB')
+    # def _onchange_x_studio_selection_field_5CEax(self):
+    #      for record in self:   
+    #         if record.x_studio_selection_field_GUisB == 'approved':
+    #            user=self.env["hr.employee"].search([("id", "=", record.x_studio_judge.id)])     
+    #            if user:    
+    #             #  try:
+    #              user.write({
+    #                 'work_location_id':record.x_studio_new_work_location
+    #                 })
 
     def Confirmcron(self):
-        locations=self.env["x_location_transfer"].search([("x_studio_selection_field_GUisB", "!=", 'approved')])
+        locations=self.env["x_location_transfer"].search([("x_studio_selection_field_GUisB", "=", 'approved')])
         for record in locations:
-            if record.x_studio_selection_field_GUisB != 'approved' and record.x_studio_transfer_date <date.today():
+           if record.x_effective_date: 
+            if record.x_studio_selection_field_GUisB == 'approved' and record.x_effective_date <=date.today():
              user=self.env["hr.employee"].search([("id", "=", record.x_studio_judge.id)])     
              if user:    
                 #  try:

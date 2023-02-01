@@ -247,7 +247,7 @@
     <attribute name="string">المدة بالايام</attribute>
   </xpath>
   <xpath expr="/form[1]/sheet[1]/group[2]/group[1]/field[7]" position="attributes">
-    <attribute name="string">المدة بالشهور</attribute>
+    <attribute name="string">مدة الانتدابات كاملة</attribute>
   </xpath>
   <xpath expr="/form[1]/sheet[1]/group[2]/group[2]/field[2]" position="after">
     <field name="x_studio_judge_grade"/>

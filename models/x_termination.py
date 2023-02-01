@@ -71,7 +71,8 @@ class x_termination(models.Model):
         user=self.env["hr.employee"].search([("id", "=", result.x_studio_judge.id)])     
         if user:    
                     user.write({
-                        'x_studio_employee_status':'انهاء خدمة'
+                        'x_studio_employee_status':'انهاء خدمة',
+                        'employeetermination':result.x_studio_many2one_field_CDskR.x_name
                         })    
 
         return result

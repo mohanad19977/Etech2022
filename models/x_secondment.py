@@ -49,7 +49,7 @@ class x_secondmentcustom(models.Model):
     x_studio_status = fields.Char('Status')
     x_studio_start_date = fields.Date('start Date',required=True)
     duration = fields.Integer(compute='_compute_dateend', string='Duration As Daye')
-    Fullduration = fields.Char(compute='_compute_duration', string='المدة بالشهور')
+    Fullduration = fields.Char(compute='_compute_duration', string='مدة الانتدابات كاملة')
     x_studio_last_job_position = fields.Char(compute="_compute_last_job_position", string='Last Job Position',readonly=True,default='')
     x_studio_job_position = fields.Char('Job Position' ,related='x_studio_judge.job_id.display_name',readonly=True)
     x_studio_last_work_location= fields.Char('Last Work Location',readonly=True)

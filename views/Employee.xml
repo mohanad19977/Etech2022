@@ -1074,6 +1074,9 @@
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[2]" position="after">
     <field name="x_studio_employee_status"/>
   </xpath>
+  
+
+
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[1]/group[2]/field[3]" position="attributes">
     <attribute name="string">Employee Status</attribute>
   </xpath>
@@ -1126,7 +1129,9 @@
   <xpath expr="/form[1]/sheet[1]/notebook[1]/page[2]/group[1]/group[2]/field[4]" position="attributes">
     <attribute name="placeholder">صندوق بريد</attribute>
   </xpath>
-
+   <xpath expr="//field[@name='x_studio_employee_status'][not(ancestor::field)]" position="after">
+    <field name="employeetermination"/>
+  </xpath>
 </data>
         </field>
 
